@@ -1,0 +1,153 @@
+/* selectores de universales */
+* {
+    margin: 0; /* son los margenes que tiene por defecto el navegador estoy forzando a que este junto y no deje especios */
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "spartan", sans-serif; 
+}
+
+/* ============================================================
+   HEADER Y NAVEGACIÓN
+   Barra superior fija con logo y menú
+   ============================================================ */
+
+.header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 5px 80px;
+    background-color: #E3E6f3;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.06);
+    /* El header queda fijo en la parte superior al hacer scroll */
+    z-index: 999;
+    position: sticky;
+    top: 0;
+    left: 0;
+}
+
+/* Lista de navegación horizontal */
+.navbar {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.navbar li {
+    list-style: none;
+    padding: 0 20px; /* Espaciado entre los elementos de la lista */
+}
+
+.navbar a {
+    text-decoration: none;
+    font-size: 16px;
+    font-weight: 600;
+    color: #1a1a1a;
+    transition: 0.3s ease; /* Transición suave para el cambio de color al pasar el mouse */
+}
+
+.navbar a:hover {
+    color: #088178;
+}
+
+/* Responsive: menú deslizante desde la derecha en pantallas pequeñas */
+@media (max-width: 300px) {
+    .navbar {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        justify-content: flex-start;
+        position: fixed;
+        top: 0;
+        right: -300px;
+        height: 100vh;
+        width: 300px;
+        background-color: #f7f8fb;
+        box-shadow: 0 40px 60px rgba(0, 0, 0, 0.1);
+        padding: 80px 0 0 10px;
+        transition: 0.3s;
+    }
+
+    .navbar li {
+        margin-bottom: 25px;
+    }}
+
+
+
+/* ============================================================
+   HERO
+   Sección principal video de fondo y texto
+   para que cargue bien el video en la visualizacion de visual code recomiendo la extension Live preview HTML   
+   ============================================================ */
+
+.hero {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    height: 95vh;
+    width: 100%;
+    padding: 0 80px;
+    margin-bottom: 40px;
+    overflow: hidden; /* esconde lo que sobresalga de la sección */
+}
+
+.hero .video-hero {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* para hacer lo mismo que background-size: cover */
+    z-index: 1;        /* Se queda en la capa de fondo */
+    pointer-events: none; /* no se puede clickear */
+}
+
+/* ASEGURÁ QUE EL TEXTO QUEDE POR ENCIMA DEL VIDEO */
+.hero .hero-content {
+    position: relative;
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    text-align: right;
+    z-index: 2; /* Asegura que el contenido esté por encima de la imagen de fondo */
+
+}
+
+.hero .hero-content h4 {
+    color: #088178;
+    margin-bottom: 10px;
+    font-size: 1rem;
+}
+
+.hero .hero-content h2 {
+    color: #222;
+    font-size: 2.5rem;
+    margin-bottom: 10px;
+}
+
+.hero .hero-content h1 {
+    color: #088178;
+    font-size: 3rem;
+    margin-bottom: 15px;
+}
+
+.hero .hero-content p {
+    color: #555;
+    margin-bottom: 20px;
+}
+
+.hero .hero-content button {
+    background-color: #088178;
+    color: white;
+    border: none;
+    padding: 12px 25px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.hero .hero-content button:hover {
+    background-color: #066f66;
+}
+
