@@ -1,0 +1,43 @@
+.padre{font-size: 20px;
+        margin: 10px auto;
+border: 5px solid rgb(255, 4, 4);
+overflow: auto;}  
+.hijo{font-size: 2em;
+border: 5px solid rgb(4, 255, 4);
+width: 10%;}
+.hijo2{font-size: 1.5em;
+border: 5px solid rgb(4, 255, 4);
+margin: 10px auto;
+width: 60vw;
+height: 90vh;}
+
+.hijo2 p{font-size: 2em;
+border: 10px solid rgb(84, 4, 255);}
+
+/* El tamaño de fuente del elemento hijo será 40px, ya que 2em es igual a 2 veces el tamaño de fuente del elemento padre (20px). y 1em sera 20px */
+/* rem es relativo al tamaño de fuente del elemento raíz (html), mientras que em es relativo al tamaño de fuente del elemento padre. */
+/* viewport width (vw) y viewport height (vh) son unidades relativas al tamaño de la ventana del navegador. 1vw es igual al 1% del ancho de la ventana, mientras que 1vh es igual al 1% de la altura de la ventana. */
+/* Por ejemplo, si el ancho de la ventana es de 1000px, entonces 1vw será igual a 10px. Si la altura de la ventana es de 800px, entonces 1vh será igual a 8px. */
+/* Por lo tanto, si establecemos el ancho de un elemento en 50vw, su ancho será igual a la mitad del ancho de la ventana del navegador. Si establecemos la altura de un elemento en 50vh, su altura será igual a la mitad de la altura de la ventana del navegador. */
+/* es muy parecido a los porcentajes, pero en este caso es relativo al tamaño de la ventana del navegador, mientras que los porcentajes son relativos al tamaño del elemento padre. */ 
+/* rem y em para textos porcentaje y vw y vh para elementos de bloque. */
+/* overflow auto agrega una barra de subir y bajar si el contenido no entra horizontal y vertilmente en el contenedor. */
+/* overflow hidden oculta el contenido que no entra en el contenedor. */
+/* backcolor que es el color de fondo del contenedor. */
+/* puedo escribir palabras clave,red,blue,GREEN, puedo escribir en hexadecimal #ff0000, #00ff00, #0000ff, puedo escribir en rgb(255,0,0), rgb(0,255,0), rgb(0,0,255), puedo escribir en rgba(255,0,0,1), rgba(0,255,0,1), rgba(0,0,255,1) */
+/* la diferencia es la cantidad de colores que puedo obtener */
+
+
+.banner {
+    width: 100%;
+    height: 40vh;
+    background-image: url("icono.png.png"); /* imagen atras del texto o mejor dicho el texto esta delante de la imagen */
+    background-repeat: no-repeat; /* si la imagen es muy chica a veces se repite muchas veces para rellenar no repeat es para que no se repita  aunque cuando la imagen es grande como en este caso no se va a repetir*/
+    background-size: cover; /* que lo cubra todo *
+    background-position: center; /* centrado respecto el contenedor*/
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
