@@ -1,4 +1,8 @@
 /* selectores de universales */
+/* ============================================================
+   SELECTORES UNIVERSALES
+   Limpia los espacios que el navegador trae por defecto
+   ============================================================ */
 * {
     margin: 0; /* son los margenes que tiene por defecto el navegador estoy forzando a que este junto y no deje especios */
     padding: 0;
@@ -8,7 +12,7 @@
 
 /* ============================================================
    HEADER Y NAVEGACIÓN
-   Barra superior fija con logo y menú
+   Barra superior fija con logo y menú (computadora)
    ============================================================ */
 
 .header {
@@ -16,27 +20,32 @@
     align-items: center;
     justify-content: space-between;
     padding: 5px 80px;
-    background-color: #E3E6f3;
+    background-color: white;
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.06);
     /* El header queda fijo en la parte superior al hacer scroll */
     z-index: 999;
-    position: sticky;
+    position: sticky; /* pegajoso me lo llevo de paseo*/
     top: 0;
     left: 0;
-}
+    /* 🔵 BORDE AZUL: Para ver la barra superior completa */
+    border: 3px solid blue; }
 
-/* Lista de navegación horizontal */
+/* El contenedor que agrupa a los elementos del menú */
 .navbar {
     display: flex;
     align-items: center;
     justify-content: center;
+        /* 🟢 BORDE VERDE: Para ver dónde termina el contenedor de los enlaces */
+    border: 2px solid green;
 }
 
+/* Cada uno de los botones o enlaces individuales */
 .navbar li {
     list-style: none;
     padding: 0 20px; /* Espaciado entre los elementos de la lista */
 }
 
+/* El texto de los enlaces */
 .navbar a {
     text-decoration: none;
     font-size: 16px;
@@ -49,8 +58,23 @@
     color: #088178;
 }
 
-/* Responsive: menú deslizante desde la derecha en pantallas pequeñas */
-@media (max-width: 300px) {
+body {
+    overflow-y: hidden; /* ⬅️ Esto bloquea por completo el scroll hacia abajo (vertical) */
+}
+
+/* ============================================================
+   RESPONSIVE (ADAPTACIÓN PARA CELULARES)
+ SOLO se aplica si la pantalla mide menos de 950px
+   ============================================================ */
+   @media (max-width: 950px) {
+
+ /* Modifica la barra superior en celular */
+.header {
+        padding: 20px 40px;
+        border-color: orange; /* Cambia a naranja en celulares para que sepas que se activó */
+    }
+
+      /* Modifica el menú: lo convierte en una columna y lo esconde a la derecha */
     .navbar {
         display: flex;
         flex-direction: column;
@@ -58,39 +82,51 @@
         justify-content: flex-start;
         position: fixed;
         top: 0;
-        right: -300px;
+        right: -300px; /*  fuera de la pantalla */
         height: 100vh;
         width: 300px;
         background-color: #f7f8fb;
         box-shadow: 0 40px 60px rgba(0, 0, 0, 0.1);
         padding: 80px 0 0 10px;
         transition: 0.3s;
+        border: 3px solid red; /* 🔴 BORDE ROJO: Si cambias el 'right' a 0 para probarlo, verás este borde */
     }
 
+    /* Quita los espacios horizontales de computadora y los separa hacia abajo */
     .navbar li {
+        padding: 0;
         margin-bottom: 25px;
-    }}
+    }
+    /* Modifica la sección principal para que no use los 80px y no rompa la pantalla */
+.hero{
+    padding: 0 20px;
+            border-color: purple; /* Cambia a violeta en celular */
+}
+}
 
 
 
 /* ============================================================
    HERO
    Sección principal video de fondo y texto
-   para que cargue bien el video en la visualizacion de visual code recomiendo la extension Live preview HTML   
+   recomiendo Live preview HTML   
    ============================================================ */
 
 .hero {
     position: relative;
     display: flex;
     align-items: center;
-    justify-content: flex-end;
-    height: 95vh;
+    justify-content: flex-end; /* Empuja el texto hacia la derecha */
+    height: 93vh;
     width: 100%;
-    padding: 0 80px;
+    padding: 0 80px; /*aplica el primer número arriba y abajo, mientras que el segundo número le suma 80px a la izquierda y otros 80px a la derecha de forma automática, duplicando el valor para cubrir ambos costados*/
     margin-bottom: 40px;
     overflow: hidden; /* esconde lo que sobresalga de la sección */
+    /* 🔵 BORDE AZUL: Para ver todo el tamaño que ocupa la sección del video */
+    border: 3px solid blue;
 }
 
+/* El elemento del video que se expande por detrás */
 .hero .video-hero {
     position: absolute;
     top: 0;
@@ -102,7 +138,7 @@
     pointer-events: none; /* no se puede clickear */
 }
 
-/* ASEGURÁ QUE EL TEXTO QUEDE POR ENCIMA DEL VIDEO */
+/* El contenedor flotante que tiene los textos y el botón */
 .hero .hero-content {
     position: relative;
     width: 50%;
@@ -111,9 +147,10 @@
     align-items: flex-end;
     text-align: right;
     z-index: 2; /* Asegura que el contenido esté por encima de la imagen de fondo */
-
+    /* 🟢 BORDE VERDE: Para ver exactamente dónde está encerrado tu texto */
+    border: 2px solid green;
 }
-
+/* Estilos de los textos individuales (títulos, párrafos y botón) */
 .hero .hero-content h4 {
     color: #088178;
     margin-bottom: 10px;
@@ -151,3 +188,130 @@
     background-color: #066f66;
 }
 
+/* ============================================================
+   LIENZO GENERAL (EL CONTENEDOR PADRE)
+   ============================================================ */
+.productos-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 10;
+    background: transparent;
+    perspective: 1000px; /* 🎥 La cámara 3D que activa TODO */
+}
+
+/* ============================================================
+   ESTRUCTURA DE LAS REPISAS (LAS LÍNEAS GUÍA CORTAS)
+   ============================================================ */
+.repisa {
+    position: absolute;
+    border-bottom: 4px solid red; /* 🔴 Tu línea guía fija corta */
+}
+
+/* 📐 UNIFICADO: Forzamos a que las líneas rojas giren en la misma diagonal del bar */
+.repisa.repisa-izq { 
+    left: 5vw; 
+}
+.repisa.repisa-der { 
+    right: 5vw; 
+}
+
+/* ============================================================
+   ALTURAS Y AJUSTES INDEPENDIENTES EN UNIDADES VW (LADO IZQUIERDO)
+   Al usar solo vw, las líneas siguen el escalado de object-fit: cover
+   ============================================================ */
+.repisa-izq.repisa-1 { 
+      top: calc(11vh + 2vw);
+    left: 6vw;
+    width: 26vw;
+    /* height: 28px;*/
+    transform: rotateY(60deg) rotateZ(-4deg);
+}
+.repisa-izq.repisa-2 { 
+    top: 22vw; 
+    left: 5vw; 
+    width: 15vw; 
+    height: 4px;
+    transform: rotateY(60deg) rotateZ(0deg);
+} 
+.repisa-izq.repisa-3 { 
+    top: 35vw; 
+    left: 5vw; 
+    width: 15vw; 
+    height: 4px;
+    transform: rotateY(60deg) rotateZ(0deg);
+} 
+.repisa-izq.repisa-4 { 
+    top: 48vw; 
+    left: 5vw; 
+    width: 15vw; 
+    height: 4px;
+    transform: rotateY(60deg) rotateZ(0deg);
+} 
+
+/* ============================================================
+   ALTURAS Y AJUSTES INDEPENDIENTES EN UNIDADES VW (LADO DERECHO)
+   ============================================================ */
+.repisa-der.repisa-1 { 
+    top: 4vw; /* ⬅️ Cambiado a vw */
+    right: 8vw; 
+    width: 30vw; 
+    height: 4px; 
+    transform: rotateY(-60deg) rotateZ(-4deg); 
+} 
+.repisa-der.repisa-2 { 
+    top: 22vw; 
+    right: 5vw; 
+    width: 15vw; 
+    height: 4px;
+    transform: rotateY(-60deg) rotateZ(0deg);
+} 
+.repisa-der.repisa-3 { 
+    top: 35vw; 
+    right: 5vw; 
+    width: 15vw; 
+    height: 4px;
+    transform: rotateY(-60deg) rotateZ(0deg);
+} 
+.repisa-der.repisa-4 { 
+    top: 48vw; 
+    right: 5vw; 
+    width: 15vw; 
+    height: 4px;
+    transform: rotateY(-60deg) rotateZ(0deg);
+} 
+
+
+/* ============================================================
+   TUS PRODUCTOS CON LAS DIAGONALES ACTIVAS Y TUS MEDIDAS
+   ============================================================ */
+.producto {
+    position: absolute;
+    width: 160px;       
+    background: #fff;
+    padding: 8px;
+    border-radius: 6px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+}
+
+/* 📐 LADO IZQUIERDO: Girados y en tus posiciones manuales intactas */
+.producto.estante-izq {
+    transform: rotateY(20deg) scale(0.5); 
+    transform-origin: left center;
+}
+.prod-1 { top: 15vh; left: 8vw; }
+.prod-2 { top: 32vh; left: 12vw; }
+.prod-3 { top: 50vh; left: 10vw; }
+.prod-4 { top: 68vh; left: 6vw; }
+
+/* 📐 LADO DERECHO: Girados al lado opuesto y en tus posiciones manuales intactas */
+.producto.estante-der {
+    transform: rotateY(-20deg) scale(0.5); 
+    transform-origin: right center;
+}
+.prod-5 { top: 15vh; right: 8vw; }
+.prod-6 { top: 32vh; right: 12vw; }
+.prod-7 { top: 50vh; right: 10vw; }
+.prod-8 { top: 68vh; right: 6vw; }

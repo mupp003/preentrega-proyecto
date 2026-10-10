@@ -1,0 +1,44 @@
+/* selectores de universales */
+* {
+    margin: 0; /* son los margenes que tiene por defecto el navegador estoy forzando a que este junto y no deje especios */
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "spartan", sans-serif; 
+}
+
+/* selectores de etiquetas */
+body {
+            font-family: Arial, sans-serif;
+        } 
+        h2 {
+            color: #031ff6;
+            background-color: #89f603;
+            margin: 0 auto;
+            padding: 10px;
+        }
+ /* con h2 estoy diciendo que sea azul todos los textos que sean h2 pd: todo lo escrito en styles cuenta como css no como html por eso el comentario es diferente */
+        h4 {
+            color: #f60303;
+            font-size: 30px;
+            margin: 10px 0 20px 0;
+        }
+        span {
+            color: #63045b;
+            font-size: 10px;
+        }
+        .productos {
+            color: #031ff6;
+            font-size: 20px;
+        }
+        /* con .productos  cuando tiene un punto delante es una clase */
+        #banner {
+            background-color: #110202;
+            padding: 20px;
+            text-align: center;
+        }
+
+
+
+/*jerarquia de selectores , selectores de la misma jerarquia se van a pisar, se va aplicar siempre el ultimo el de mas abajo si me posiciono sale especificidad 0,0,1 eso es la jerarquia de selectores, si me posiciono en el h2 sale 0,0,2 eso es la jerarquia de selectores, si me posiciono en el span sale 0,0,3 eso es la jerarquia de selectores, si me posiciono en el .productos sale 0,1,0 eso es la jerarquia de selectores, si me posiciono en el #banner sale 1,0,0 eso es la jerarquia de selectores */
+/* misma jerarquia se cumple el ultimo , en orden de mas baja jerarquia a mas alta, etiqueta,clase,id, en linea (es muy util para chequear que no funciona) y por ultimo !important eso fuerza que se usa y se pueden usar en etiquetas de diferente jerarquia se usa para saber donde esta el error forzando estilos se usa despues de lo que queremos forzar, color,fuente, etc*/
+/* font-size 2.5rem es el tamaño de la fuente, rem es una medida relativa a la fuente del html, 1rem es igual a 16px, 2.5rem es igual a 40px, 1.5rem es igual a 24px, 1.25rem es igual a 20px, 1rem es igual a 16px, 0.875rem es igual a 14px, 0.75rem es igual a 12px, 0.625rem es igual a 10px, 0.5rem es igual a 8px*/
