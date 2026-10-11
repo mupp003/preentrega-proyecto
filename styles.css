@@ -245,39 +245,80 @@ left:8.5%;
    ============================================================ */
 .producto {
     position: absolute; /* yo voy a indicar donde voy a ponerlo */
-    width: 45%;       /* ancho fijo de la tarjeta del producto para mantener la proporcion 3d mantiene un ancho estandar de la info y producto */
-    background: #fff;
-    padding: 8px; /* Margen interno para que la foto y el texto no choquen contra los bordes */
-    border-radius: 6px; /* bordes redondeados */
-    box-shadow: 0 4px 10px rgba(0,0,0,0.3); /* sombreado las tarjetas son blanco asi que esto me permite distinguir unas de otras cuando estan ensimadas */
+    width: 75%;       /* ancho fijo de la tarjeta del producto para mantener la proporcion 3d mantiene un ancho estandar de la info y producto */
+   /* background: #fff; */
+   /* padding: 8px; /* Margen interno para que la foto y el texto no choquen contra los bordes */
+   /* border-radius: 6px; /* bordes redondeados */
+    /* box-shadow: 0 4px 10px rgba(0,0,0,0.3); /* sombreado las tarjetas son blanco asi que esto me permite distinguir unas de otras cuando estan ensimadas */
 }
 
+.producto img {
+    width: 100%; /* Obliga a la foto a no salirse de los costados de la tarjeta */
+    height: auto; /* Mantiene la proporción de la foto para que no se achate */
+    border-radius: 4px; /* Le redondea las puntitas para que quede prolija con la tarjeta */
+    display: block; /* Quita un espacio fantasma que a veces queda debajo de las fotos */
+}
+.producto-descripcion span,
+.producto-descripcion h4,
+.producto-descripcion h5 {
+    display: none; /* Esto borra los textos de la pantalla, dejando solo el precio (h4) */
+}
+
+/* voy a ocultar las descripciones por ahora */
+
+
+.producto-descripcion {
+    position: absolute; /* Al volverse fantasma, ya no ocupa lugar físico. ¡La foto de la bomba se cae y toca la madera! */
+    top: 110%; /* Le dice al texto: "Acomodate el 100% hacia abajo", o sea, justo donde termina la caja (debajo de la madera). */
+    width: 100%; /* Le damos el mismo ancho que la foto para poder centrarlo */
+    text-align: center; /* Centramos el precio */
+}
 
 /* ============================================================
    ANCLAJE Y ROTACIÓN DE LOS PRODUCTOS 
    ============================================================ */
-.producto.estante-izq {
-    box-shadow: -15px 25px 20px -15px rgba(0,0,0,0.6);
-    transform: rotateY(20deg) scale(0.5); /* Gira la tarjeta 20 grados para mirar al centro y la achica a la mitad de su tamaño original */
-    transform-origin: left bottom; /* hace que se pegue a la linea del estante */ 
+.repisa-izq .producto { /* afecta a todos los productos que estén dentro de la repisa izquierda */
+    transform: rotateY(20deg) scale(0.6); 
+    transform-origin: left bottom; 
 }
 
-.producto.estante-der {
-    transform: rotateY(-20deg) scale(0.5); 
+/*.repisa-izq .prod-1 {
+    transform: rotateY(20deg) scale(0.8); } Mantiene la rotación, pero cambia su tamaño único  esto es un producto de forma individual*/
+.repisa-der .producto {
+    transform: rotateY(-20deg) scale(0.6); 
     transform-origin: right bottom; 
 }
 
+
+.producto img:hover {
+    transform: scale(1.03); /* Un sutil latido hacia adelante */
+filter: brightness(1.25) drop-shadow(0 0 15px rgba(255, 174, 0, 0.8)) drop-shadow(0 0 5px rgba(255, 204, 0, 0.4));
+    cursor: pointer;
+}
+
+h4 {
+    text-align: center; 
+    background-color: #e08104;
+    font-size: 1.2rem; /* Ajusta el tamaño del precio */
+    color: #f3f5f3; /* Cambia el color del precio */
+    font-weight: bold; /* Hace gordo el trazo */
+width: fit-content; /* Le dice a la caja: "Encogete hasta abrazar justo al texto" */
+    margin: 0 auto; /* Centra la caja entera (porque el text-align ya no sirve si la caja es chiquita) */
+    border-radius: 5px; /* Le redondea las puntas para que parezca un sticker de precio */
+}
+
+
 /* POSICIONES DE PRODUCTOS RELATIVAS A la REPISA */
 /* Como están dentro del div .repisa, solo necesitamos subirlos para que se "apoyen" y moverlos a los lados */
-.prod-1 { bottom: 0; left: clamp(0%, 20%, 55%); } /* bottom 0 lo apoya en la línea roja */
-.prod-2 { bottom: 0; left: clamp(0%, 20%, 55%); } /* necesite agregar clamp porque no tengo limites en los estantes podria hacer que se saliera del estante por un lado o otro, min pone un limite de un lado clamp pone limites de los dos lados mi producto ocupa 45% de ancho y el estante 100% por tanto 100-45=55% primer numero minimo y ultimo maximo y el del medio es donde elijo ubicar al producto */
-.prod-3 { bottom: 0; left: clamp(0%, 20%, 55%); }
-.prod-4 { bottom: 0; left: clamp(0%,10%,55%); }
-.prod-5 { bottom: 0; left:clamp(0%, 20%, 55%); }
+.prod-1 { bottom: 0;translate: 0 12%; left: clamp(0%, 20%, 55%); } /* bottom 0 lo apoya en la línea roja */
+.prod-2 { bottom: 0;translate: 0 12%; left: clamp(0%, 20%, 55%); } /* necesite agregar clamp porque no tengo limites en los estantes podria hacer que se saliera del estante por un lado o otro, min pone un limite de un lado clamp pone limites de los dos lados mi producto ocupa 45% de ancho y el estante 100% por tanto 100-45=55% primer numero minimo y ultimo maximo y el del medio es donde elijo ubicar al producto */
+.prod-3 { bottom: 0;translate: 0 12%; left: clamp(0%, 20%, 55%); }
+.prod-4 { bottom: 0;translate: 0 12%; left: clamp(0%,10%,55%); }
+.prod-5 { bottom: 0;translate: 0 12%; left:clamp(0%, 20%, 55%); }
 
 
-.prod-6 { bottom: 0; right: clamp(0%, 10%, 55%); }
-.prod-7 { bottom: 0; right: clamp(0%, 20%, 55%); }
-.prod-8 { bottom: 0; right: clamp(0%, 20%, 55%); }
-.prod-9 { bottom: 0; right: clamp(0%, 10%, 55%); }
-.prod-10 { bottom: 0; right: clamp(0%, 20%, 55%); }
+.prod-6 { bottom: 0; translate: 0 12%; right: clamp(0%, 10%, 55%); }
+.prod-7 { bottom: 0; translate: 0 12%; right: clamp(0%, 20%, 55%); }
+.prod-8 { bottom: 0; translate: 0 12%; right: clamp(0%, 20%, 55%); }
+.prod-9 { bottom: 0; translate: 0 12%;right: clamp(0%, 10%, 55%); }
+.prod-10 { bottom: 0; translate: 0 12%; right: clamp(0%, 20%, 55%); }
