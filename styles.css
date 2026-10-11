@@ -6,7 +6,7 @@
 * {
     margin: 0; /* son los margenes que tiene por defecto el navegador estoy forzando a que este junto y no deje especios */
     padding: 0;
-    box-sizing: border-box;
+    box-sizing: border-box; /* Obliga a que los bordes y paddings crezcan hacia ADENTRO. Así, si le doy 100% de ancho a algo, no se desborda */
     font-family: "spartan", sans-serif; 
 }
 
@@ -22,50 +22,50 @@
     padding: 5px 80px;
     background-color: white;
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.06);
-    /* El header queda fijo en la parte superior al hacer scroll */
-    z-index: 999;
+    z-index: 999; /* me aseguro que quede por encima de todo */
     position: sticky; /* pegajoso me lo llevo de paseo*/
     top: 0;
     left: 0;
-    /* 🔵 BORDE AZUL: Para ver la barra superior completa */
-    border: 3px solid blue; }
+    border: 3px solid blue; } /* borde azul para ver los limites y debuguear */
 
 /* El contenedor que agrupa a los elementos del menú */
 .navbar {
     display: flex;
     align-items: center;
     justify-content: center;
-        /* 🟢 BORDE VERDE: Para ver dónde termina el contenedor de los enlaces */
-    border: 2px solid green;
+    border: 2px solid green; /* borde verde para ver los limites de la caja que contiene los enlaces y debuguear */
 }
 
 /* Cada uno de los botones o enlaces individuales */
 .navbar li {
-    list-style: none;
+    list-style: none; /* Quita los puntos de la lista */
     padding: 0 20px; /* Espaciado entre los elementos de la lista */
+/* border: 2px solid orange; /* borde naranja para ver los limites de cada elemento y debuguear */
 }
 
 /* El texto de los enlaces */
 .navbar a {
-    text-decoration: none;
+    text-decoration: none; /* Quita el subrayado de los enlaces */
     font-size: 16px;
     font-weight: 600;
     color: #1a1a1a;
     transition: 0.3s ease; /* Transición suave para el cambio de color al pasar el mouse */
 }
 
-.navbar a:hover {
+.navbar a:hover { /* Cambia el color del enlace al pasar el mouse hober significa litralmente pasar el cursor por encima*/ 
     color: #088178;
 }
 
-body {
-    overflow-y: hidden; /* ⬅️ Esto bloquea por completo el scroll hacia abajo (vertical) */
+body { /* ahora mismo no quiero que tenga nada debajo de la parte principal asi que lo bloqueo */
+    overflow-y: hidden; /* bloquea por completo el scroll hacia abajo (vertical) */
 }
 
 /* ============================================================
    RESPONSIVE (ADAPTACIÓN PARA CELULARES)
  SOLO se aplica si la pantalla mide menos de 950px
    ============================================================ */
+
+ /* debo modificar esto luego planeo que el responsive de celular sea una version distinta de la de compu */  
    @media (max-width: 950px) {
 
  /* Modifica la barra superior en celular */
@@ -89,7 +89,7 @@ body {
         box-shadow: 0 40px 60px rgba(0, 0, 0, 0.1);
         padding: 80px 0 0 10px;
         transition: 0.3s;
-        border: 3px solid red; /* 🔴 BORDE ROJO: Si cambias el 'right' a 0 para probarlo, verás este borde */
+        border: 3px solid red; /*  Si cambio el 'right' a 0 para probarlo, verás este borde */
     }
 
     /* Quita los espacios horizontales de computadora y los separa hacia abajo */
@@ -97,7 +97,6 @@ body {
         padding: 0;
         margin-bottom: 25px;
     }
-    /* Modifica la sección principal para que no use los 80px y no rompa la pantalla */
 .hero{
     padding: 0 20px;
             border-color: purple; /* Cambia a violeta en celular */
@@ -108,88 +107,51 @@ body {
 
 /* ============================================================
    HERO
-   Sección principal video de fondo y texto
-   recomiendo Live preview HTML   
+   Sección principal video de fondo y estanterias 3D
    ============================================================ */
-
 .hero {
-    position: relative;
+    position: relative; /* esto es importante los elementos absolutos pueden moverse por cualquier lado al poner relative estoy diciendo que los absolutos no puedan salir de esta caja */
     display: flex;
     align-items: center;
-    justify-content: flex-end; /* Empuja el texto hacia la derecha */
-    height: 93vh;
+    justify-content: flex-end; 
+    height: 93vh; /* Mantiene tu altura original */
     width: 100%;
-    padding: 0 80px; /*aplica el primer número arriba y abajo, mientras que el segundo número le suma 80px a la izquierda y otros 80px a la derecha de forma automática, duplicando el valor para cubrir ambos costados*/
-    margin-bottom: 40px;
-    overflow: hidden; /* esconde lo que sobresalga de la sección */
-    /* 🔵 BORDE AZUL: Para ver todo el tamaño que ocupa la sección del video */
-    border: 3px solid blue;
+    margin-bottom: 40px; /* Deja un espacio de respiro antes de la siguiente sección de la web */
+    overflow: hidden; /*  Esto corta lo que se salga actua como la funcion ( cover) el video tracker se expande y creece pero el hero no por tanto lo que queda fuera no se dibuja */
+    border: 3px solid rgb(255, 251, 0); /*debug de los limites del hero */
+}
+/* ============================================================
+/* El contenedor que simula el object-fit: cover y arrastra los estantes 
+EL TRACKER 
+============================================================ */
+.video-tracker {
+    position: absolute; /* Al ser absoluto  me deja centrarlo manualmente */
+    /*lo centro perfectamente usando coordenadas absolutas (pongo el centro del tracker en el centro de la pantalla) (clavo) */
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%); /* Desplazo el elemento la mitad de su propio tamaño para que el centrado sea perfecto esto tiene que ver con como lee el navegador empezando desde las puntas si no lo pusiera no se comportaria como quiero (cuadro) */
+    /*Obligo a este div invisible a tener exactamente la misma 
+    proporción que el video original. Si el video crece o se recorta, este div lo hace con él. */    
+    aspect-ratio: 16 / 9; /* Ajusta a la proporción del video (1280 × 720) si divido eso me da exactamente 16/9*/
+    /* Al crecer, recortará simétricamente de las puntas */
+    min-width: 100%;
+    min-height: 100%;
+    z-index: 1; /* Se queda en la capa de fondo */
 }
 
-/* El elemento del video que se expande por detrás */
+/* El elemento del video (ya no necesita cover porque el tracker lo hace) */
 .hero .video-hero {
     position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
+    top: 0; /* Lo pegamos al techo exacto de su contenedor (el tracker) */
+    left: 0; /* Lo pegamos a la pared izquierda exacta del tracker */
+    width: 100%; /* Se estira para ocupar todo el ancho del contenedor (tracker) */
     height: 100%;
-    object-fit: cover; /* para hacer lo mismo que background-size: cover */
-    z-index: 1;        /* Se queda en la capa de fondo */
-    pointer-events: none; /* no se puede clickear */
-}
-
-/* El contenedor flotante que tiene los textos y el botón */
-.hero .hero-content {
-    position: relative;
-    width: 50%;
-    display: flex;
-    flex-direction: column;
-    align-items: flex-end;
-    text-align: right;
-    z-index: 2; /* Asegura que el contenido esté por encima de la imagen de fondo */
-    /* 🟢 BORDE VERDE: Para ver exactamente dónde está encerrado tu texto */
-    border: 2px solid green;
-}
-/* Estilos de los textos individuales (títulos, párrafos y botón) */
-.hero .hero-content h4 {
-    color: #088178;
-    margin-bottom: 10px;
-    font-size: 1rem;
-}
-
-.hero .hero-content h2 {
-    color: #222;
-    font-size: 2.5rem;
-    margin-bottom: 10px;
-}
-
-.hero .hero-content h1 {
-    color: #088178;
-    font-size: 3rem;
-    margin-bottom: 15px;
-}
-
-.hero .hero-content p {
-    color: #555;
-    margin-bottom: 20px;
-}
-
-.hero .hero-content button {
-    background-color: #088178;
-    color: white;
-    border: none;
-    padding: 12px 25px;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-}
-
-.hero .hero-content button:hover {
-    background-color: #066f66;
+    z-index: 1;        
+    pointer-events: none; /* Evito que el usuario pueda hacer click derecho en el video o pausarlo por accidente */
 }
 
 /* ============================================================
-   LIENZO GENERAL (EL CONTENEDOR PADRE)
+    3D LIEZO GENERAL (EL CONTENEDOR PADRE) aqui esta la perspectiva
    ============================================================ */
 .productos-container {
     position: absolute;
@@ -197,121 +159,125 @@ body {
     left: 0;
     width: 100%;
     height: 100%;
-    z-index: 10;
-    background: transparent;
-    perspective: 1000px; /* 🎥 La cámara 3D que activa TODO */
-}
+    z-index: 10; /* Lo pongo por encima del video (z-index: 1) para que los productos se vean */
+    background: transparent; /* pendiente a modificar */
+   perspective: 100vmax;} /* perspectiva general de la escena 3D. Mientras más grande el número, menos se ve la profundidad. Mientras más pequeño, más exagerada la profundidad. */
+   /* probe utilizando 1000px pero se me salian las cosas, y si solo ajustaba vh o vw depende la pantalla en algun punto se perdia el efecto 3D de la vista por tanto vmax (el valor máximo entre el ancho y el alto de la pantalla) */
 
 /* ============================================================
-   ESTRUCTURA DE LAS REPISAS (LAS LÍNEAS GUÍA CORTAS)
+   ESTRUCTURA DE LAS REPISAS (LAS LÍNEAS )
    ============================================================ */
 .repisa {
     position: absolute;
-    border-bottom: 4px solid red; /* 🔴 Tu línea guía fija corta */
-}
-
-/* 📐 UNIFICADO: Forzamos a que las líneas rojas giren en la misma diagonal del bar */
-.repisa.repisa-izq { 
-    left: 5vw; 
-}
-.repisa.repisa-der { 
-    right: 5vw; 
+    border-bottom: 4px solid red; /* es una linea roja para saber exactamente donde esta la repisa y debuguear */
 }
 
 /* ============================================================
-   ALTURAS Y AJUSTES INDEPENDIENTES EN UNIDADES VW (LADO IZQUIERDO)
-   Al usar solo vw, las líneas siguen el escalado de object-fit: cover
+   ALTURAS Y AJUSTES INDEPENDIENTES REPISAS (LADO IZQUIERDO)
    ============================================================ */
 .repisa-izq.repisa-1 { 
-      top: calc(11vh + 2vw);
-    left: 6vw;
-    width: 26vw;
-    /* height: 28px;*/
-    transform: rotateY(60deg) rotateZ(-4deg);
+top: 24%; /*  porcentaje para subir/bajar  ( porcentajes para que escalen con el Tracker) */
+    left: 6.5%; /*  esto para izquierda/derecha */
+    width: 25%; /*para hacer mas corta o mas larga la linea */
+    transform: rotateY(60deg) rotateZ(-4.5deg); /*  rotacion en Y para que se vea en perspectiva (le da la profundidad) y rotacion en Z para la inclinacion (calibra la inclinación 2D para que quede perfectamente paralela a la madera del video) */
 }
 .repisa-izq.repisa-2 { 
-    top: 22vw; 
-    left: 5vw; 
-    width: 15vw; 
-    height: 4px;
-    transform: rotateY(60deg) rotateZ(0deg);
+    top: 35.4%; 
+    left: 6.5%; 
+    width: 25%; 
+    transform: rotateY(60deg) rotateZ(-2.5deg);
 } 
 .repisa-izq.repisa-3 { 
-    top: 35vw; 
-    left: 5vw; 
-    width: 15vw; 
-    height: 4px;
-    transform: rotateY(60deg) rotateZ(0deg);
+    top: 48%; 
+    left: 6.5%; 
+    width: 25%;
+    transform: rotateY(60deg) rotateZ(-0.3deg);
 } 
 .repisa-izq.repisa-4 { 
-    top: 48vw; 
-    left: 5vw; 
-    width: 15vw; 
-    height: 4px;
-    transform: rotateY(60deg) rotateZ(0deg);
+    top: 61%; 
+    left: 6.5%; 
+    width: 25%;
+    transform: rotateY(60deg) rotateZ(1deg);
 } 
+.repisa-izq.repisa-5 { 
+    top: 74%; /* Salto de ~13% igual que los anteriores */
+left:8.5%;
+    width: 20%;
+    transform: rotateY(60deg) rotateZ(2.5deg); 
+}
 
 /* ============================================================
-   ALTURAS Y AJUSTES INDEPENDIENTES EN UNIDADES VW (LADO DERECHO)
+   ALTURAS Y AJUSTES INDEPENDIENTES REPISAS (LADO DERECHO)
    ============================================================ */
 .repisa-der.repisa-1 { 
-    top: 4vw; /* ⬅️ Cambiado a vw */
-    right: 8vw; 
-    width: 30vw; 
-    height: 4px; 
-    transform: rotateY(-60deg) rotateZ(-4deg); 
+    top: 24%;
+    right: 8.5%;
+    width: 26%;
+    transform: rotateY(-60deg) rotateZ(4deg);
 } 
 .repisa-der.repisa-2 { 
-    top: 22vw; 
-    right: 5vw; 
-    width: 15vw; 
-    height: 4px;
-    transform: rotateY(-60deg) rotateZ(0deg);
+    top: 35.4%; 
+    right: 8.5%; 
+    width: 26%;
+    transform: rotateY(-60deg) rotateZ(2.5deg);
 } 
 .repisa-der.repisa-3 { 
-    top: 35vw; 
-    right: 5vw; 
-    width: 15vw; 
-    height: 4px;
-    transform: rotateY(-60deg) rotateZ(0deg);
+    top: 48%; 
+    right: 8.5%; 
+    width: 26%;
+    transform: rotateY(-60deg) rotateZ(0.3deg);
 } 
 .repisa-der.repisa-4 { 
-    top: 48vw; 
-    right: 5vw; 
-    width: 15vw; 
-    height: 4px;
-    transform: rotateY(-60deg) rotateZ(0deg);
+    top: 61%; 
+     right: 8.5%; 
+    width: 23.5%;
+    transform: rotateY(-60deg) rotateZ(-1deg);
 } 
+.repisa-der.repisa-5 { 
+    top: 74%;
+    right: 8.5%; 
+   width:20.5%;
+    transform: rotateY(-60deg) rotateZ(-2.5deg); 
+}
+
+/* ============================================================
+   PRODUCTOS 
+   ============================================================ */
+.producto {
+    position: absolute; /* yo voy a indicar donde voy a ponerlo */
+    width: 45%;       /* ancho fijo de la tarjeta del producto para mantener la proporcion 3d mantiene un ancho estandar de la info y producto */
+    background: #fff;
+    padding: 8px; /* Margen interno para que la foto y el texto no choquen contra los bordes */
+    border-radius: 6px; /* bordes redondeados */
+    box-shadow: 0 4px 10px rgba(0,0,0,0.3); /* sombreado las tarjetas son blanco asi que esto me permite distinguir unas de otras cuando estan ensimadas */
+}
 
 
 /* ============================================================
-   TUS PRODUCTOS CON LAS DIAGONALES ACTIVAS Y TUS MEDIDAS
+   ANCLAJE Y ROTACIÓN DE LOS PRODUCTOS 
    ============================================================ */
-.producto {
-    position: absolute;
-    width: 160px;       
-    background: #fff;
-    padding: 8px;
-    border-radius: 6px;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.3);
-}
-
-/* 📐 LADO IZQUIERDO: Girados y en tus posiciones manuales intactas */
 .producto.estante-izq {
-    transform: rotateY(20deg) scale(0.5); 
-    transform-origin: left center;
+    box-shadow: -15px 25px 20px -15px rgba(0,0,0,0.6);
+    transform: rotateY(20deg) scale(0.5); /* Gira la tarjeta 20 grados para mirar al centro y la achica a la mitad de su tamaño original */
+    transform-origin: left bottom; /* hace que se pegue a la linea del estante */ 
 }
-.prod-1 { top: 15vh; left: 8vw; }
-.prod-2 { top: 32vh; left: 12vw; }
-.prod-3 { top: 50vh; left: 10vw; }
-.prod-4 { top: 68vh; left: 6vw; }
 
-/* 📐 LADO DERECHO: Girados al lado opuesto y en tus posiciones manuales intactas */
 .producto.estante-der {
     transform: rotateY(-20deg) scale(0.5); 
-    transform-origin: right center;
+    transform-origin: right bottom; 
 }
-.prod-5 { top: 15vh; right: 8vw; }
-.prod-6 { top: 32vh; right: 12vw; }
-.prod-7 { top: 50vh; right: 10vw; }
-.prod-8 { top: 68vh; right: 6vw; }
+
+/* POSICIONES DE PRODUCTOS RELATIVAS A la REPISA */
+/* Como están dentro del div .repisa, solo necesitamos subirlos para que se "apoyen" y moverlos a los lados */
+.prod-1 { bottom: 0; left: clamp(0%, 20%, 55%); } /* bottom 0 lo apoya en la línea roja */
+.prod-2 { bottom: 0; left: clamp(0%, 20%, 55%); } /* necesite agregar clamp porque no tengo limites en los estantes podria hacer que se saliera del estante por un lado o otro, min pone un limite de un lado clamp pone limites de los dos lados mi producto ocupa 45% de ancho y el estante 100% por tanto 100-45=55% primer numero minimo y ultimo maximo y el del medio es donde elijo ubicar al producto */
+.prod-3 { bottom: 0; left: clamp(0%, 20%, 55%); }
+.prod-4 { bottom: 0; left: clamp(0%,10%,55%); }
+.prod-5 { bottom: 0; left:clamp(0%, 20%, 55%); }
+
+
+.prod-6 { bottom: 0; right: clamp(0%, 10%, 55%); }
+.prod-7 { bottom: 0; right: clamp(0%, 20%, 55%); }
+.prod-8 { bottom: 0; right: clamp(0%, 20%, 55%); }
+.prod-9 { bottom: 0; right: clamp(0%, 10%, 55%); }
+.prod-10 { bottom: 0; right: clamp(0%, 20%, 55%); }

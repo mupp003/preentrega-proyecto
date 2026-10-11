@@ -3,7 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tienda Zelda</title>
+    <link rel="icon" type="image/png" href="img/icono.png">
+    <title>Tienda Hyrule</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
@@ -19,8 +20,6 @@
                 <li><a href="pages/tiendaGoron.html">TIENDA GORON</a></li>
                 <li><a href="pages/tiendaZora.html">TIENDA ZORA</a></li>
                 <li><a href="pages/tiendaMascaras.html">TIENDA MASCARAS</a></li>
-                 <li><a href="pages/tiendasecreta.html">TIENDA POE</a></li>
-
                 <li><a href="pages/contacto.html">CORREO</a></li>
              <img src="img/cartero.png" class="logo" alt="correo" width="40px" height="40px">
 
@@ -50,9 +49,8 @@ ahi estaran los elementos comprados y para equipar --->
 
 <!-- ==================== HERO (VIDEO + ESTANTERÍAS) ==================== -->
 <section class="hero">
-z
-    <video autoplay muted loop playsinline class="video-hero"> 
-        <source src="img/bazar2.mp4" type="video/mp4">
+ <div class="video-tracker"> <!--contenedor que usare para modificar los elementos -->
+    <video class="video-hero" src="img/bazar2.mp4" autoplay muted loop playsinline disablePictureInPicture>
     </video>
 
     <!-- Lienzo transparente 3D -->
@@ -114,24 +112,37 @@ z
                 </a>
             </div>
         </div>
+         <div class="repisa repisa-izq repisa-5">
+            <div class="producto prod-5">
+                <img src="img/productos/auriculares.jpg" alt="Auriculares">
+                <div class="producto-descripcion">
+                    <span>Audio</span>
+                    <h5>Auriculares de prueba 5</h5>
+                    <h4>$89.99</h4>
+                </div>
+                <a class="carrito" data-nombre="Auriculares 5" data-precio="89.99" data-imagen="../img/productos/auriculares.jpg">
+                    <i class="fal fa-shopping-cart"></i> Agregar
+                </a>
+            </div>
+        </div>
 
         <!-- 🪵 LADO DERECHO -->
         <div class="repisa repisa-der repisa-1">
-            <div class="producto prod-5">
+            <div class="producto prod-6">
                 <img src="img/productos/celular.jpg" alt="Celular">
                 <div class="producto-descripcion">
                     <span>Celulares</span>
                     <h5>Smartphone de prueba 5</h5>
                     <h4>$299.99</h4>
                 </div>
-                <a class="carrito" data-nombre="Smartphone 5" data-precio="299.99" data-imagen="../img/productos/calular.jpg">
+                <a class="carrito" data-nombre="Smartphone 5" data-precio="299.99" data-imagen="../img/productos/celular.jpg">
                     <i class="fal fa-shopping-cart"></i> Agregar
                 </a>
             </div>
         </div>
 
         <div class="repisa repisa-der repisa-2">
-            <div class="producto prod-6">
+            <div class="producto prod-7">
                 <img src="img/productos/auriculares.jpg" alt="Auriculares">
                 <div class="producto-descripcion">
                     <span>Audio</span>
@@ -145,7 +156,7 @@ z
         </div>
 
         <div class="repisa repisa-der repisa-3">
-            <div class="producto prod-7">
+            <div class="producto prod-8">
                 <img src="img/productos/celular.jpg" alt="Celular">
                 <div class="producto-descripcion">
                     <span>Celulares</span>
@@ -159,7 +170,7 @@ z
         </div>
 
         <div class="repisa repisa-der repisa-4">
-            <div class="producto prod-8">
+            <div class="producto prod-9">
                 <img src="img/productos/auriculares.jpg" alt="Auriculares">
                 <div class="producto-descripcion">
                     <span>Audio</span>
@@ -171,6 +182,19 @@ z
                 </a>
             </div>
         </div>
+         <div class="repisa repisa-der repisa-5">
+            <div class="producto prod-10">
+                <img src="img/productos/auriculares.jpg" alt="Auriculares">
+                <div class="producto-descripcion">
+                    <span>Audio</span>
+                    <h5>Auriculares de prueba 9</h5>
+                    <h4>$89.99</h4>
+                </div>
+                <a class="carrito" data-nombre="Auriculares 9" data-precio="89.99" data-imagen="../img/productos/auriculares.jpg">
+                    <i class="fal fa-shopping-cart"></i> Agregar
+                </a>
+            </div>
 
+    </div>
     </div>
 </section>
