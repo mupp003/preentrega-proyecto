@@ -1,0 +1,72 @@
+/* ============================================================
+   TEXTURAS DE PAPELES
+   Cada clase asigna una imagen de fondo a los papeles
+   ============================================================ */
+
+/* ---------- HORIZONTALES ---------- */
+.texturaHorizontal1 {
+    background-image: url('../texturas/papeles/horizontal1.png');
+    background-size: cover;
+    background-position: center;
+}
+
+.texturaHorizontal2 {
+    background-image: url('../texturas/papeles/horizontal2.png');
+    background-size: cover;
+    background-position: center;
+}
+
+.texturaHorizontal3 {
+    background-image: url('../texturas/papeles/horizontal3.png');
+    background-size: cover;
+    background-position: center;
+}
+
+/* ---------- VERTICALES ---------- */
+.texturaVertical1 {
+    background-image: url('../texturas/papeles/vertical1.png');
+    background-size: cover;
+    background-position: center;
+}
+
+.texturaVertical2 {
+    background-image: url('../texturas/papeles/vertical2.png');
+    background-size: cover;
+    background-position: center;
+}
+
+.texturaVertical3 {
+    background-image: url('../texturas/papeles/vertical3.png');
+    background-size: cover;
+    background-position: center;
+}
+/* ---------- CENTRADOS ---------- */
+.texturaCentro {
+    background-image: url('../texturas/papeles/centro.png');
+    background-size: cover;
+    background-position: center;
+}
+
+.texturaCentro2 {
+    background-image: url('../texturas/papeles/centro2.png');
+    background-size: cover;
+    background-position: center;
+}
+
+.texturaCentro3 {
+    background-image: url('../texturas/papeles/centro3.png');
+    background-size: cover;
+    background-position: center;
+}
+
+.texturaCentro4 {
+    background-image: url('../texturas/papeles/centro4.png');
+    background-size: cover;
+    background-position: center;
+}
+
+.texturaCentroMini {
+    background-image: url('../texturas/papeles/centro_Mini.png');
+    background-size: cover;
+    background-position: center;
+}

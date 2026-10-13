@@ -14,7 +14,7 @@
     border: 3px solid rgb(255, 251, 0); /*debug de los limites del hero */
 }
 /* ============================================================
-/* El contenedor que simula el object-fit: cover y arrastra los estantes 
+El contenedor que simula el object-fit: cover y arrastra los estantes 
 EL TRACKER 
 ============================================================ */
 .video-tracker {
@@ -54,6 +54,7 @@ EL TRACKER
     height: 100%;
     z-index: 10; /* Lo pongo por encima del video (z-index: 1) para que los productos se vean */
     background: transparent; /*hace que el video se vea por debajo de los productos */
+    
 }
 /* lienzo trasparente que contiene las reseñas */
 .reseñas-container {
@@ -63,50 +64,145 @@ EL TRACKER
     width: 26%;
     height: 32%;
     background-color: rgba(255, 0, 0, 0.278);
+    overflow: hidden;
 
     display: grid;
-    grid-template-columns: repeat(2, 1fr);  /* 2 columnas iguales */
-    grid-template-rows: repeat(2, 1fr);     /* 2 filas iguales */
-    gap: 20px;                               /* espacio entre papeles */
-    padding: 50px;                           /* margen interno */
-    place-items: center;                     /* centra cada papel en su celda */
+/* Forzamos a que las 24 columnas midan exactamente lo mismo sin importar qué tarjeta tengan adentro */
+    grid-template-columns: repeat(24, minmax(0, 1fr));
+    
+    /* Forzamos las 12 filas iniciales a medir lo mismo */
+    grid-template-rows: repeat(12, minmax(0, 1fr));
+    
+    /* MAGIA: Si los personajes se caen de las 12 filas y crean filas nuevas, forzamos a que esas filas extra también midan lo mismo en lugar de colapsar a 0 */
+    grid-auto-rows: minmax(0, 1fr);         /* antes 25px → filas más finas */
+    place-items: stretch;
 }
 
-
+/* ============================================================
+ PAPEL (caja común configuraciones generales)
+   ============================================================ */
 .papel {
 
     width: 100%;
     height: 100%;
-    padding: 10px;
+    padding: 1px;
     gap: 6px;
-
+container-type: inline-size; /* ← la caja es la referencia le digo este papel es tu referencia medi desde aca */
     background-color: #f5f0dc;   /* color papel solo para testeo de lugar */
     border: 2px solid #c9b88a;
     border-radius: 4px;
     overflow: hidden;
 }
 
+/* ============================================================
+ LAYOUTS (orden interno del contenido)
+   ============================================================ */
+
+.papel-horizontal {
+    display: grid;
+    grid-template-areas:
+        "foto   precio"
+        "foto   texto"
+        "titulo texto";
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows:
+        minmax(20px, 1fr)   /* fila 1: foto + título */
+        minmax(20px, 1fr)   /* fila 2: foto + precio */
+        minmax(15px, auto); /* fila 3: texto */
+}
+
+.papel-vertical {
+    display: grid;
+    grid-template-areas:
+        "foto"
+        "titulo"
+        "precio"
+        "texto";
+    grid-template-columns: 1fr;
+    grid-template-rows:
+        minmax(30px, 1fr)    /* foto */
+        minmax(15px, auto)   /* título */
+        minmax(15px, auto)   /* precio */
+        minmax(15px, auto);  /* texto */
+    place-items: center;
+    text-align: center;
+    gap: 8px;
+}
+
+.papel-centrado {
+    display: grid;
+    grid-template-areas:
+        "foto"
+        "titulo"
+        "precio";
+    grid-template-columns: 1fr;
+    grid-template-rows:
+        minmax(30px, 1fr)    /* foto */
+        minmax(15px, auto)   /* título */
+        minmax(15px, auto);  /* precio */
+    place-items: center;
+    text-align: center;
+    gap: 8px;
+}
+
+.papel-reseña-minima {
+    display: grid;
+    grid-template-areas: "foto";
+    grid-template-columns: 1fr;
+    grid-template-rows: minmax(30px, 1fr);
+    place-items: center;
+}
+
+
+/* ============================================================
+   TAMAÑOS (span en el grid padre osea reseñasconteiner) 
+   ============================================================ */
+
+.tam-hg { grid-column: span 6; grid-row: span 3; }
+.tam-hm { grid-column: span 5; grid-row: span 3; }
+.tam-hc { grid-column: span 4; grid-row: span 2; }
+
+.tam-vg { grid-column: span 4; grid-row: span 6; }
+.tam-vm { grid-column: span 3; grid-row: span 4; }
+.tam-vc { grid-column: span 2; grid-row: span 3; }
+
+.tam-cg { grid-column: span 3; grid-row: span 3; }
+.tam-cm { grid-column: span 3; grid-row: span 3; }
+.tam-cc { grid-column: span 2; grid-row: span 2; }
+
+/* ============================================================
+   HIJOS (foto, título, precio, texto) 
+   ============================================================ */
 .papel .foto {
-    width: 100%;
-    height: auto;
-    max-height: 100%;
-    object-fit: contain;
+     grid-area: foto;
+    width: 100%;        /* llena el ancho del área */
+    height: 100%;       /* llena el alto del área */
+    min-width: 20px;       /* puede achicarse */
+    min-height: 20px;      /* puede achicarse */
+    object-fit: contain; /* no se deforma, entra completa */
     border-radius: 3px;
+    filter: sepia(1);
 }
 
 .papel .titulo {
-    font-size: 0.9rem;
+    grid-area: titulo;
+    font-size: clamp(0.5rem, 7cqw, 0.9rem);
     color: #333;
+    text-align: center; /*el nombre del personaje queda alineado exactamente al centro debajo de su foto, en lugar de pegado al borde izquierdo.*/
 }
 
 .papel .precio {
-    font-size: 0.85rem;
+    grid-area: precio;
+    font-size: clamp(0.45rem, 6cqw, 0.85rem);
     color: #e08104;
     font-weight: bold;
 }
 
 .papel .texto {
-    font-size: 0.7rem;
+    grid-area: texto;
+    font-size: clamp(0.4rem, 5cqw, 0.7rem);
     color: #666;
+    text-align: center;
+    align-self: center; /* Opciones: start (arriba), center (medio), end (abajo) */
+    justify-self: center;
 }
-

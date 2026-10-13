@@ -6,6 +6,7 @@
     <title> Contacto </title>
     <link rel="stylesheet" href="../styles.css">
     <link rel="stylesheet" href="../estilos/contacto.css">
+    <link rel="stylesheet" href="../estilos/texturas.css">
 </head>
 <body>
 <!-- ==================== HEADER ==================== -->
@@ -49,25 +50,216 @@ ahi estaran los elementos comprados y para equipar --->
             disablePictureInPicture>
         </video>
 
-        <!-- Lienzo transparente  -->
+<!-- Lienzo transparente  -->
         <div class="contacto-container">
             <div class="reseñas-container">
-                <div class="papel papel-horizontal">
-                    <img src="img/productos/escudo hylian.png" class="foto" alt="Escudo Hylian">
-                    <span class="titulo">Escudos</span>
-                    <h5 class="texto">Escudo Hylian</h5>
-                    <h4 class="precio">$199.99</h4>
+                <!-- 1. Tingle: Reseña larga (Horizontal Grande + Textura Horizontal) -->
+                <div class="papel papel-horizontal tam-hg texturaHorizontal1">
+                    <img src="../texturas/personajes/tingle.png" class="foto" alt="Tingle">
+                    <span class="titulo">Tingle</span>
+                    <h5 class="texto">¡Kooloo-Limpah! Muy buen producto pero me cobraron demasiadas rupias de envío. ¡No roben mis
+                        palabras mágicas!</h5>
+                    <h4 class="precio">⭐⭐⭐⭐</h4>
                 </div>
-                <div class="papel papel-vertical">
-                    <img src="img/productos/escudo hylian.png" class="foto" alt="Escudo Hylian">
-                    <span class="titulo">Escudos</span>
-                    <h5 class="texto">Escudo Hylian</h5>
-                    <h4 class="precio">$199.99</h4>
-
-
+                
+                <!-- 2. Linebeck / descarga.jpg: Reseña media (Horizontal Mediano + Textura Horizontal) -->
+                <div class="papel papel-horizontal tam-vg texturaHorizontal2">
+                    <img src="../texturas/personajes/descarga.jpg" class="foto" alt="Linebeck">
+                    <span class="titulo">Linebeck</span>
+                    <h5 class="texto">Casi hundo el barco trayendo el paquete, pero llegó.</h5>
+                    <h4 class="precio">⭐⭐⭐</h4>
                 </div>
-            </div>
-        </div>
+                
+                <!-- 3. Wario: Reseña corta / 1 estrella (Horizontal Mediano + Textura Horizontal) -->
+                <div class="papel papel-horizontal tam-hm texturaHorizontal3">
+                    <img src="../texturas/personajes/wario-logo.jpg" class="foto" alt="Wario">
+                    <span class="titulo">Wario</span>
+                    <h5 class="texto">¡WAH! ¡Esto no es oro de verdad!</h5>
+                    <h4 class="precio">⭐</h4>
+                </div>
+                
+                <!-- 4. Kirby: Mudo "Poyo 🥣" (Vertical Chico + Textura Vertical) -->
+                <div class="papel papel-vertical tam-vc texturaVertical1">
+                    <img src="../texturas/personajes/kirbo.jpg" class="foto" alt="Kirby">
+                    <span class="titulo">Kirby</span>
+                    <h5 class="texto">Poyo 🥣</h5>
+                    <h4 class="precio">⭐⭐⭐⭐⭐</h4>
+                </div>
+                
+                <!-- 5. Fox McCloud: Mediano (Horizontal Mediano + Textura Horizontal) -->
+                <div class="papel papel-horizontal tam-hm texturaHorizontal1">
+                    <img src="../texturas/personajes/starfox.jpg" class="foto" alt="Fox McCloud">
+                    <span class="titulo">Fox McCloud</span>
+                    <h5 class="texto">Mission Complete! Entrega perfecta en el Arwing.</h5>
+                    <h4 class="precio">⭐⭐⭐⭐⭐</h4>
+                </div>
+                
+                <!-- 6. Aldeano: Mediano (Horizontal Mediano + Textura Horizontal) -->
+                <div class="papel papel-horizontal tam-hm texturaHorizontal2">
+                    <img src="../texturas/personajes/aldeano.png" class="foto" alt="Aldeano">
+                    <span class="titulo">Aldeano (Animal Crossing)</span>
+                    <h5 class="texto">Excelente servicio para decorar la isla.</h5>
+                    <h4 class="precio">⭐⭐⭐⭐⭐</h4>
+                </div>
+                
+                <!-- 7. Rey Dedede: Mediano (Cuadrado Mediano + Textura Centro) -->
+                <div class="papel papel-centrado tam-cm texturaCentro">
+                    <img src="../texturas/personajes/ReyDede.png" class="foto" alt="Rey Dedede">
+                    <span class="titulo">Rey Dedede</span>
+                    <h4 class="precio">⭐⭐⭐⭐⭐</h4>
+                </div>
+                
+                <!-- 8. Captain Falcon: Mediano (Horizontal Mediano + Textura Horizontal) -->
+                <div class="papel papel-horizontal tam-hm texturaHorizontal3">
+                    <img src="../texturas/personajes/capitanfalcon.png" class="foto" alt="Captain Falcon">
+                    <span class="titulo">Captain Falcon</span>
+                    <h5 class="texto">¡YES! Envío a máxima velocidad.</h5>
+                    <h4 class="precio">⭐⭐⭐⭐⭐</h4>
+                </div>
+                
+                <!-- 9. Little Mac: Mediano (Vertical Mediano + Textura Vertical) -->
+                <div class="papel papel-vertical tam-vm texturaVertical2">
+                    <img src="../texturas/personajes/Little_Mac.webp" class="foto" alt="Little Mac">
+                    <span class="titulo">Little Mac</span>
+                    <h5 class="texto">Resistente a los golpes del ring.</h5>
+                    <h4 class="precio">⭐⭐⭐⭐⭐</h4>
+                </div>
+                
+                <!-- 10. Luigi: Mediano (Vertical Mediano + Textura Vertical) -->
+                <div class="papel papel-vertical tam-vm texturaVertical3">
+                    <img src="../texturas/personajes/luigi2.webp" class="foto" alt="Luigi">
+                    <span class="titulo">Luigi</span>
+                    <h5 class="texto">¡Mamma mia! Cero sustos con este pedido.</h5>
+                    <h4 class="precio">⭐⭐⭐⭐⭐</h4>
+                </div>
+                
+                <!-- 11. Sora: Chico (Cuadrado Chico + Textura Centro) -->
+                <div class="papel papel-vertical tam-cc texturaCentroMini">
+                    <img src="../texturas/personajes/Sora.webp" class="foto" alt="Sora">
+                    <span class="titulo">Sora</span>
+                    <h5 class="texto">¡Mis amigos son mi poder!</h5>
+                    <h4 class="precio">⭐⭐⭐⭐⭐</h4>
+                </div>
+                
+                <!-- 12. Meta Knight: Mediano (Vertical Mediano + Textura Vertical) -->
+                <div class="papel papel-vertical tam-vm texturaVertical1">
+                    <img src="../texturas/personajes/metalNight.png" class="foto" alt="Meta Knight">
+                    <span class="titulo">Meta Knight</span>
+                    <h5 class="texto">Una espada y armadura legendarias.</h5>
+                    <h4 class="precio">⭐⭐⭐⭐⭐</h4>
+                </div>
+                
+                <!-- 13. Yoshi: Mudo "¡Yoshi! 🍇" (Vertical Chico + Textura Vertical) -->
+                <div class="papel papel-vertical tam-vc texturaVertical2">
+                    <img src="../texturas/personajes/yoshi.png" class="foto" alt="Yoshi">
+                    <span class="titulo">Yoshi</span>
+                    <h5 class="texto">¡Yoshi! 🍇</h5>
+                    <h4 class="precio">⭐⭐⭐⭐⭐</h4>
+                </div>
+                
+                <!-- 14. Red: Mudo "..." (Cuadrado Chico + Textura Centro) -->
+                <div class="papel papel-vertical tam-cc texturaCentroMini">
+                    <img src="../texturas/personajes/red.webp" class="foto" alt="Red">
+                    <span class="titulo">Red (Pokémon)</span>
+                    <h5 class="texto">...</h5>
+                    <h4 class="precio">⭐⭐⭐⭐⭐</h4>
+                </div>
+                
+                <!-- 15. Sephiroth: Mediano (Horizontal Mediano + Textura Horizontal) -->
+                <div class="papel papel-horizontal tam-hm texturaHorizontal1">
+                    <img src="../texturas/personajes/sephiroth.jpg" class="foto" alt="Sephiroth">
+                    <span class="titulo">Sephiroth</span>
+                    <h5 class="texto">Desciende el ala de una sola ala. Calidad inigualable.</h5>
+                    <h4 class="precio">⭐⭐⭐⭐⭐</h4>
+                </div>
+                
+                <!-- 16. Pikachu: Mudo "Pika pika ⚡" (Vertical Chico + Textura Vertical) -->
+                <div class="papel papel-vertical tam-vc texturaVertical3">
+                    <img src="../texturas/personajes/pakichu.jpg" class="foto" alt="Pikachu">
+                    <span class="titulo">Pikachu</span>
+                    <h5 class="texto">Pika pika ⚡</h5>
+                    <h4 class="precio">⭐⭐⭐⭐⭐</h4>
+                </div>
+                
+                <!-- 17. Mr. Game & Watch: Mudo 🛎️ (Cuadrado Chico + Textura Centro) -->
+                <div class="papel papel-vertical tam-cc texturaCentroMini">
+                    <img src="../texturas/personajes/mr_gamewatch.jpg" class="foto" alt="Mr. Game & Watch">
+                    <span class="titulo">Mr. Game & Watch</span>
+                    <h5 class="texto">🛎️</h5>
+                    <h4 class="precio">⭐⭐⭐⭐⭐</h4>
+                </div>
+                
+                <!-- 18. Snake: Mediano (Horizontal Mediano + Textura Horizontal) -->
+                <div class="papel papel-horizontal tam-hm texturaHorizontal2">
+                    <img src="../texturas/personajes/snake.jpg" class="foto" alt="Snake">
+                    <span class="titulo">Snake</span>
+                    <h5 class="texto">Excelente para misiones de infiltración y cajas de cartón. 📦❗</h5>
+                    <h4 class="precio">⭐⭐⭐⭐⭐</h4>
+                </div>
+                
+                <!-- 19. Tom Nook: Mediano (Vertical Mediano + Textura Vertical) -->
+                <div class="papel papel-vertical tam-vm texturaVertical1">
+                    <img src="../texturas/personajes/tomnook.jpg" class="foto" alt="Tom Nook">
+                    <span class="titulo">Tom Nook</span>
+                    <h5 class="texto">Las deudas se pagan a tiempo. Buen material.</h5>
+                    <h4 class="precio">⭐⭐</h4>
+                </div>
+                
+                <!-- 20. Doctor Eggman: Mediano (Vertical Mediano + Textura Vertical) -->
+                <div class="papel papel-vertical tam-vm texturaVertical2">
+                    <img src="../texturas/personajes/eggman.jpg" class="foto" alt="Doctor Eggman">
+                    <span class="titulo">Doctor Eggman</span>
+                    <h5 class="texto">Buen diseño para construir robots.</h5>
+                    <h4 class="precio">⭐⭐</h4>
+                </div>
+                
+                <!-- 21. Crash Bandicoot: Mudo "WOAH 📦" (Vertical Chico + Textura Vertical) -->
+                <div class="papel papel-vertical tam-vc texturaVertical3">
+                    <img src="../texturas/personajes/Crash_Bandicoot.webp" class="foto" alt="Crash Bandicoot">
+                    <span class="titulo">Crash Bandicoot</span>
+                    <h5 class="texto">WOAH 📦</h5>
+                    <h4 class="precio">⭐⭐⭐⭐⭐</h4>
+                </div>
+                
+                <!-- 22. Capitán Olimar: Reseña larga (Vertical Grande + Textura Vertical) -->
+                <div class="papel papel-vertical tam-vg texturaVertical1">
+                    <img src="../texturas/personajes/capitanOlimar.webp" class="foto" alt="Capitán Olimar">
+                    <span class="titulo">Capitán Olimar</span>
+                    <h5 class="texto">Mis Pikmin transportaron todo el inventario sin una sola baja en PNF-404.</h5>
+                    <h4 class="precio">⭐⭐⭐⭐⭐</h4>
+                </div>
+                
+                <!-- 23. Gordon Freeman: Mediano (Horizontal Mediano + Textura Horizontal) -->
+                <div class="papel papel-horizontal tam-hm texturaHorizontal3">
+                    <img src="../texturas/personajes/gordon_freeman.png" class="foto" alt="Gordon Freeman">
+                    <span class="titulo">Gordon Freeman</span>
+                    <h5 class="texto">... [Silencio absoluto aprobado con la palanca]</h5>
+                    <h4 class="precio">⭐⭐⭐⭐⭐</h4>
+                </div>
+
+                <!-- 24. Cuphead: Reseña media (Horizontal Grande + Textura Horizontal) -->
+                <div class="papel papel-horizontal tam-hg texturaHorizontal1">
+                    <img src="../texturas/personajes/cuphead.jpg" class="foto" alt="Cuphead">
+                    <span class="titulo">Cuphead</span>
+                    <h5 class="texto">Un trato con el diablo no se compara con la calidad de este producto clásico.</h5>
+                    <h4 class="precio">⭐⭐⭐⭐⭐</h4>
+                </div>
+
+                <!-- 25. Doom Slayer: Reseña media (Horizontal Grande + Textura Horizontal) -->
+                <div class="papel papel-horizontal tam-hg texturaHorizontal2">
+                    <img src="../texturas/personajes/doomguy.webp" class="foto" alt="Doom Slayer">
+                    <span class="titulo">Doom Slayer</span>
+                    <h5 class="texto">Resiste el calor del infierno. Destruye y desgarra con elegancia.</h5>
+                    <h4 class="precio">⭐⭐⭐⭐⭐</h4>
+                </div>
+                <!-- 26. Estrella del CONICET: Mudo (Cuadrado Chico + Textura Centro) -->
+                <div class="papel papel-centrado tam-cc texturaCentroMini">
+                    <img src="../texturas/personajes/Dr._Robotnik.webp" class="foto" alt="Estrella del CONICET">
+                    <span class="titulo">Estrella del CONICET</span>
+                    <h4 class="precio">⭐⭐⭐⭐⭐</h4>
+                </div>
+                </div>
+                </div>
     </div>
 
 
