@@ -2,19 +2,89 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>correo</title>
-        <link rel="stylesheet" href="styles.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0,user-scalable=no">
+    <title> Contacto </title>
+    <link rel="stylesheet" href="../styles.css">
+    <link rel="stylesheet" href="../estilos/contacto.css">
 </head>
-
 <body>
-    <header>
+<!-- ==================== HEADER ==================== -->
+<header class="header">
         <a href="../index.html">
-            <img src="../img/icono.png" alt="trifuerza"width="100" height="auto">
+            <img src="../img/icono.png" class="logo" alt="Trifuerza" width="40px" height="40px">
         </a>
-    </header>
-    <main>
-        <!--- formulario de contacto-->
+<ul id="navbar" class="navbar">
+    <li><a href="../index.html">HOME</a></li>
+    <li><a href="../pages/tiendaGoron.html">TIENDA GORON</a></li>
+    <li><a href="../pages/tiendaZora.html">TIENDA ZORA</a></li>
+    <li><a href="../pages/tiendaMascaras.html">TIENDA MASCARAS</a></li>
+
+    <li><a href="../pages/contacto.html" class="menu-item">
+            <img src="../img/cartero.png" class="logo" alt="correo" width="40" height="40">
+            <span>Correo</span>
+        </a></li>
+    <li>
+        <div class="menu-item-estatico">
+            <img src="../img/rupia.png" class="logo" alt="rupias" width="40px" height="40px">
+            <span>Rupias</span>
+        </div>
+    </li>
+    <li>
+        <span id="contador-rupias" class="input-rupias">0</span>
+    </li>
+    <li>
+        <a href="../pages/carrito.html" class="menu-item">
+            <img src="../img/carrito.png" class="logo" alt="carrito" width="40px" height="40px">
+        </a>
+    </li>
+</header>
+<!--podria poner un menu con las misiones y items como en los conceptos
+ahi estaran los elementos comprados y para equipar --->
+
+
+<!-- ==================== HERO (VIDEO ) ==================== -->
+<section class="hero">
+    <div class="video-tracker"> <!--contenedor que usare para modificar los elementos -->
+        <video class="video-hero" src="../img/backgrounds/background_contacto.mp4" autoplay muted loop playsinline
+            disablePictureInPicture>
+        </video>
+
+        <!-- Lienzo transparente  -->
+        <div class="contacto-container">
+            <div class="reseñas-container">
+                <div class="papel papel-horizontal">
+                    <img src="img/productos/escudo hylian.png" class="foto" alt="Escudo Hylian">
+                    <span class="titulo">Escudos</span>
+                    <h5 class="texto">Escudo Hylian</h5>
+                    <h4 class="precio">$199.99</h4>
+                </div>
+                <div class="papel papel-vertical">
+                    <img src="img/productos/escudo hylian.png" class="foto" alt="Escudo Hylian">
+                    <span class="titulo">Escudos</span>
+                    <h5 class="texto">Escudo Hylian</h5>
+                    <h4 class="precio">$199.99</h4>
+
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="Newletter-container">
+        <div class="Newletter"> </div>
+    </div>
+    <div class="formulario-container">
+        <div class="formulario"> </div>
+    </div>
+    </div>
+    </div>
+    </div>
+    </body>
+
+    </html>
+    <!---- <main>
+        <!--- formulario de contacto--
         <span>Deja un mensaje</span>
         <h2>queremos saber de ti</h2>
     <section>
@@ -47,27 +117,29 @@
             </div>
         </form>
     </section>
-    <!---reseñas-->
+    <!---reseñas--
     <div class="reseñas">
         <h2>Reseñas</h2>
         <p>¡Excelente servicio! Muy recomendable.</p>
         <p>Me encantó la atención al cliente.</p>
-    </div>
+    </div> ------
 
     <section>
-        <!--- mapa-->
+        <!--- mapa--
     </section>
     <section>
-        <!--- newsletter-->
+        <!--- newsletter--
     </section>
 
     </main>
         <a href="../index.html">Volver a inicio</a>
 
-</body>
-</html>
-<!---alt+shiff+f ordena -->
-<!---- required  si lo quito deja de ser obligatorio-->
-<!---- podemos quitar el label y poner o dejar el placeholder-->
-<!--- typo= text es para texto normal, email es para correo electronico, number es para numeros, password es para contraseñas, date es para fechas, color es para colores, file es para archivos, range es para rangos, search es para busquedas, tel es para telefonos, url es para urls-->
+</section>
+
+
+
+<!---alt+shiff+f ordena --
+<!---- required  si lo quito deja de ser obligatorio--
+<!---- podemos quitar el label y poner o dejar el placeholder--
+<!--- typo= text es para texto normal, email es para correo electronico, number es para numeros, password es para contraseñas, date es para fechas, color es para colores, file es para archivos, range es para rangos, search es para busquedas, tel es para telefonos, url es para urls--
 <!---tip puedo chequear como ejemplo formularios de otras paginas con insector ejemplo el de inicio de seccion del banco galicia-->

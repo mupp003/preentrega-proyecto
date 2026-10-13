@@ -1,0 +1,112 @@
+/* ============================================================
+   HERO
+   Sección principal video de fondo y  3D
+   ============================================================ */
+.hero {
+    position: relative; /* esto es importante los elementos absolutos pueden moverse por cualquier lado al poner relative estoy diciendo que los absolutos no puedan salir de esta caja */
+    display: flex;
+    align-items: center;
+    justify-content: flex-end; 
+    height: 93vh; /* Mantiene tu altura original */
+    width: 100%;
+    margin-bottom: 40px; /* Deja un espacio de respiro antes de la siguiente sección de la web */
+    overflow: hidden; /*  Esto corta lo que se salga actua como la funcion ( cover) el video tracker se expande y creece pero el hero no por tanto lo que queda fuera no se dibuja */
+    border: 3px solid rgb(255, 251, 0); /*debug de los limites del hero */
+}
+/* ============================================================
+/* El contenedor que simula el object-fit: cover y arrastra los estantes 
+EL TRACKER 
+============================================================ */
+.video-tracker {
+    position: absolute; /* Al ser absoluto  me deja centrarlo manualmente */
+    /*lo centro perfectamente usando coordenadas absolutas (pongo el centro del tracker en el centro de la pantalla) (clavo) */
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%); /* Desplazo el elemento la mitad de su propio tamaño para que el centrado sea perfecto esto tiene que ver con como lee el navegador empezando desde las puntas si no lo pusiera no se comportaria como quiero (cuadro) */
+    /*Obligo a este div invisible a tener exactamente la misma 
+    proporción que el video original. Si el video crece o se recorta, este div lo hace con él. */    
+    aspect-ratio: 16 / 9; /* Ajusta a la proporción del video (1280 × 720) si divido eso me da exactamente 16/9*/
+    /* Al crecer, recortará simétricamente de las puntas */
+    min-width: 100%;
+    min-height: 100%;
+    z-index: 1; /* Se queda en la capa de fondo */
+}
+
+/* El elemento del video (ya no necesita cover porque el tracker lo hace) */
+.hero .video-hero {
+    position: absolute;
+    top: 0; /* Lo pegamos al techo exacto de su contenedor (el tracker) */
+    left: 0; /* Lo pegamos a la pared izquierda exacta del tracker */
+    width: 100%; /* Se estira para ocupar todo el ancho del contenedor (tracker) */
+    height: 100%;
+    z-index: 1;        
+    pointer-events: none; /* Evito que el usuario pueda hacer click derecho en el video o pausarlo por accidente */
+}
+
+/* ============================================================
+    3D LIEZO GENERAL (EL CONTENEDOR PADRE) cubre todo el video
+   ============================================================ */
+.contacto-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 10; /* Lo pongo por encima del video (z-index: 1) para que los productos se vean */
+    background: transparent; /*hace que el video se vea por debajo de los productos */
+}
+/* lienzo trasparente que contiene las reseñas */
+.reseñas-container {
+    position: absolute;
+    top: 14.5%;
+    left: 6.5%;
+    width: 26%;
+    height: 32%;
+    background-color: rgba(255, 0, 0, 0.278);
+
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);  /* 2 columnas iguales */
+    grid-template-rows: repeat(2, 1fr);     /* 2 filas iguales */
+    gap: 20px;                               /* espacio entre papeles */
+    padding: 50px;                           /* margen interno */
+    place-items: center;                     /* centra cada papel en su celda */
+}
+
+
+.papel {
+
+    width: 100%;
+    height: 100%;
+    padding: 10px;
+    gap: 6px;
+
+    background-color: #f5f0dc;   /* color papel solo para testeo de lugar */
+    border: 2px solid #c9b88a;
+    border-radius: 4px;
+    overflow: hidden;
+}
+
+.papel .foto {
+    width: 100%;
+    height: auto;
+    max-height: 100%;
+    object-fit: contain;
+    border-radius: 3px;
+}
+
+.papel .titulo {
+    font-size: 0.9rem;
+    color: #333;
+}
+
+.papel .precio {
+    font-size: 0.85rem;
+    color: #e08104;
+    font-weight: bold;
+}
+
+.papel .texto {
+    font-size: 0.7rem;
+    color: #666;
+}
+

@@ -20,15 +20,23 @@
                 <li><a href="pages/tiendaGoron.html">TIENDA GORON</a></li>
                 <li><a href="pages/tiendaZora.html">TIENDA ZORA</a></li>
                 <li><a href="pages/tiendaMascaras.html">TIENDA MASCARAS</a></li>
-                <li><a href="pages/contacto.html">CORREO</a></li>
-             <img src="img/cartero.png" class="logo" alt="correo" width="40px" height="40px">
 
-                <li><a href="pages/rupias.html">RUPIAS  </a></li>
-                <form action=""></form>
-                
+                <li><a href="pages/contacto.html" class="menu-item">
+                        <img src="img/cartero.png" class="logo" alt="correo" width="40" height="40">
+                        <span>Correo</span>
+                    </a></li>
                 <li>
-                    <a href="pages/carrito.html">
-            <img src="img/rupia.png" class="logo" alt="carrito" width="40px" height="40px">
+                    <div class="menu-item-estatico">
+                        <img src="img/rupia.png" class="logo" alt="rupias" width="40px" height="40px">
+                        <span>Rupias</span>
+                    </div>
+                </li>
+                <li>
+                        <span id="contador-rupias" class="input-rupias">0</span>
+                    </li>
+                    <li>
+                        <a href="pages/carrito.html" class="menu-item">
+                            <img src="img/carrito.png" class="logo" alt="carrito" width="40px" height="40px">
                     </a>
                 </li>
                 <a href="#" id="close" class="close"> 
@@ -50,7 +58,7 @@ ahi estaran los elementos comprados y para equipar --->
 <!-- ==================== HERO (VIDEO + ESTANTERÍAS) ==================== -->
 <section class="hero">
  <div class="video-tracker"> <!--contenedor que usare para modificar los elementos -->
-    <video class="video-hero" src="img/bazar2.mp4" autoplay muted loop playsinline disablePictureInPicture>
+    <video class="video-hero" src="img/backgrounds/background_home.mp4" autoplay muted loop playsinline disablePictureInPicture>
     </video>
 
     <!-- Lienzo transparente 3D -->
@@ -164,3 +172,42 @@ ahi estaran los elementos comprados y para equipar --->
     </div>
     </div>
 </section>
+    <!-- ==================== FOOTER ==================== -->
+    <footer class="section-p1">
+        <div class="col">
+            <h4>Contacto</h4>
+            <p><strong>Dirección:</strong> Av. Siempreviva 742, Ciudad Autónoma de Buenos Aires</p>
+            <p><strong>Teléfono:</strong> +54 11 1234 5678</p>
+            <p><strong>Horario:</strong> 9:00 - 18:00, Lunes a Viernes</p>
+            <div class="follow">
+                <h4>Seguinos</h4>
+                <div class="icon">
+                    <i class="fab fa-facebook-f"></i><i class="fab fa-twitter"></i>
+                    <i class="fab fa-instagram"></i><i class="fab fa-pinterest-p"></i>
+                    <i class="fab fa-youtube"></i>
+                </div>
+            </div>
+        </div>
+        <div class="col">
+            <h4>Mi Cuenta</h4>
+            <a href="#">Iniciar Sesión</a>
+            <a href="#">Ver Carrito</a>
+            <a href="#">Mis Favoritos</a>
+            <a href="#">Seguimiento de Pedido</a>
+            <a href="#">Ayuda</a>
+        </div>
+        <div class="col install">
+            <h4>Descargá la App</h4>
+            <p>Desde App Store o Google Play</p>
+            <div class="row">
+                <img src="img/pay/app.jpg" alt="App Store">
+                <img src="img/pay/play.jpg" alt="Google Play">
+            </div>
+            <p>Pasarelas de pago seguras</p>
+            <img src="img/pay/pay.png" alt="Métodos de Pago">
+        </div>
+        <div class="copyright">
+            <p>© 2025, Nefle Miguel Ángel | Talento Tech - Ecommerce</p>
+        </div>
+    </footer>
+
