@@ -1,3 +1,24 @@
+
+@font-face {
+    font-family: 'ZeldaFont'; /* zelda breth the ideal para titulos */
+    src: url('../font/triforce/Triforce.ttf') format('truetype'); 
+
+}
+@font-face {
+    font-family: 'ZeldaFont'; /* zelda breth the ideal para titulos */
+    src: url('../font/trifont/LegendOfZeldaTriFont.ttf) format ('truetype'); 
+
+}
+
+
+
+
+
+
+
+
+
+
 /* ============================================================
    HERO
    Sección principal video de fondo y  3D
@@ -85,11 +106,8 @@ EL TRACKER
 
     width: 100%;
     height: 100%;
-    padding: 1px;
-    gap: 6px;
 container-type: inline-size; /* ← la caja es la referencia le digo este papel es tu referencia medi desde aca */
-    background-color: #f5f0dc;   /* color papel solo para testeo de lugar */
-    border: 2px solid #c9b88a;
+
     border-radius: 4px;
     overflow: hidden;
 }
@@ -199,6 +217,7 @@ container-type: inline-size; /* ← la caja es la referencia le digo este papel 
 }
 
 .papel .texto {
+    font-family: 'ZeldaFont', sans-serif;
     grid-area: texto;
     font-size: clamp(0.4rem, 5cqw, 0.7rem);
     color: #666;
