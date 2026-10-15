@@ -24,7 +24,9 @@
     align-items: center;
     justify-content: space-between;
     padding: 5px 80px;
-    background-color: transparent; /*pendiente a modificar*/
+    background-image:url("texturas/textura5.png");
+    background-size: cover; /*+ rellena todo sin deformarse */
+    background-position: center; 
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.06);
     z-index: 999; /* me aseguro que quede por encima de todo */
     position: sticky; /* pegajoso me lo llevo de paseo*/
