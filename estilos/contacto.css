@@ -150,7 +150,7 @@ EL TRACKER
     /* Forzamos las 12 filas iniciales a medir lo mismo */
     grid-template-rows: repeat(12, minmax(0, 1fr));
     
-    /* MAGIA: Si los personajes se caen de las 12 filas y crean filas nuevas, forzamos a que esas filas extra también midan lo mismo en lugar de colapsar a 0 */
+    /*  Si los personajes se caen de las 12 filas y crean filas nuevas, forzamos a que esas filas extra también midan lo mismo en lugar de colapsar a 0 */
     grid-auto-rows: minmax(0, 1fr);         /* antes 25px → filas más finas */
     place-items: stretch;
     grid-auto-flow: dense
@@ -170,14 +170,39 @@ container-type: inline-size; /* ← la caja es la referencia le digo este papel 
 transition: transform 0.3s ease, box-shadow 0.3s ease, z-index 0s 0.3s;}
 
 /* Cuando el mouse pasa por encima de un papel */
-.papel:hover {
-    /* scale(1) es normal. scale(2.5) es 250% más grande */
-    transform: scale(3.5); 
-    
-    /* Lo manda al frente para que no quede tapado por sus vecinos */
+.papel:hover { transition: transform 0.4s ease 0.6s, box-shadow 0.4s ease 0.6s, z-index 0s 0.6s;}
+
+/* Escalas personalizadas por tamaño (sin variables) */
+.papel.tam-vg:hover { 
+    transform: scale(4.5); /* El gigante crece x4.5 */
     z-index: 100; 
-    
-transition: transform 0.4s ease 0.6s, box-shadow 0.4s ease 0.6s, z-index 0s 0.6s;}
+}
+.papel.tam-vm:hover { 
+    transform: scale(6); /* El mediano tiene que crecer más para verse igual de bien */
+    z-index: 100; 
+}
+.papel.tam-vc:hover { 
+    transform: scale(8.5); /* El chico crece una barbaridad para ser legible */
+    z-index: 100; 
+}
+
+/* ESCALAS PARA HORIZONTALES */
+.papel.tam-hg:hover { transform: scale(4.5); z-index: 100; } /* Ya es grande, crece normal */
+.papel.tam-hm:hover { transform: scale(5.5); z-index: 100; }
+.papel.tam-hc:hover { transform: scale(7.5); z-index: 100; } /* Es muy angosta, necesita un empujón fuerte */
+
+/* ESCALAS PARA CENTRADAS */
+.papel.tam-cg:hover { transform: scale(5.5); z-index: 100; } 
+.papel.tam-cm:hover { transform: scale(5.5); z-index: 100; }
+.papel.tam-cc:hover { transform: scale(9);   z-index:100;}
+
+
+/* clases para que no se vayan fuera de la pantalla y se corten al agrandarse, no use todas las clases */
+.borde-der {transform-origin: right center;} /* Se ancla a la derecha, crece hacia la izquierda */
+.borde-izq {transform-origin: left center;} /* Se ancla a la izquierda, crece hacia la derecha */
+.borde-techo {transform-origin: center top;} /* Se ancla arriba, crece hacia abajo */
+.borde-piso {transform-origin: center bottom;} /* Se ancla abajo, crece hacia arriba */
+.esquina-superior-izq {transform-origin: left top;}/* Crece hacia abajo y a la izquierda */
 
 /* ============================================================
  LAYOUTS (orden interno del contenido)
@@ -186,16 +211,29 @@ transition: transform 0.4s ease 0.6s, box-shadow 0.4s ease 0.6s, z-index 0s 0.6s
 .papel-horizontal {
     display: grid;
     grid-template-areas:
-        "foto   precio"
         "foto   texto"
-        "titulo texto";
-    grid-template-columns: 1fr 1fr;
-    grid-template-rows:
-        minmax(20px, 1fr)   /* fila 1: foto + título */
-        minmax(20px, 1fr)   /* fila 2: foto + precio */
-        minmax(15px, auto); /* fila 3: texto */
+        "foto   texto"
+        "titulo precio";
+grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
 }
 
+
+/* HORIZONTAL GRANDE Y MEDIANO (Ambos miden 3 bloques de alto -> Suman 3) */
+.papel-horizontal.tam-hg,
+.papel-horizontal.tam-hm {
+    grid-template-rows:
+        minmax(0, 0.8fr)  /* Fila 1 (Arriba): Mitad superior de la foto y el Precio */
+        minmax(0, 1.4fr)  /* Fila 2 (Medio): Centro de la foto y cuerpo del Texto */
+        minmax(0, 0.8fr); /* Fila 3 (Abajo): Título y final del Texto */
+}
+
+/* HORIZONTAL CHICO (Mide 2 bloques de alto -> Suma 2) */
+.papel-horizontal.tam-hc {
+    grid-template-rows:
+        minmax(0, 0.5fr)  /* Fila 1 */
+        minmax(0, 1fr)    /* Fila 2: El texto se lleva la mayor parte del espacio */
+        minmax(0, 0.5fr); /* Fila 3 */
+}
 .papel-vertical {
     display: grid;
     grid-template-areas:
@@ -203,16 +241,35 @@ transition: transform 0.4s ease 0.6s, box-shadow 0.4s ease 0.6s, z-index 0s 0.6s
         "titulo"
         "precio"
         "texto";
-    grid-template-columns: 1fr;
-    grid-template-rows:
-        minmax(30px, 1fr)    /* foto */
-        minmax(15px, auto)   /* título */
-        minmax(15px, auto)   /* precio */
-        minmax(15px, auto);  /* texto */
+        
+    /* Columna que equivale a los 4 cuadraditos de ancho */
+    grid-template-columns: minmax(0, 1fr);    
     place-items: center;
-    text-align: center;
-    gap: 8px;
 }
+.papel-vertical.tam-vg {
+    grid-template-rows:
+        minmax(0, 1.5fr)    /* Foto */
+        minmax(0, 1fr)    /* Título */
+        minmax(0, 0.5fr)  /* Precio */
+        minmax(0, 3fr); /* Texto */
+}
+/*  VERTICAL MEDIANO (Mide 4 bloques afuera -> Suma 4 adentro) */
+.papel-vertical.tam-vm {
+    grid-template-rows:
+        minmax(0, 1.5fr)    /* Foto */
+        minmax(0, 0.5fr)  /* Título */
+        minmax(0, 0.5fr)  /* Precio */
+        minmax(0, 2fr);   /* Texto */  
+}
+/*  VERTICAL CHICO (Mide 3 bloques afuera -> Suma 3 adentro) */
+.papel-vertical.tam-vc {
+   grid-template-rows:
+        minmax(0, 1.8fr)  /* Foto: Gigante (60% de la tarjeta). Se lleva casi todo. */
+        minmax(0, 0.5fr)  /* Título: Lo justo para que no se pise */
+        minmax(0, 0.4fr)  /* Precio: Un poquito menos que el título */
+        minmax(0, 0.3fr); /* Texto: Minúsculo. Si no hay texto, este 0.3fr vacío es tan chiquito que ni se nota */
+}
+
 
 .papel-centrado {
     display: grid;
@@ -220,14 +277,28 @@ transition: transform 0.4s ease 0.6s, box-shadow 0.4s ease 0.6s, z-index 0s 0.6s
         "foto"
         "titulo"
         "precio";
-    grid-template-columns: 1fr;
-    grid-template-rows:
-        minmax(30px, 1fr)    /* foto */
-        minmax(15px, auto)   /* título */
-        minmax(15px, auto);  /* precio */
+grid-template-columns: minmax(0, 1fr);
+
     place-items: center;
     text-align: center;
-    gap: 8px;
+}
+
+
+/* CENTRADO GRANDE Y MEDIANO (Miden 3 bloques de alto -> Suman 3) */
+.papel-centrado.tam-cg,
+.papel-centrado.tam-cm {
+    grid-template-rows:
+        minmax(0, 2.2fr)  /* Foto: Es la protagonista indiscutible */
+        minmax(0, 0.4fr)  /* Título: Apretadito abajo */
+        minmax(0, 0.4fr); /* Precio: Apretadito abajo */
+}
+
+/* CENTRADO CHICO (Mide 2 bloques de alto -> Suma 2) */
+.papel-centrado.tam-cc {
+    grid-template-rows:
+        minmax(0, 1.4fr)  /* Foto */
+        minmax(0, 0.3fr)  /* Título */
+        minmax(0, 0.3fr); /* Precio */
 }
 
 .papel-reseña-minima {
@@ -247,7 +318,7 @@ transition: transform 0.4s ease 0.6s, box-shadow 0.4s ease 0.6s, z-index 0s 0.6s
 .tam-hm { grid-column: span 5; grid-row: span 3; }
 .tam-hc { grid-column: span 4; grid-row: span 2; }
 
-.tam-vg { grid-column: span 4; grid-row: span 6; }
+.tam-vg { grid-column: span 4; grid-row: span 6; }    
 .tam-vm { grid-column: span 3; grid-row: span 4; }
 .tam-vc { grid-column: span 2; grid-row: span 3; }
 
@@ -269,6 +340,10 @@ transition: transform 0.4s ease 0.6s, box-shadow 0.4s ease 0.6s, z-index 0s 0.6s
     filter: sepia(1);
 }
 
+/* ===================================================================
+titulos
+=====================================================*/
+
 .papel .titulo {
     font-family: 'firma', sans-serif;
     grid-area: titulo;
@@ -277,41 +352,266 @@ transition: transform 0.4s ease 0.6s, box-shadow 0.4s ease 0.6s, z-index 0s 0.6s
     text-align: center; /*el nombre del personaje queda alineado exactamente al centro debajo de su foto, en lugar de pegado al borde izquierdo.*/
 }
 
-.papel .precio {
+.papel-vertical.tam-vm .titulo {
+    font-family: 'firma', sans-serif;
+    grid-area: titulo;
+    font-size: 12cqw;
+    color: #333333;
+    text-align: center; /*el nombre del personaje queda alineado exactamente al centro debajo de su foto, en lugar de pegado al borde izquierdo.*/
+    margin-top: 3%;
+}
+
+.papel-vertical.tam-vc .titulo {
+    font-family: 'firma', sans-serif;
+    font-weight: bold;
+    grid-area: titulo;
+    font-size: 15cqw;
+    color: #333333;
+    text-align: center; /*el nombre del personaje queda alineado exactamente al centro debajo de su foto, en lugar de pegado al borde izquierdo.*/
+}
+
+
+.papel-horizontal.tam-hg .titulo {
+    font-family: 'firma', sans-serif;
+    grid-area: titulo;
+    font-size: 8cqw;
+    color: #333333;
+    text-align: center; /*el nombre del personaje queda alineado exactamente al centro debajo de su foto, en lugar de pegado al borde izquierdo.*/
+}
+
+.papel-horizontal.tam-hm .titulo {
+    font-family: 'firma', sans-serif;
+    grid-area: titulo;
+    font-size: 9cqw;
+    color: #333333;
+    word-spacing: 10%;
+    text-align: center; /*el nombre del personaje queda alineado exactamente al centro debajo de su foto, en lugar de pegado al borde izquierdo.*/
+}
+
+.papel-centrado.tam-cg.tam-hm .titulo {
+    font-family: 'firma', sans-serif;
+    grid-area: titulo;
+    font-size: 9cqw;
+    color: #333333;
+    text-align: center; /*el nombre del personaje queda alineado exactamente al centro debajo de su foto, en lugar de pegado al borde izquierdo.*/
+}
+/* ===================================================================
+estrellas
+=====================================================*/
+
+.papel-vertical.tam-vg .precio {
     font-family: 'star1'   ;
     grid-area: precio;
     font-size: clamp(0.45rem, 6cqw, 0.85rem);
-    color: #FFC107;
     font-weight: bold;
+    display: inline-block;  /* significa Tratalo como un texto (para que se quede en el mismo renglón al lado de otras cosas), pero dejame controlar su tamaño y su espacio como si fuera un bloque */
         /* Tonos sepia quemado y tinta oxidada (menos oscuros, más integrados) */
     background: linear-gradient(180deg, #4a3319 0%, #61462a 100%);
-    background-clip: text;
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-
-    /* Elimina el borde marcado y las sombras aéreas */
-    -webkit-text-stroke: 00px;
-    filter: none;
+    background-clip: text; /* el color se lo asigno al fondo */
+    -webkit-background-clip: text;   /* recorta el fondo con la forma del objeto */
+    -webkit-text-fill-color: transparent; /* vuelve invisible el objeto dejando solo el fondo */
 
     /* CLAVE: Mezcla la tinta con la textura del pergamino de fondo */
     mix-blend-mode: multiply; 
     
     /* Un ligero desenfoque y opacidad para simular el desgaste de la tinta vieja en el papel */
     opacity: 0.85;
+    margin-top: -5.5%
 }
 
-.papel .texto {
+.papel-vertical.tam-vm .precio {
+    font-family: 'star1'   ;
+    grid-area: precio;
+    font-size: 10cqw;
+    font-weight: bold;
+    display: inline-block;  /* significa Tratalo como un texto (para que se quede en el mismo renglón al lado de otras cosas), pero dejame controlar su tamaño y su espacio como si fuera un bloque */
+        /* Tonos sepia quemado y tinta oxidada (menos oscuros, más integrados) */
+    background: linear-gradient(180deg, #4a3319 0%, #61462a 100%);
+    background-clip: text; /* el color se lo asigno al fondo */
+    -webkit-background-clip: text;   /* recorta el fondo con la forma del objeto */
+    -webkit-text-fill-color: transparent; /* vuelve invisible el objeto dejando solo el fondo */
+
+    /* CLAVE: Mezcla la tinta con la textura del pergamino de fondo */
+    mix-blend-mode: multiply; 
+    
+    /* Un ligero desenfoque y opacidad para simular el desgaste de la tinta vieja en el papel */
+    opacity: 0.85;
+    margin-top: -5%;
+}
+
+.papel-vertical.tam-vc .precio {
+
+    font-family: 'star1'   ;
+    grid-area: precio;
+    font-size: 10cqw;
+    font-weight: bold;
+    display: inline-block;  /* significa Tratalo como un texto (para que se quede en el mismo renglón al lado de otras cosas), pero dejame controlar su tamaño y su espacio como si fuera un bloque */
+        /* Tonos sepia quemado y tinta oxidada (menos oscuros, más integrados) */
+    background: linear-gradient(180deg, #4a3319 0%, #61462a 100%);
+    background-clip: text; /* el color se lo asigno al fondo */
+    -webkit-background-clip: text;   /* recorta el fondo con la forma del objeto */
+    -webkit-text-fill-color: transparent; /* vuelve invisible el objeto dejando solo el fondo */
+
+    /* CLAVE: Mezcla la tinta con la textura del pergamino de fondo */
+    mix-blend-mode: multiply; 
+    
+    /* Un ligero desenfoque y opacidad para simular el desgaste de la tinta vieja en el papel */
+    opacity: 0.85;
+    margin-top: -10%;
+   
+}
+
+.papel-horizontal.tam-hg .precio {
+    font-family: 'star1'   ;
+    grid-area: precio;
+    font-size: 6cqw;
+    font-weight: bold;
+    display: inline-block;  /* significa Tratalo como un texto (para que se quede en el mismo renglón al lado de otras cosas), pero dejame controlar su tamaño y su espacio como si fuera un bloque */
+        /* Tonos sepia quemado y tinta oxidada (menos oscuros, más integrados) */
+    background: linear-gradient(180deg, #4a3319 0%, #61462a 100%);
+    background-clip: text; /* el color se lo asigno al fondo */
+    -webkit-background-clip: text;   /* recorta el fondo con la forma del objeto */
+    -webkit-text-fill-color: transparent; /* vuelve invisible el objeto dejando solo el fondo */
+align-self: center;
+justify-self: center;
+    /* CLAVE: Mezcla la tinta con la textura del pergamino de fondo */
+    mix-blend-mode: multiply; 
+    
+    /* Un ligero desenfoque y opacidad para simular el desgaste de la tinta vieja en el papel */
+    opacity: 0.85;
+margin-left: -20%;
+margin-top: -10%;
+
+}
+
+.papel-horizontal.tam-hm .precio {
+    font-family: 'star1'   ;
+    grid-area: precio;
+    font-size: 6cqw;
+    font-weight: bold;
+    display: inline-block;  /* significa Tratalo como un texto (para que se quede en el mismo renglón al lado de otras cosas), pero dejame controlar su tamaño y su espacio como si fuera un bloque */
+        /* Tonos sepia quemado y tinta oxidada (menos oscuros, más integrados) */
+    background: linear-gradient(180deg, #4a3319 0%, #61462a 100%);
+    background-clip: text; /* el color se lo asigno al fondo */
+    -webkit-background-clip: text;   /* recorta el fondo con la forma del objeto */
+    -webkit-text-fill-color: transparent; /* vuelve invisible el objeto dejando solo el fondo */
+align-self: center;
+justify-self: center;
+    /* CLAVE: Mezcla la tinta con la textura del pergamino de fondo */
+    mix-blend-mode: multiply; 
+    
+    /* Un ligero desenfoque y opacidad para simular el desgaste de la tinta vieja en el papel */
+    opacity: 0.85;
+margin-left: -8%;
+margin-top: -10%;
+
+}
+
+.papel-centrado.tam-cg .precio {
+    font-family: 'star1'   ;
+    grid-area: precio;
+    font-size: 6cqw;
+    font-weight: bold;
+    display: inline-block;  /* significa Tratalo como un texto (para que se quede en el mismo renglón al lado de otras cosas), pero dejame controlar su tamaño y su espacio como si fuera un bloque */
+        /* Tonos sepia quemado y tinta oxidada (menos oscuros, más integrados) */
+    background: linear-gradient(180deg, #4a3319 0%, #61462a 100%);
+    background-clip: text; /* el color se lo asigno al fondo */
+    -webkit-background-clip: text;   /* recorta el fondo con la forma del objeto */
+    -webkit-text-fill-color: transparent; /* vuelve invisible el objeto dejando solo el fondo */
+align-self: center;
+justify-self: center;
+    /* CLAVE: Mezcla la tinta con la textura del pergamino de fondo */
+    mix-blend-mode: multiply; 
+    
+    /* Un ligero desenfoque y opacidad para simular el desgaste de la tinta vieja en el papel */
+    opacity: 0.85;
+
+}
+
+/* ===================================================================
+reseña
+=====================================================*/
+.papel-vertical.tam-vg .texto {
     font-family: 'star2', sans-serif;
     grid-area: texto;
-    font-size: clamp(0.4rem, 5cqw, 0.7rem);
+    font-size: 10cqw;
     color: #333333;
-    text-align: center;
-    align-self: center; /* Opciones: start (arriba), center (medio), end (abajo) */
-    justify-self: center;
+    text-align: center; /* text-align ordena la tinta en el papel. */
+    align-self: center; /* align-self mueve el papel entero de arriba a abajo (↕) eje Y. Opciones: start (arriba), center (medio), end (abajo) respecto al contendor */
+    justify-self: center; /* justify-self mueve el papel entero de lado a lado (↔) eje X */
     line-height: 0.8;
-    margin-top: -50%; 
-    margin-left: -7%;
+    width: 80%;
+    
+     margin-top: -15%; 
+    /* margin-left: -7%; */
 }
+
+.papel-vertical.tam-vm .texto {
+    font-family: 'star2', sans-serif;
+    grid-area: texto;
+    font-size: 10cqw;
+    color: #333333;
+    text-align: center; /* text-align ordena la tinta en el papel. */
+    align-self: start; /* align-self mueve el papel entero de arriba a abajo (↕) eje Y. Opciones: start (arriba), center (medio), end (abajo) respecto al contendor */
+    justify-self: center; /* justify-self mueve el papel entero de lado a lado (↔) eje X */
+    line-height: 0.8;
+    width: 70%;
+   
+    /* margin-left: -7%; */
+}
+.papel-vertical.tam-vc .texto {
+    font-family: 'star2', sans-serif;
+    grid-area: texto;
+    font-size: 10cqw;
+    color: #f8f8f5ae;
+    text-align: center; /* text-align ordena la tinta en el papel. */
+    align-self: start; /* align-self mueve el papel entero de arriba a abajo (↕) eje Y. Opciones: start (arriba), center (medio), end (abajo) respecto al contendor */
+    justify-self: center; /* justify-self mueve el papel entero de lado a lado (↔) eje X */
+    line-height: 0.8;
+    width: 70%;
+margin-top: -5%;
+}
+
+.papel-horizontal.tam-hg .texto {
+    font-family: 'star2', sans-serif;
+    grid-area: texto;
+    font-size: 4.7cqw;
+    color: #333333;
+    text-align: center; /* text-align ordena la tinta en el papel. */
+    align-self: center; /* align-self mueve el papel entero de arriba a abajo (↕) eje Y. Opciones: start (arriba), center (medio), end (abajo) respecto al contendor */
+    justify-self: center; /* justify-self mueve el papel entero de lado a lado (↔) eje X */
+    line-height: 0.8;
+    width: 90%;
+    margin-left: -20%;
+    margin-top: 15%; 
+}
+
+.papel-horizontal.tam-hm .texto {
+    font-family: 'star2', sans-serif;
+    grid-area: texto;
+    font-size: 6cqw;
+    color: #333333;
+    text-align: center; /* text-align ordena la tinta en el papel. */
+    align-self: center; /* align-self mueve el papel entero de arriba a abajo (↕) eje Y. Opciones: start (arriba), center (medio), end (abajo) respecto al contendor */
+    justify-self: center; /* justify-self mueve el papel entero de lado a lado (↔) eje X */
+    line-height: 0.8;
+    width: 80%;
+    margin-left: -8%;
+    margin-top: auto;
+}
+.papel-centrado.tam-cg .texto {
+    font-family: 'star2', sans-serif;
+    grid-area: texto;
+    font-size: 6cqw;
+    color: #333333;
+    text-align: center; /* text-align ordena la tinta en el papel. */
+    align-self: center; /* align-self mueve el papel entero de arriba a abajo (↕) eje Y. Opciones: start (arriba), center (medio), end (abajo) respecto al contendor */
+    justify-self: center; /* justify-self mueve el papel entero de lado a lado (↔) eje X */
+    line-height: 0.8;
+    width: 80%;
+}
+
+
 /*
 Zeldatitulos1, Zelda, tintaChina, zeldatitulos2, redes, 
 
