@@ -1,20 +1,77 @@
 
 @font-face {
-    font-family: 'ZeldaFont'; /* zelda breth the ideal para titulos */
+    font-family: 'Zeldatitulos1'; /* zelda breth the ideal para titulos */
     src: url('../font/triforce/Triforce.ttf') format('truetype'); 
 
 }
-@font-face {
-    font-family: 'ZeldaFont'; /* zelda breth the ideal para titulos */
-    src: url('../font/trifont/LegendOfZeldaTriFont.ttf) format ('truetype'); 
 
+@font-face {
+    font-family: 'zeldatitulos2';   /* simbolos dentro y mas espaciado */
+    src: url('../font/the_wild_breath_of_zelda/TheWildBreathofZelda.otf') format('truetype');
+}
+
+@font-face {
+    font-family: 'Zelda'; /* dibujos de zelda */
+        src: url('../font/trifont/LegendOfZeldaTriFont.ttf') format('truetype');
+
+}
+@font-face {
+    font-family: 'simbolosheika';
+    src: url('../font/Handwrittersheika/HandwrittenSheikahRunes-Regular.ttf') format('truetype');
+}
+
+
+@font-face {
+    font-family: 'pixel';
+    src: url('../font/letras_Pixel/zeldadxt.ttf') format('truetype');
+}
+
+
+@font-face {
+    font-family: 'redes';
+    src: url('../font/social_media/SocialMediaCircled.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: 'tintaChina';
+    src: url('../font/tinta_china/woodcutterTINTACHINA.ttf') format('truetype');
 }
 
 
 
+@font-face {
+    font-family: 'maquinadeescribir';
+    src: url('../font/maquinadeescribir/zai_OlivettiHispanoPluma22Typewriter.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: 'imperial'; /*hermosa letra cursiva */
+    src: url('../font/imperial_scrip/ImperialScript-Regular.ttf') format('truetype');
+}
 
 
+@font-face {
+    font-family: 'firma'; /*mucho mas cerrado estupenda para firmas*/
+    src: url('../font/brother_signature/BrotherSignature.otf') format('truetype');
+}
 
+@font-face {
+    font-family: 'boligrafo'; /*otra cursiva */
+    src: url('../font/billa_mount_boligrafo/BillaMount-Regular.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: 'star1'; 
+    src: url('../font/seeing_stars/SEEIS___.TTF') format('truetype');
+}
+
+@font-face {
+    font-family: 'star2'; /*otra cursiva */
+    src: url('../font/starlight_5/StarlightDemo-Basic.ttf') format('truetype');
+}@font-face {
+    font-family: 'star3';
+    src: url('../font/mf_star_dings/MFStarDingsTTF.ttf') format('truetype');
+}
 
 
 
@@ -85,7 +142,6 @@ EL TRACKER
     width: 26%;
     height: 32%;
     background-color: rgba(255, 0, 0, 0.278);
-    overflow: hidden;
 
     display: grid;
 /* Forzamos a que las 24 columnas midan exactamente lo mismo sin importar qué tarjeta tengan adentro */
@@ -97,20 +153,31 @@ EL TRACKER
     /* MAGIA: Si los personajes se caen de las 12 filas y crean filas nuevas, forzamos a que esas filas extra también midan lo mismo en lugar de colapsar a 0 */
     grid-auto-rows: minmax(0, 1fr);         /* antes 25px → filas más finas */
     place-items: stretch;
+    grid-auto-flow: dense
 }
 
 /* ============================================================
  PAPEL (caja común configuraciones generales)
    ============================================================ */
 .papel {
-
+z-index: 1;
     width: 100%;
     height: 100%;
 container-type: inline-size; /* ← la caja es la referencia le digo este papel es tu referencia medi desde aca */
 
     border-radius: 4px;
     overflow: hidden;
-}
+transition: transform 0.3s ease, box-shadow 0.3s ease, z-index 0s 0.3s;}
+
+/* Cuando el mouse pasa por encima de un papel */
+.papel:hover {
+    /* scale(1) es normal. scale(2.5) es 250% más grande */
+    transform: scale(3.5); 
+    
+    /* Lo manda al frente para que no quede tapado por sus vecinos */
+    z-index: 100; 
+    
+transition: transform 0.4s ease 0.6s, box-shadow 0.4s ease 0.6s, z-index 0s 0.6s;}
 
 /* ============================================================
  LAYOUTS (orden interno del contenido)
@@ -203,25 +270,50 @@ container-type: inline-size; /* ← la caja es la referencia le digo este papel 
 }
 
 .papel .titulo {
+    font-family: 'firma', sans-serif;
     grid-area: titulo;
     font-size: clamp(0.5rem, 7cqw, 0.9rem);
-    color: #333;
+    color: #333333;
     text-align: center; /*el nombre del personaje queda alineado exactamente al centro debajo de su foto, en lugar de pegado al borde izquierdo.*/
 }
 
 .papel .precio {
+    font-family: 'star1'   ;
     grid-area: precio;
     font-size: clamp(0.45rem, 6cqw, 0.85rem);
-    color: #e08104;
+    color: #FFC107;
     font-weight: bold;
+        /* Tonos sepia quemado y tinta oxidada (menos oscuros, más integrados) */
+    background: linear-gradient(180deg, #4a3319 0%, #61462a 100%);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+
+    /* Elimina el borde marcado y las sombras aéreas */
+    -webkit-text-stroke: 00px;
+    filter: none;
+
+    /* CLAVE: Mezcla la tinta con la textura del pergamino de fondo */
+    mix-blend-mode: multiply; 
+    
+    /* Un ligero desenfoque y opacidad para simular el desgaste de la tinta vieja en el papel */
+    opacity: 0.85;
 }
 
 .papel .texto {
-    font-family: 'ZeldaFont', sans-serif;
+    font-family: 'star2', sans-serif;
     grid-area: texto;
     font-size: clamp(0.4rem, 5cqw, 0.7rem);
-    color: #666;
+    color: #333333;
     text-align: center;
     align-self: center; /* Opciones: start (arriba), center (medio), end (abajo) */
     justify-self: center;
+    line-height: 0.8;
+    margin-top: -50%; 
+    margin-left: -7%;
 }
+/*
+Zeldatitulos1, Zelda, tintaChina, zeldatitulos2, redes, 
+
+maquinadeescribir, pixel, imperial, simbolosheika, firma, boligrafo.
+*/
