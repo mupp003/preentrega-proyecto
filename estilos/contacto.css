@@ -172,30 +172,35 @@ transition: transform 0.3s ease, box-shadow 0.3s ease, z-index 0s 0.3s;}
 /* Cuando el mouse pasa por encima de un papel */
 .papel:hover { transition: transform 0.4s ease 0.6s, box-shadow 0.4s ease 0.6s, z-index 0s 0.6s;}
 
-/* Escalas personalizadas por tamaño (sin variables) */
+/* Escalas por tamaño  */
 .papel.tam-vg:hover { 
-    transform: scale(4.5); /* El gigante crece x4.5 */
+    transform: scale(6); /* El gigante crece x4.5 */
     z-index: 100; 
 }
 .papel.tam-vm:hover { 
-    transform: scale(6); /* El mediano tiene que crecer más para verse igual de bien */
+    transform: scale(8); /* El mediano tiene que crecer más para verse igual de bien */
     z-index: 100; 
 }
 .papel.tam-vc:hover { 
-    transform: scale(8.5); /* El chico crece una barbaridad para ser legible */
+    transform: scale(11); /* El chico crece una barbaridad para ser legible */
     z-index: 100; 
 }
 
+
 /* ESCALAS PARA HORIZONTALES */
-.papel.tam-hg:hover { transform: scale(4.5); z-index: 100; } /* Ya es grande, crece normal */
-.papel.tam-hm:hover { transform: scale(5.5); z-index: 100; }
-.papel.tam-hc:hover { transform: scale(7.5); z-index: 100; } /* Es muy angosta, necesita un empujón fuerte */
+.papel.tam-hg:hover { transform: scale(6); z-index: 100; } /* Ya es grande, crece normal */
+.papel.tam-hm:hover { transform: scale(7.5); z-index: 100; }
+.papel.tam-hc:hover { transform: scale(10); z-index: 100; } /* Es muy angosta, necesita un empujón fuerte */
 
 /* ESCALAS PARA CENTRADAS */
-.papel.tam-cg:hover { transform: scale(5.5); z-index: 100; } 
-.papel.tam-cm:hover { transform: scale(5.5); z-index: 100; }
-.papel.tam-cc:hover { transform: scale(9);   z-index:100;}
+.papel.tam-cg:hover { transform: scale(7.5); z-index: 100; } 
+.papel.tam-cm:hover { transform: scale(7.5); z-index: 100; }
+.papel.tam-cc:hover { transform: scale(12);   z-index:100;}
 
+.papel.papel-letrero:hover {
+    transform: scale(4);
+    z-index: 10;
+}
 
 /* clases para que no se vayan fuera de la pantalla y se corten al agrandarse, no use todas las clases */
 .borde-der {transform-origin: right center;} /* Se ancla a la derecha, crece hacia la izquierda */
@@ -282,7 +287,10 @@ grid-template-columns: minmax(0, 1fr);
     place-items: center;
     text-align: center;
 }
-
+.papel-centrado.tam-cc .titulo,
+.papel-centrado.tam-cc .precio {
+    display: none;
+}
 
 /* CENTRADO GRANDE Y MEDIANO (Miden 3 bloques de alto -> Suman 3) */
 .papel-centrado.tam-cg,
@@ -296,18 +304,51 @@ grid-template-columns: minmax(0, 1fr);
 /* CENTRADO CHICO (Mide 2 bloques de alto -> Suma 2) */
 .papel-centrado.tam-cc {
     grid-template-rows:
-        minmax(0, 1.4fr)  /* Foto */
-        minmax(0, 0.3fr)  /* Título */
-        minmax(0, 0.3fr); /* Precio */
-}
+        minmax(0, 2fr)  /* Foto */}
 
-.papel-reseña-minima {
+.papel-letrero {
     display: grid;
-    grid-template-areas: "foto";
-    grid-template-columns: 1fr;
-    grid-template-rows: minmax(30px, 1fr);
-    place-items: center;
+    grid-template-areas: 
+    "titulo-cartel"
+    "subtitulo";
+grid-template-columns: minmax(0, 1fr);
+/*debo sumar 3*/
+grid-template-rows:
+minmax(0,2fr)
+minmax(0,1fr);
+place-items: center;
 }
+.papel-letrero .titulo-cartel {
+grid-area: titulo-cartel;
+    font-family: 'Zeldatitulos1', sans-serif;
+    font-size: 9cqw;
+    text-align: center;
+    
+    /* RETOQUES DE TINTA */
+    color: #2b1d0f; /* Un marrón/sepia súper oscuro,  */
+    mix-blend-mode: multiply; /* Fusiona la letra con la textura creo */
+    opacity: 0.9; /* Un desgaste mínimo */
+margin-top: 10%;
+    margin-left: -10%;
+
+}
+.papel-letrero .subtitulo
+{grid-area:subtitulo;
+    font-family: 'maquinadeescribir', sans-serif;
+    font-size: 4cqw;
+    color: #333333;
+    text-align: center; /* text-align ordena la tinta en el papel. */
+    align-self: center; /* align-self mueve el papel entero de arriba a abajo (↕) eje Y. Opciones: start (arriba), center (medio), end (abajo) respecto al contendor */
+    justify-self: center; /* justify-self mueve el papel entero de lado a lado (↔) eje X */
+    margin-top: -10%;
+    margin-left: -10%;
+
+}
+/*
+Zeldatitulos1, Zelda, tintaChina, zeldatitulos2, redes, 
+
+maquinadeescribir, pixel, imperial, simbolosheika, firma, boligrafo.
+*/
 
 
 /* ============================================================
@@ -340,6 +381,20 @@ grid-template-columns: minmax(0, 1fr);
     filter: sepia(1);
 }
 
+.papel-centrado.tam-cc .foto {
+     grid-area: foto;
+    width: 80%;        /* llena el ancho del área */
+    height: 100%;       /* llena el alto del área */
+    min-width: 20px;       /* puede achicarse */
+    min-height: 20px;      /* puede achicarse */
+    object-fit: contain; /* no se deforma, entra completa */
+    border-radius: 3px;
+    filter: sepia(1);
+margin-top: 17%;
+margin-left: 13%;
+
+}
+
 /* ===================================================================
 titulos
 =====================================================*/
@@ -349,8 +404,7 @@ titulos
     grid-area: titulo;
     font-size: clamp(0.5rem, 7cqw, 0.9rem);
     color: #333333;
-    text-align: center; /*el nombre del personaje queda alineado exactamente al centro debajo de su foto, en lugar de pegado al borde izquierdo.*/
-}
+    text-align: center; /*el nombre del personaje queda alineado exactamente al centro debajo de su foto, en lugar de pegado al borde izquierdo.*/}
 
 .papel-vertical.tam-vm .titulo {
     font-family: 'firma', sans-serif;
@@ -377,6 +431,17 @@ titulos
     font-size: 8cqw;
     color: #333333;
     text-align: center; /*el nombre del personaje queda alineado exactamente al centro debajo de su foto, en lugar de pegado al borde izquierdo.*/
+}
+
+.papel-horizontal.tam-hg .titulo.dra {
+    font-family: 'firma', sans-serif;
+    grid-area: titulo;
+    font-size: 7cqw;
+    color: #333333;
+    text-align: center; /*el nombre del personaje queda alineado exactamente al centro debajo de su foto, en lugar de pegado al borde izquierdo.*/
+margin-top: -10%;
+ line-height: 0.9; /* Reduce el espacio vertical entre líneas */
+
 }
 
 .papel-horizontal.tam-hm .titulo {
@@ -460,6 +525,27 @@ estrellas
     margin-top: -10%;
    
 }
+.papel-vertical.tam-vc .precio {
+
+    font-family: 'star1'   ;
+    grid-area: precio;
+    font-size: 10cqw;
+    font-weight: bold;
+    display: inline-block;  /* significa Tratalo como un texto (para que se quede en el mismo renglón al lado de otras cosas), pero dejame controlar su tamaño y su espacio como si fuera un bloque */
+        /* Tonos sepia quemado y tinta oxidada (menos oscuros, más integrados) */
+    background: linear-gradient(180deg, #4a3319 0%, #61462a 100%);
+    background-clip: text; /* el color se lo asigno al fondo */
+    -webkit-background-clip: text;   /* recorta el fondo con la forma del objeto */
+    -webkit-text-fill-color: transparent; /* vuelve invisible el objeto dejando solo el fondo */
+
+    /* CLAVE: Mezcla la tinta con la textura del pergamino de fondo */
+    mix-blend-mode: multiply; 
+    
+    /* Un ligero desenfoque y opacidad para simular el desgaste de la tinta vieja en el papel */
+    opacity: 0.85;
+    margin-top: -10%;
+   
+}
 
 .papel-horizontal.tam-hg .precio {
     font-family: 'star1'   ;
@@ -507,7 +593,7 @@ margin-top: -10%;
 
 }
 
-.papel-centrado.tam-cg .precio {
+.papel-centrado.tam-cm .precio {
     font-family: 'star1'   ;
     grid-area: precio;
     font-size: 6cqw;
@@ -527,6 +613,8 @@ justify-self: center;
     opacity: 0.85;
 
 }
+
+
 
 /* ===================================================================
 reseña
@@ -563,7 +651,7 @@ reseña
     font-family: 'star2', sans-serif;
     grid-area: texto;
     font-size: 10cqw;
-    color: #f8f8f5ae;
+    color: #333333;
     text-align: center; /* text-align ordena la tinta en el papel. */
     align-self: start; /* align-self mueve el papel entero de arriba a abajo (↕) eje Y. Opciones: start (arriba), center (medio), end (abajo) respecto al contendor */
     justify-self: center; /* justify-self mueve el papel entero de lado a lado (↔) eje X */
@@ -571,6 +659,10 @@ reseña
     width: 70%;
 margin-top: -5%;
 }
+.papel-vertical.tam-vc .texto.crash {
+
+    color: #f8f8f5ae;}
+
 
 .papel-horizontal.tam-hg .texto {
     font-family: 'star2', sans-serif;
@@ -599,7 +691,7 @@ margin-top: -5%;
     margin-left: -8%;
     margin-top: auto;
 }
-.papel-centrado.tam-cg .texto {
+.papel-centrado.tam-cm .texto {
     font-family: 'star2', sans-serif;
     grid-area: texto;
     font-size: 6cqw;
