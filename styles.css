@@ -71,6 +71,13 @@ body { /* ahora mismo no quiero que tenga nada debajo de la parte principal asi 
  SOLO se aplica si la pantalla mide menos de 950px
    ============================================================ */
 
+.checkbox-oculto, 
+.icono-hamburguesa, 
+.item-cerrar {
+    display: none;
+}
+/* escondo esto de la PC */
+
  /* debo modificar esto luego planeo que el responsive de celular sea una version distinta de la de compu */  
    @media (max-width: 950px) {
 
@@ -78,6 +85,23 @@ body { /* ahora mismo no quiero que tenga nada debajo de la parte principal asi 
 .header {
         padding: 20px 40px;
         border-color: orange; /* Cambia a naranja en celulares para que sepas que se activó */
+    }
+
+    /* Hacemos aparecer la hamburguesa y la cruz */
+    .icono-hamburguesa,
+    .item-cerrar {
+        display: block;
+        cursor: pointer;
+        font-size: 24px;
+        color: #2c2b01; /* Color tipo tinta de tu libro */
+    }
+
+    /* Ubicamos la hamburguesa a la derecha del header */
+    .icono-hamburguesa {
+        color: white;
+        position: absolute;
+        right: 20px;
+        top: 25px;
     }
 
       /* Modifica el menú: lo convierte en una columna y lo esconde a la derecha */
@@ -97,7 +121,10 @@ body { /* ahora mismo no quiero que tenga nada debajo de la parte principal asi 
         transition: 0.3s;
         border: 3px solid red; /*  Si cambio el 'right' a 0 para probarlo, verás este borde */
     }
-
+    /* Cuando el checkbox se activa, buscamos al hermano (.navbar) y lo metemos en pantalla */
+    .checkbox-oculto:checked ~ .navbar {
+        right: 0;
+    }
     /* Quita los espacios horizontales de computadora y los separa hacia abajo */
     .navbar li {
         padding: 0;

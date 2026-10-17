@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0,user-scalable=no">
@@ -10,325 +11,341 @@
 
 
 </head>
+
 <body>
-<!-- ==================== HEADER ==================== -->
-<header class="header">
+    <!-- ==================== HEADER ==================== -->
+    <header class="header">
         <a href="../index.html">
             <img src="../img/icono.png" class="logo" alt="Trifuerza" width="40px" height="40px">
         </a>
-<ul id="navbar" class="navbar">
-    <li><a href="../index.html">HOME</a></li>
-    <li><a href="../pages/tiendaGoron.html">TIENDA GORON</a></li>
-    <li><a href="../pages/tiendaZora.html">TIENDA ZORA</a></li>
-    <li><a href="../pages/tiendaMascaras.html">TIENDA MASCARAS</a></li>
+        <ul id="navbar" class="navbar">
+            <li><a href="../index.html">HOME</a></li>
+            <li><a href="../pages/tiendaGoron.html">TIENDA GORON</a></li>
+            <li><a href="../pages/tiendaZora.html">TIENDA ZORA</a></li>
+            <li><a href="../pages/tiendaMascaras.html">TIENDA MASCARAS</a></li>
 
-    <li><a href="../pages/contacto.html" class="menu-item">
-            <img src="../img/cartero.png" class="logo" alt="correo" width="40" height="40">
-            <span>Correo</span>
-        </a></li>
-    <li>
-        <div class="menu-item-estatico">
-            <img src="../img/rupia.png" class="logo" alt="rupias" width="40px" height="40px">
-            <span>Rupias</span>
-        </div>
-    </li>
-    <li>
-        <span id="contador-rupias" class="input-rupias">0</span>
-    </li>
-    <li>
-        <a href="../pages/carrito.html" class="menu-item">
-            <img src="../img/carrito.png" class="logo" alt="carrito" width="40px" height="40px">
-        </a>
-    </li>
-</header>
-<!--podria poner un menu con las misiones y items como en los conceptos
+            <li><a href="../pages/contacto.html" class="menu-item">
+                    <img src="../img/cartero.png" class="logo" alt="correo" width="40" height="40">
+                    <span>Correo</span>
+                </a></li>
+            <li>
+                <div class="menu-item-estatico">
+                    <img src="../img/rupia.png" class="logo" alt="rupias" width="40px" height="40px">
+                    <span>Rupias</span>
+                </div>
+            </li>
+            <li>
+                <span id="contador-rupias" class="input-rupias">0</span>
+            </li>
+            <li>
+                <a href="../pages/carrito.html" class="menu-item">
+                    <img src="../img/carrito.png" class="logo" alt="carrito" width="40px" height="40px">
+                </a>
+            </li>
+    </header>
+    <!--podria poner un menu con las misiones y items como en los conceptos
 ahi estaran los elementos comprados y para equipar --->
 
 
-<!-- ==================== HERO (VIDEO ) ==================== -->
-<section class="hero">
-    <div class="video-tracker"> <!--contenedor que usare para modificar los elementos -->
-        <video class="video-hero" src="../img/backgrounds/background_contacto.mp4" autoplay muted loop playsinline
-            disablePictureInPicture>
-        </video>
+    <!-- ==================== HERO (VIDEO ) ==================== -->
+    <section class="hero">
+        <div class="video-tracker"> <!--contenedor que usare para modificar los elementos -->
+            <video class="video-hero" src="../img/backgrounds/background_contacto.mp4" autoplay muted loop playsinline
+                disablePictureInPicture>
+            </video>
 
-<!-- Lienzo transparente  -->
-        <div class="contacto-container">
-            <div class="reseñas-container">
-                <div class="papel papel-horizontal tam-hg esquina-superior-izq texturaHorizontal2">
-                    <img src="../texturas/personajes/capitanOlimar.webp" class="foto" alt="Capitan Olimar">
-                    <span class="titulo">Capitan Olimar</span>
-                    <h5 class="texto">¡Una herramienta milagrosa! El Brazalete de Fuerza me permite mover peñascos gigantescos y despejar
-                        caminos bloqueados yo solo, sin tener que arriesgar la vida de mis Pikmin cargando cosas pesadas. 
-                        El mejor invento del universo.</h5>
-                    <h4 class="precio">aaaaa</h4>
+            <!-- Lienzo transparente  -->
+            <div class="contacto-container">
+                <div class="reseñas-container">
+                    <div class="papel papel-horizontal tam-hg esquina-superior-izq texturaHorizontal2">
+                        <img src="../texturas/personajes/capitanOlimar.webp" class="foto" alt="Capitan Olimar">
+                        <span class="titulo">Capitan Olimar</span>
+                        <h5 class="texto">¡Una herramienta milagrosa! El Brazalete de Fuerza me permite mover peñascos
+                            gigantescos y despejar
+                            caminos bloqueados yo solo, sin tener que arriesgar la vida de mis Pikmin cargando cosas
+                            pesadas.
+                            El mejor invento del universo.</h5>
+                        <h4 class="precio">aaaaa</h4>
                     </div>
-                    
+
                     <div class="papel papel-vertical tam-vg borde-techo texturaCentro2">
-                    <img src="../texturas/personajes/tingle.png" class="foto" alt="Tingle">
-                    <span class="titulo">Tingle</span>
-                    <h5 class="texto">¡Kooloo-Limpah! Vine buscando mapas pero me terminé tentando con la Pluma de Roc. Es maravillosa para saltar de isla en isla o esquivar pozos sin tener que gastar mis globos de helio. Le
-                        pongo cuatro estrellas porque el precio en rupias casi me deja en la quiebra, ¡pero el salto que te da vale cada
-                        cristal brillante!.</h5>
-                    <h4 class="precio">aaaad</h4>
-                </div>
-                
-                <div class="papel papel-letrero tam-hg texturaVertical3">
-                    <h2 class="titulo-cartel">Muro de los Clientes</h2>
-                    <span class="subtitulo">¡No olvides dejar tu reseña!</span>
-                </div>
-                                <div class="papel papel-horizontal tam-hg texturaHorizontal3">
-                    <img src="../texturas/personajes/descarga2.png" class="foto" alt="Linebeck">
-                    <span class="titulo">Linebeck</span>
-                    <h5 class="texto">¿¡Cómo que una botella vacía cuesta 50 rupias!? ¡Es un robo a mano armada! Le doy tres estrellas
-                        porque admito que sirve para guardar el agua sagrada y el aceite para el motor del barco, pero sigo indignado con el
-                        precio. Si no fuera porque la necesitaba urgente para salir de un apuro, ni loco les dejaba mi fortuna.</h5>
-                    <h4 class="precio">aaadd</h4>
-                </div>
-                
-                <div class="papel papel-vertical tam-vm esquina-superior-izq texturaVertical1">
-                    <img src="../texturas/personajes/ReyDede.png" class="foto" alt="Rey Dedede">
-                    <span class="titulo">Rey Dedede</span>
-                    <h5 class="texto">Adquirí el Martillo de Megatón. Es el doble de pesado que mi mazo de madera habitual, pero las
-                        ondas de choque que genera al golpear el suelo barren con cualquier molestia de Dream Land de un solo golpe.
-                    </h5>
-                    <h4 class="precio">aaaaa</h4>
-                </div>
-                
-                <div class="papel papel-horizontal tam-hm texturaHorizontal1">
-                    <img src="../texturas/personajes/starfox.jpg" class="foto" alt="Fox McCloud">
-                    <span class="titulo">Fox McCloud</span>
-                    <h5 class="texto">Compré el Escudo de Espejo. Modifiqué el casco de mi Arwing para acoplarlo en el frente durante una
-                        avería y logré desviar los láseres enemigos de vuelta hacia ellos. Artefacto de defensa impecable.</h5>
-                    <h4 class="precio">aaaaa</h4>
-                </div>
-                
-                <div class="papel papel-horizontal tam-hm texturaHorizontal3">
-                    <img src="../texturas/personajes/capitanfalcon.png" class="foto" alt="Captain Falcon">
-                    <span class="titulo">Captain Falcon</span>
-                    <h5 class="texto"> ¡Falcon... Kick! Me compré las Botas Pegaso para mejorar mis ataques terrestres en las pistas. La
-                        aceleración en línea recta que te dan combinada con mi fuego es una locura destructiva. ¡Totalmente recomendadas!
-                    </h5>
-                    <h4 class="precio">aaaaa</h4>
-                </div>
-                
-                <div class="papel papel-horizontal tam-hm borde-izq texturaHorizontal3">
-                    <img src="../texturas/personajes/Little_Mac.webp" class="foto" alt="Little Mac">
-                    <span class="titulo">Little Mac</span>
-                    <h5 class="texto">El entrenador Doc Louis me hizo comprar los Guantes de Oro para practicar los ganchos. Tienen un
-                        agarre tremendo. Puedo levantar bloques de piedra del gimnasio como si nada y mi Super Uppercut ahora demuele
-                        defensas.</h5>
-                    <h4 class="precio">aaaaa</h4>
-                </div>
-                
-                
-                <div class="papel papel-horizontal tam-hm texturaHorizontal3">
-                    <img src="../texturas/personajes/snake.jpg" class="foto" alt="Snake">
-                    <span class="titulo">Snake</span>
-                    <h5 class="texto">El Capa Mágica es excelente para infiltrarse en bases enemigas sin activar las alarmas. El único
-                        problema es que consume demasiada energía rápido.</h5>
-                    <h4 class="precio">aaaaa</h4>
-                </div>
-                
-                <div class="papel papel-vertical tam-vm borde-techo texturaVertical2">
-                    <img src="../texturas/personajes/sephiroth-headshot-OqKwvioRt.png" class="foto" alt="Sephiroth">
-                    <span class="titulo">Sephiroth</span>
-                    <h5 class="texto">La longitud y el filo de la Espada Biggoron son aceptables para mantener a las masas a una distancia
-                        prudente. Una hoja de acero impecable... para haber sido forjada por mortales</h5>
-                    <h4 class="precio">aaaaa</h4>
-                </div>
-                
-                <div class="papel papel-horizontal tam-hg texturaCentro3">
-                    <img src="../texturas/personajes/wario-logo.png" class="foto" alt="Wario">
-                    <span class="titulo">Wario</span>
-                    <h5 class="texto">¡Una estafa total! Vi que vendían una Bolsa de Rupias gigante y la compré pensando que
-                        venía llena de cristales valiosos para hacerme millonario. Cuando abrí el paquete, ¡el saco estaba completamente
-                        vacío! Decía en la etiqueta "capacidad para 500 rupias". ¿¡Para qué quiero un pedazo de tela mugriento si no
-                        tiene oro adentro!? Devuélvanme mis monedas.</h5>
-                    <h4 class="precio">adddd</h4>
-                </div>
-                
-<div class="papel papel-vertical tam-vc borde-techo texturaCentro2">
-    <img src="../texturas/personajes/tom_nook.png" class="foto" alt="Tom Nook">
-    <span class="titulo">Tom Nook</span>
-    <h5 class="texto"> El Saco de Rupias es de un material ordinario y me cobraron un interés ridículo por el envío a la
-        isla. No lo devuelvo porque necesito dónde meter las bayas, pero pésimo negocio.</h5>
-    <h4 class="precio">aaddd</h4>
+                        <img src="../texturas/personajes/tingle.png" class="foto" alt="Tingle">
+                        <span class="titulo">Tingle</span>
+                        <h5 class="texto">¡Kooloo-Limpah! Vine buscando mapas pero me terminé tentando con la Pluma de
+                            Roc. Es maravillosa para saltar de isla en isla o esquivar pozos sin tener que gastar mis
+                            globos de helio. Le
+                            pongo cuatro estrellas porque el precio en rupias casi me deja en la quiebra, ¡pero el salto
+                            que te da vale cada
+                            cristal brillante!.</h5>
+                        <h4 class="precio">aaaad</h4>
+                    </div>
+
+                    <div class="papel papel-letrero tam-hg texturaVertical3">
+                        <h2 class="titulo-cartel">Muro de los Clientes</h2>
+                        <span class="subtitulo">¡No olvides dejar tu reseña!</span>
+                    </div>
+                    <div class="papel papel-horizontal tam-hg texturaHorizontal3">
+                        <img src="../texturas/personajes/descarga2.png" class="foto" alt="Linebeck">
+                        <span class="titulo">Linebeck</span>
+                        <h5 class="texto">¿¡Cómo que una botella vacía cuesta 50 rupias!? ¡Es un robo a mano armada! Le
+                            doy tres estrellas
+                            porque admito que sirve para guardar el agua sagrada y el aceite para el motor del barco,
+                            pero sigo indignado con el
+                            precio. Si no fuera porque la necesitaba urgente para salir de un apuro, ni loco les dejaba
+                            mi fortuna.</h5>
+                        <h4 class="precio">aaadd</h4>
+                    </div>
+
+                    <div class="papel papel-vertical tam-vm esquina-superior-izq texturaVertical1">
+                        <img src="../texturas/personajes/ReyDede.png" class="foto" alt="Rey Dedede">
+                        <span class="titulo">Rey Dedede</span>
+                        <h5 class="texto">Adquirí el Martillo de Megatón. Es el doble de pesado que mi mazo de madera
+                            habitual, pero las
+                            ondas de choque que genera al golpear el suelo barren con cualquier molestia de Dream Land
+                            de un solo golpe.
+                        </h5>
+                        <h4 class="precio">aaaaa</h4>
+                    </div>
+
+                    <div class="papel papel-horizontal tam-hm texturaHorizontal1">
+                        <img src="../texturas/personajes/starfox.jpg" class="foto" alt="Fox McCloud">
+                        <span class="titulo">Fox McCloud</span>
+                        <h5 class="texto">Compré el Escudo de Espejo. Modifiqué el casco de mi Arwing para acoplarlo en
+                            el frente durante una
+                            avería y logré desviar los láseres enemigos de vuelta hacia ellos. Artefacto de defensa
+                            impecable.</h5>
+                        <h4 class="precio">aaaaa</h4>
+                    </div>
+
+                    <div class="papel papel-horizontal tam-hm texturaHorizontal3">
+                        <img src="../texturas/personajes/capitanfalcon.png" class="foto" alt="Captain Falcon">
+                        <span class="titulo">Captain Falcon</span>
+                        <h5 class="texto"> ¡Falcon... Kick! Me compré las Botas Pegaso para mejorar mis ataques
+                            terrestres en las pistas. La
+                            aceleración en línea recta que te dan combinada con mi fuego es una locura destructiva.
+                            ¡Totalmente recomendadas!
+                        </h5>
+                        <h4 class="precio">aaaaa</h4>
+                    </div>
+
+                    <div class="papel papel-horizontal tam-hm borde-izq texturaHorizontal3">
+                        <img src="../texturas/personajes/Little_Mac.webp" class="foto" alt="Little Mac">
+                        <span class="titulo">Little Mac</span>
+                        <h5 class="texto">El entrenador Doc Louis me hizo comprar los Guantes de Oro para practicar los
+                            ganchos. Tienen un
+                            agarre tremendo. Puedo levantar bloques de piedra del gimnasio como si nada y mi Super
+                            Uppercut ahora demuele
+                            defensas.</h5>
+                        <h4 class="precio">aaaaa</h4>
+                    </div>
+
+
+                    <div class="papel papel-horizontal tam-hm texturaHorizontal3">
+                        <img src="../texturas/personajes/snake.jpg" class="foto" alt="Snake">
+                        <span class="titulo">Snake</span>
+                        <h5 class="texto">El Capa Mágica es excelente para infiltrarse en bases enemigas sin activar las
+                            alarmas. El único
+                            problema es que consume demasiada energía rápido.</h5>
+                        <h4 class="precio">aaaaa</h4>
+                    </div>
+
+                    <div class="papel papel-vertical tam-vm borde-techo texturaVertical2">
+                        <img src="../texturas/personajes/sephiroth-headshot-OqKwvioRt.png" class="foto" alt="Sephiroth">
+                        <span class="titulo">Sephiroth</span>
+                        <h5 class="texto">La longitud y el filo de la Espada Biggoron son aceptables para mantener a las
+                            masas a una distancia
+                            prudente. Una hoja de acero impecable... para haber sido forjada por mortales</h5>
+                        <h4 class="precio">aaaaa</h4>
+                    </div>
+
+                    <div class="papel papel-horizontal tam-hg texturaCentro3">
+                        <img src="../texturas/personajes/wario-logo.png" class="foto" alt="Wario">
+                        <span class="titulo">Wario</span>
+                        <h5 class="texto">¡Una estafa total! Vi que vendían una Bolsa de Rupias gigante y la compré
+                            pensando que
+                            venía llena de cristales valiosos para hacerme millonario. Cuando abrí el paquete, ¡el saco
+                            estaba completamente
+                            vacío! Decía en la etiqueta "capacidad para 500 rupias". ¿¡Para qué quiero un pedazo de tela
+                            mugriento si no
+                            tiene oro adentro!? Devuélvanme mis monedas.</h5>
+                        <h4 class="precio">adddd</h4>
+                    </div>
+
+                    <div class="papel papel-vertical tam-vc borde-techo texturaCentro2">
+                        <img src="../texturas/personajes/tom_nook.png" class="foto" alt="Tom Nook">
+                        <span class="titulo">Tom Nook</span>
+                        <h5 class="texto"> El Saco de Rupias es de un material ordinario y me cobraron un interés
+                            ridículo por el envío a la
+                            isla. No lo devuelvo porque necesito dónde meter las bayas, pero pésimo negocio.</h5>
+                        <h4 class="precio">aaddd</h4>
+                    </div>
+
+                    <div class="papel papel-vertical tam-vg texturaCentro">
+                        <img src="../texturas/personajes/eggman.png" class="foto" alt="Doctor Eggman">
+                        <span class="titulo">Doctor Eggman</span>
+                        <h5 class="texto">El Hookshot tiene una ingeniería de cadena retráctil interesante, pero es
+                            completamente absurdo. Intenté trepar a mi base de metal y la punta rebotó. ¡Resulta que el
+                            maldito aparato solo
+                            se agarra si apuntas específicamente a madera! Ineficiente.</h5>
+                        <h4 class="precio">aaddd</h4>
+                    </div>
+
+                    <div class="papel papel-horizontal borde-izq tam-hg texturaCentro">
+                        <img src="../texturas/personajes/Dra.Asteria.png" class="foto"
+                            alt="Dra. Asteria la Descubierta">
+                        <span class="titulo dra">Dra. Asteria la Descubierta</span>
+                        <h5 class="texto">Compré una Gema Luminosa para alumbrar el abismo y un Elixir de Adhesión. Me
+                            vino espectacular para
+                            darles agarre a mis ventosas en las paredes verticales, ya que tengo mucho peso atrás.
+                            ¡Excelente atención!"</h5>
+                        <h4 class="precio">aaaaa</h4>
+                    </div>
+
+                    <div class="papel papel-vertical tam-vm texturaVertical2">
+                        <img src="../texturas/personajes/Cuphead.webp" class="foto" alt="Cuphead">
+                        <span class="titulo">Cuphead</span>
+                        <h5 class="texto">Compre un Hada en Botella y me la meti en el bolsillo, me metieron un tiro
+                            letal, el bicho salió
+                            volando y me dio la vida extra que necesitaba para ganar el contrato. ¡10/10! por solo 50
+                            rupias y una botella
+                            vacia es una ganga</h5>
+                        <h4 class="precio">aaaaa</h4>
+                    </div>
+
+                    <div class="papel papel-centrado tam-cm texturaCentro">
+                        <img src="../texturas/personajes/red.webp" class="foto" alt="Red">
+                        <span class="titulo">Red</span>
+                        <h5 class="texto">...</h5>
+                        <h4 class="precio">aaaaa</h4>
+                    </div>
+
+                    <div class="papel papel-vertical tam-vg texturaVertical3">
+                        <img src="../texturas/personajes/doomguy.webp" class="foto" alt="Doom guy">
+                        <span class="titulo">Doom Guy</span>
+                        <h5 class="texto">Adquirí Ball and Chain. El peso del hierro es devastador. Me permite demoler
+                            las armaduras pesadas de los demonios cibernéticos de un solo impacto y destrozar sus
+                            escudos de energía a corta
+                            distancia. Una herramienta brutal.</h5>
+                        <h4 class="precio">aaaaa</h4>
+                    </div>
+
+                    <div class="papel papel-centrado tam-cc texturaCentroMini">
+                        <img src="../texturas/personajes/pakichu.png" class="foto" alt="Pikachu">
+                        <h4 class="precio">aaaaa</h4>
+                    </div>
+
+                    <div class="papel papel-vertical tam-vc texturaVertical3">
+                        <img src="../texturas/personajes/gordon_freeman.png" class="foto" alt="Gordon Freeman">
+                        <span class="titulo">Gordon Freeman</span>
+                        <h4 class="precio">aaaaa</h4>
+                    </div>
+
+                    <div class="papel papel-centrado tam-cm texturaCentro2">
+                        <img src="../texturas/personajes/kirbo.png" class="foto" alt="kirby">
+                        <span class="titulo">Kirby</span>
+                        <h5 class="texto">Poyo</h5>
+                        <h4 class="precio">aaaaa</h4>
+                    </div>
+
+                    <div class="papel papel-centrado borde-izq tam-cm texturaCentro2">
+                        <img src="../texturas/personajes/yoshi.png" class="foto" alt="Yoshi">
+                        <span class="titulo">Yoshi</span>
+                        <h5 class="texto">¡Yoshi!</h5>
+                        <h4 class="precio">aaaaa</h4>
+                    </div>
+
+
+                    <div class="papel papel-vertical tam-vc texturaVertical3">
+                        <img src="../texturas/personajes/Crash_Bandicoot.webp" class="foto" alt="Crash Bandicoot">
+                        <span class="titulo">Crash Bandicoot</span>
+                        <h5 class="texto crash">WOAH!!</h5>
+                        <h4 class="precio">aaaaa</h4>
+                    </div>
+
+                    <div class="papel papel-vertical tam-vg texturaVertical1">
+                        <img src="../texturas/personajes/luigi.png" class="foto" alt="v">
+                        <span class="titulo">Luigi</span>
+                        <h5 class="texto">C-compré la Lente de la Verdad para cuando investigo pasillos oscuros. Es
+                            genial. La activás y te
+                            muestra los fantasmas ocultos y las paredes falsas al instante antes de que te peguen un
+                            susto. ¡Me dio muchísima
+                            seguridad!</h5>
+                        <h4 class="precio">aaadd</h4>
+                    </div>
+
+                    <div class="papel papel-horizontal tam-hm texturaHorizontal3">
+                        <img src="../texturas/personajes/aldeano.png" class="foto" alt="Aldeano">
+                        <span class="titulo">Aldeano</span>
+                        <h5 class="texto">Compré el Tirachinas de Héroe. Se terminó eso de fallarle a los
+                            globos con regalos que pasan flotando por el pueblo. Derribo todo al primer intento</h5>
+                        <h4 class="precio">aaaaa</h4>
+                    </div>
+
+                    <div class="papel papel-horizontal tam-hg borde-izq texturaCentro">
+                        <img src="../texturas/personajes/Sora.webp" class="foto" alt="Sora">
+                        <span class="titulo">Sora</span>
+                        <h5 class="texto">Adquirí el Búmeran. Viene bárbaro para golpear objetos o activar interruptores
+                            que están lejos sin
+                            tener que acercarme. El envío llegó rápido.</h5>
+                        <h4 class="precio">aaaad</h4>
+
+                    </div>
                 </div>
 
-                <div class="papel papel-vertical tam-vg texturaCentro">
-                    <img src="../texturas/personajes/eggman.png" class="foto" alt="Doctor Eggman">
-                    <span class="titulo">Doctor Eggman</span>
-                    <h5 class="texto">El Hookshot tiene una ingeniería de cadena retráctil interesante, pero es
-                        completamente absurdo. Intenté trepar a mi base de metal y la punta rebotó. ¡Resulta que el maldito aparato solo
-                        se agarra si apuntas específicamente a madera! Ineficiente.</h5>
-                    <h4 class="precio">aaddd</h4>
-                </div>
+                <div class="Newletter-container">
+                    <div class="Newletter"> </div>
 
-                <div class="papel papel-horizontal borde-izq tam-hg texturaCentro">
-                    <img src="../texturas/personajes/Dra.Asteria.png" class="foto" alt="Dra. Asteria la Descubierta">
-                    <span class="titulo dra">Dra. Asteria la Descubierta</span>
-                    <h5 class="texto">Compré una Gema Luminosa para alumbrar el abismo y un Elixir de Adhesión. Me vino espectacular para
-                        darles agarre a mis ventosas en las paredes verticales, ya que tengo mucho peso atrás. ¡Excelente atención!"</h5>
-                    <h4 class="precio">aaaaa</h4>
                 </div>
-                
-                <div class="papel papel-vertical tam-vm texturaVertical2">
-                    <img src="../texturas/personajes/Cuphead.webp" class="foto" alt="Cuphead">
-                    <span class="titulo">Cuphead</span>
-                    <h5 class="texto">Compre un Hada en Botella y me la meti en el bolsillo, me metieron un tiro letal, el bicho salió
-                        volando y me dio la vida extra que necesitaba para ganar el contrato. ¡10/10! por solo 50 rupias y una botella
-                        vacia es una ganga</h5>
-                    <h4 class="precio">aaaaa</h4>
-                </div>
-                
-                <div class="papel papel-centrado tam-cm texturaCentro">
-                    <img src="../texturas/personajes/red.webp" class="foto" alt="Red">
-                    <span class="titulo">Red</span>
-                    <h5 class="texto">...</h5>
-                    <h4 class="precio">aaaaa</h4>
-                </div>
-                
-                <div class="papel papel-vertical tam-vg texturaVertical3">
-                    <img src="../texturas/personajes/doomguy.webp" class="foto" alt="Doom guy">
-                    <span class="titulo">Doom Guy</span>
-                    <h5 class="texto">Adquirí Ball and Chain. El peso del hierro es devastador. Me permite demoler
-                        las armaduras pesadas de los demonios cibernéticos de un solo impacto y destrozar sus escudos de energía a corta
-                        distancia. Una herramienta brutal.</h5>
-                    <h4 class="precio">aaaaa</h4>
-                </div>
-                
-                <div class="papel papel-centrado tam-cc texturaCentroMini">
-                    <img src="../texturas/personajes/pakichu.png" class="foto" alt="Pikachu">
-                    <h4 class="precio">aaaaa</h4>
-                </div>
-                
-                <div class="papel papel-vertical tam-vc texturaVertical3">
-                    <img src="../texturas/personajes/gordon_freeman.png" class="foto" alt="Gordon Freeman">
-                    <span class="titulo">Gordon Freeman</span>
-                    <h4 class="precio">aaaaa</h4>
-                </div>
-                
-                <div class="papel papel-centrado tam-cm texturaCentro2">
-                    <img src="../texturas/personajes/kirbo.png" class="foto" alt="kirby">
-                    <span class="titulo">Kirby</span>
-                    <h5 class="texto">Poyo</h5>
-                    <h4 class="precio">aaaaa</h4>
-                </div>
-                
-                <div class="papel papel-centrado borde-izq tam-cm texturaCentro2">
-                    <img src="../texturas/personajes/yoshi.png" class="foto" alt="Yoshi">
-                    <span class="titulo">Yoshi</span>
-                    <h5 class="texto">¡Yoshi!</h5>
-                    <h4 class="precio">aaaaa</h4>
-                </div>
-                
-                
-                <div class="papel papel-vertical tam-vc texturaVertical3">
-                    <img src="../texturas/personajes/Crash_Bandicoot.webp" class="foto" alt="Crash Bandicoot">
-                    <span class="titulo">Crash Bandicoot</span>
-                    <h5 class="texto crash">WOAH!!</h5>
-                    <h4 class="precio">aaaaa</h4>
-                </div>
+                <form class="formulario-container form" action="https://formspree.io/f/xaenqqvv" method="post">
+                    <!-----------------------------mi pagina-->
+                    <div class="pagina-izq">
+                        <p class="subtitulo-form">El mercader revisa estas páginas al terminar el dia</p>
+                        <h2 class="titulo-form">Libro de Contacto</h2>
 
-                <div class="papel papel-vertical tam-vg texturaVertical1">
-                    <img src="../texturas/personajes/luigi.png" class="foto" alt="v">
-                    <span class="titulo">Luigi</span>
-                    <h5 class="texto">C-compré la Lente de la Verdad para cuando investigo pasillos oscuros. Es genial. La activás y te
-                        muestra los fantasmas ocultos y las paredes falsas al instante antes de que te peguen un susto. ¡Me dio muchísima
-                        seguridad!</h5>
-                    <h4 class="precio">aaadd</h4>
-                </div>
-                
-                <div class="papel papel-horizontal tam-hm texturaHorizontal3">
-                    <img src="../texturas/personajes/aldeano.png" class="foto" alt="Aldeano">
-                    <span class="titulo">Aldeano</span>
-                    <h5 class="texto">Compré el Tirachinas de Héroe. Se terminó eso de fallarle a los
-                        globos con regalos que pasan flotando por el pueblo. Derribo todo al primer intento</h5>
-                    <h4 class="precio">aaaaa</h4>
-                </div>
+                        <div class="campo nombre">
+                            <input type="text" id="nombre" name="nombre" placeholder="Tu nombre" spellcheck="false"
+                                required maxlength="24">
+                        </div>
 
-                <div class="papel papel-horizontal tam-hg borde-izq texturaCentro">
-                    <img src="../texturas/personajes/Sora.webp" class="foto" alt="Sora">
-                    <span class="titulo">Sora</span>
-                    <h5 class="texto">Adquirí el Búmeran. Viene bárbaro para golpear objetos o activar interruptores que están lejos sin
-                        tener que acercarme. El envío llegó rápido.</h5>
-                    <h4 class="precio">aaaad</h4>
-                
-    </div>
+                        <div class="campo mail">
+                            <input type="email" id="email" name="email" placeholder="Tu direcion de correo" required>
+                        </div>
+                        <div class="campo opciones">
+                            <!-- Opción 1 -->
+                            <div>
+                                <label for="tipo-consulta">Consulta</label>
+                                <input type="radio" id="tipo-consulta" name="motivo" value="consulta" required>
+                            </div>
+                            <div>
+                                <!-- Opción 2 -->
+                                <label for="tipo-sugerencia">Sugerencia</label>
+                                <input type="radio" id="tipo-sugerencia" name="motivo" value="sugerencia">
+                            </div>
+                        </div>
+                    </div>
+                    <!-----------------------------mi otra pagina-->
+                    <div class="pagina-der">
+                        <div class="campo-asunto">
+                            <textarea id="asunto" name="asunto" placeholder="Asunto del mensaje" spellcheck="false"
+                                maxlength="50" rows="2" required></textarea>
+                        </div>
+                        <div class="campo-mensaje">
+                            <textarea id="mensaje" name="mensaje" placeholder="Escribe aquí tu relato..."
+                                spellcheck="false" maxlength="257" rows="9" required></textarea>
+                        </div>
+                        <div class="campo-enviar">
+                            <button type="submit" class="boton-sheikah">Enviar</button>
+                        </div>
+                    </div>
+                    <div>
+                    </div>
+                </form>
             </div>
-            <div class="Newletter-container">
-                <div class="Newletter"> </div>
-            </div>
-            <form class="formulario-container form" action="https://formspree.io/f/xaenqqvv" method="post">
-                <div class="pagina-izq">
-                    <span class="subtitulo-form">El mercader revisa estas páginas al terminar el dia</span>
-                    <h2 class="titulo-form">Libro de Contacto</h2>
-        
-        <div class="nombre">
-            <input type="text" id="nombre" name="nombre" placeholder="Tu nombre" required>
         </div>
-        
-        <div class="mail">
-            <input type="email" id="email" name="email" placeholder="Tu correo electrónico" required>
         </div>
-        <div class="campo">
-            <select id="desplegable" name="desplegable" required>
-                <option value="" disabled selected>Selecciona el tipo</option>
-                <option value="consulta">Consulta</option>
-                <option value="sugerencia">Sugerencia para la tienda</option>
-            </select>
-        </div>
-        </div>
-        <div class="pagina-der">derecha</div>
-        </form>
-    </div>
-    </div>
-    </div>
-    </body>
+</body>
 
-    </html>
-    <!---- <main>
-        <!--- formulario de contacto--
-        <span>Deja un mensaje</span>
-        <h2>queremos saber de ti</h2>
-    <section>
-        <form action="https://formspree.io/f/xaenqqvv" method="post">
-            <div>
-                <legend>Formulario de contacto</legend>
-                <input type="text" id="nombre" name="nombre" placeholder="Tu nombre" required>
-            </div>
-            <div>
-                <label for="email">Email:</label>
-                <input type="email" id="email" name="email" placeholder="Tu email" required>
-            </div>
-            <div>
-                <input type="text" id="asunto" name="asunto" placeholder="Asunto del mensaje" required>
-            </div>
-            <div>    
-                <label for="mensaje">Mensaje:</label>
-                <textarea id="mensaje" name="mensaje" placeholder="Tu mensaje" required></textarea>
-            </div>
-            <div>
-                <label for="desplegable">desplegable:</label>
-                <select id="desplegable" name="desplegable">
-                     <option value="">Seleccione una opción</option>
-                    <option value="consulta">consulta</option>
-                    <option value="sugerencia">sugerencia</option>
-                </select>
-            </div>
-            <div>
-                <input type="submit" value="Enviar">
-            </div>
-        </form>
-    </section>
-    <section>
-        <!--- mapa--
-    </section>
-    <section>
-        <!--- newsletter--
-    </section>
-
+</html>
 
 
 

@@ -1,20 +1,23 @@
-
 @font-face {
-    font-family: 'Zeldatitulos1'; /* zelda breth the ideal para titulos */
-    src: url('../font/triforce/Triforce.ttf') format('truetype'); 
+    font-family: 'Zeldatitulos1';
+    /* zelda breth the ideal para titulos */
+    src: url('../font/triforce/Triforce.ttf') format('truetype');
 
 }
 
 @font-face {
-    font-family: 'zeldatitulos2';   /* simbolos dentro y mas espaciado */
+    font-family: 'zeldatitulos2';
+    /* simbolos dentro y mas espaciado */
     src: url('../font/the_wild_breath_of_zelda/TheWildBreathofZelda.otf') format('truetype');
 }
 
 @font-face {
-    font-family: 'Zelda'; /* dibujos de zelda */
-        src: url('../font/trifont/LegendOfZeldaTriFont.ttf') format('truetype');
+    font-family: 'Zelda';
+    /* dibujos de zelda */
+    src: url('../font/trifont/LegendOfZeldaTriFont.ttf') format('truetype');
 
 }
+
 @font-face {
     font-family: 'simbolosheika';
     src: url('../font/Handwrittersheika/HandwrittenSheikahRunes-Regular.ttf') format('truetype');
@@ -45,35 +48,39 @@
 }
 
 @font-face {
-    font-family: 'imperial'; /*hermosa letra cursiva */
+    font-family: 'imperial';
+    /*hermosa letra cursiva */
     src: url('../font/imperial_scrip/ImperialScript-Regular.ttf') format('truetype');
 }
 
 
 @font-face {
-    font-family: 'firma'; /*mucho mas cerrado estupenda para firmas*/
+    font-family: 'firma';
+    /*mucho mas cerrado estupenda para firmas*/
     src: url('../font/brother_signature/BrotherSignature.otf') format('truetype');
 }
 
 @font-face {
-    font-family: 'boligrafo'; /*otra cursiva */
+    font-family: 'boligrafo';
+    /*otra cursiva */
     src: url('../font/billa_mount_boligrafo/BillaMount-Regular.ttf') format('truetype');
 }
 
 @font-face {
-    font-family: 'star1'; 
+    font-family: 'star1';
     src: url('../font/seeing_stars/SEEIS___.TTF') format('truetype');
 }
 
 @font-face {
-    font-family: 'star2'; /*otra cursiva */
+    font-family: 'star2';
+    /*otra cursiva */
     src: url('../font/starlight_5/StarlightDemo-Basic.ttf') format('truetype');
-}@font-face {
+}
+
+@font-face {
     font-family: 'star3';
     src: url('../font/mf_star_dings/MFStarDingsTTF.ttf') format('truetype');
 }
-
-
 
 
 /* ============================================================
@@ -81,44 +88,59 @@
    Sección principal video de fondo y  3D
    ============================================================ */
 .hero {
-    position: relative; /* esto es importante los elementos absolutos pueden moverse por cualquier lado al poner relative estoy diciendo que los absolutos no puedan salir de esta caja */
+    position: relative;
+    /* esto es importante los elementos absolutos pueden moverse por cualquier lado al poner relative estoy diciendo que los absolutos no puedan salir de esta caja */
     display: flex;
     align-items: center;
-    justify-content: flex-end; 
-    height: 93vh; /* Mantiene tu altura original */
+    justify-content: flex-end;
+    height: 93vh;
+    /* Mantiene tu altura original */
     width: 100%;
-    margin-bottom: 40px; /* Deja un espacio de respiro antes de la siguiente sección de la web */
-    overflow: hidden; /*  Esto corta lo que se salga actua como la funcion ( cover) el video tracker se expande y creece pero el hero no por tanto lo que queda fuera no se dibuja */
-    border: 3px solid rgb(255, 251, 0); /*debug de los limites del hero */
+    margin-bottom: 40px;
+    /* Deja un espacio de respiro antes de la siguiente sección de la web */
+    overflow: hidden;
+    /*  Esto corta lo que se salga actua como la funcion ( cover) el video tracker se expande y creece pero el hero no por tanto lo que queda fuera no se dibuja */
+    border: 3px solid rgb(255, 251, 0);
+    /*debug de los limites del hero */
 }
+
 /* ============================================================
 El contenedor que simula el object-fit: cover y arrastra los estantes 
 EL TRACKER 
 ============================================================ */
 .video-tracker {
-    position: absolute; /* Al ser absoluto  me deja centrarlo manualmente */
+    position: absolute;
+    /* Al ser absoluto  me deja centrarlo manualmente */
     /*lo centro perfectamente usando coordenadas absolutas (pongo el centro del tracker en el centro de la pantalla) (clavo) */
     top: 50%;
     left: 50%;
-    transform: translate(-50%, -50%); /* Desplazo el elemento la mitad de su propio tamaño para que el centrado sea perfecto esto tiene que ver con como lee el navegador empezando desde las puntas si no lo pusiera no se comportaria como quiero (cuadro) */
+    transform: translate(-50%, -50%);
+    /* Desplazo el elemento la mitad de su propio tamaño para que el centrado sea perfecto esto tiene que ver con como lee el navegador empezando desde las puntas si no lo pusiera no se comportaria como quiero (cuadro) */
     /*Obligo a este div invisible a tener exactamente la misma 
-    proporción que el video original. Si el video crece o se recorta, este div lo hace con él. */    
-    aspect-ratio: 16 / 9; /* Ajusta a la proporción del video (1280 × 720) si divido eso me da exactamente 16/9*/
+    proporción que el video original. Si el video crece o se recorta,
+        este div lo hace con él. */
+    aspect-ratio: 16 / 9;
+    /* Ajusta a la proporción del video (1280 × 720) si divido eso me da exactamente 16/9*/
     /* Al crecer, recortará simétricamente de las puntas */
     min-width: 100%;
     min-height: 100%;
-    z-index: 1; /* Se queda en la capa de fondo */
+    z-index: 1;
+    /* Se queda en la capa de fondo */
 }
 
 /* El elemento del video (ya no necesita cover porque el tracker lo hace) */
 .hero .video-hero {
     position: absolute;
-    top: 0; /* Lo pegamos al techo exacto de su contenedor (el tracker) */
-    left: 0; /* Lo pegamos a la pared izquierda exacta del tracker */
-    width: 100%; /* Se estira para ocupar todo el ancho del contenedor (tracker) */
+    top: 0;
+    /* Lo pegamos al techo exacto de su contenedor (el tracker) */
+    left: 0;
+    /* Lo pegamos a la pared izquierda exacta del tracker */
+    width: 100%;
+    /* Se estira para ocupar todo el ancho del contenedor (tracker) */
     height: 100%;
-    z-index: 1;        
-    pointer-events: none; /* Evito que el usuario pueda hacer click derecho en el video o pausarlo por accidente */
+    z-index: 1;
+    pointer-events: none;
+    /* Evito que el usuario pueda hacer click derecho en el video o pausarlo por accidente */
 }
 
 /* ============================================================
@@ -130,10 +152,12 @@ EL TRACKER
     left: 0;
     width: 100%;
     height: 100%;
-    z-index: 10; /* Lo pongo por encima del video (z-index: 1) para que los productos se vean */
-    background: transparent; /*hace que el video se vea por debajo de los productos */
-    
+    z-index: 10;
+    /* Lo pongo por encima del video (z-index: 1) para que los productos se vean */
+    background: transparent;
+    /*hace que el video se vea por debajo de los productos */
 }
+
 /* lienzo trasparente que contiene las reseñas */
 .reseñas-container {
     position: absolute;
@@ -144,14 +168,15 @@ EL TRACKER
     background-color: rgba(255, 0, 0, 0.278);
 
     display: grid;
-/* Forzamos a que las 24 columnas midan exactamente lo mismo sin importar qué tarjeta tengan adentro */
+    /* Forzamos a que las 24 columnas midan exactamente lo mismo sin importar qué tarjeta tengan adentro */
     grid-template-columns: repeat(24, minmax(0, 1fr));
-    
+
     /* Forzamos las 12 filas iniciales a medir lo mismo */
     grid-template-rows: repeat(12, minmax(0, 1fr));
-    
+
     /*  Si los personajes se caen de las 12 filas y crean filas nuevas, forzamos a que esas filas extra también midan lo mismo en lugar de colapsar a 0 */
-    grid-auto-rows: minmax(0, 1fr);         /* antes 25px → filas más finas */
+    grid-auto-rows: minmax(0, 1fr);
+    /* antes 25px → filas más finas */
     place-items: stretch;
     grid-auto-flow: dense
 }
@@ -161,42 +186,76 @@ EL TRACKER
  PAPEL (caja común configuraciones generales)
    ============================================================ */
 .papel {
-z-index: 1;
+    z-index: 1;
     width: 100%;
     height: 100%;
-container-type: inline-size; /* ← la caja es la referencia le digo este papel es tu referencia medi desde aca */
+    container-type: inline-size;
+    /* ← la caja es la referencia le digo este papel es tu referencia medi desde aca */
 
     border-radius: 4px;
     overflow: hidden;
-transition: transform 0.3s ease, box-shadow 0.3s ease, z-index 0s 0.3s;}
+    transition: transform 0.3s ease, box-shadow 0.3s ease, z-index 0s 0.3s;
+}
 
 /* Cuando el mouse pasa por encima de un papel */
-.papel:hover { transition: transform 0.4s ease 0.6s, box-shadow 0.4s ease 0.6s, z-index 0s 0.6s;}
+.papel:hover {
+    transition: transform 0.4s ease 0.6s, box-shadow 0.4s ease 0.6s, z-index 0s 0.6s;
+}
 
 /* Escalas por tamaño  */
-.papel.tam-vg:hover { 
-    transform: scale(6); /* El gigante crece x4.5 */
-    z-index: 100; 
+.papel.tam-vg:hover {
+    transform: scale(6);
+    /* El gigante crece x4.5 */
+    z-index: 100;
 }
-.papel.tam-vm:hover { 
-    transform: scale(8); /* El mediano tiene que crecer más para verse igual de bien */
-    z-index: 100; 
+
+.papel.tam-vm:hover {
+    transform: scale(8);
+    /* El mediano tiene que crecer más para verse igual de bien */
+    z-index: 100;
 }
-.papel.tam-vc:hover { 
-    transform: scale(11); /* El chico crece una barbaridad para ser legible */
-    z-index: 100; 
+
+.papel.tam-vc:hover {
+    transform: scale(11);
+    /* El chico crece una barbaridad para ser legible */
+    z-index: 100;
 }
 
 
 /* ESCALAS PARA HORIZONTALES */
-.papel.tam-hg:hover { transform: scale(6); z-index: 100; } /* Ya es grande, crece normal */
-.papel.tam-hm:hover { transform: scale(7.5); z-index: 100; }
-.papel.tam-hc:hover { transform: scale(10); z-index: 100; } /* Es muy angosta, necesita un empujón fuerte */
+.papel.tam-hg:hover {
+    transform: scale(6);
+    z-index: 100;
+}
+
+/* Ya es grande, crece normal */
+.papel.tam-hm:hover {
+    transform: scale(7.5);
+    z-index: 100;
+}
+
+.papel.tam-hc:hover {
+    transform: scale(10);
+    z-index: 100;
+}
+
+/* Es muy angosta, necesita un empujón fuerte */
 
 /* ESCALAS PARA CENTRADAS */
-.papel.tam-cg:hover { transform: scale(7.5); z-index: 100; } 
-.papel.tam-cm:hover { transform: scale(7.5); z-index: 100; }
-.papel.tam-cc:hover { transform: scale(12);   z-index:100;}
+.papel.tam-cg:hover {
+    transform: scale(7.5);
+    z-index: 100;
+}
+
+.papel.tam-cm:hover {
+    transform: scale(7.5);
+    z-index: 100;
+}
+
+.papel.tam-cc:hover {
+    transform: scale(12);
+    z-index: 100;
+}
 
 .papel.papel-letrero:hover {
     transform: scale(4);
@@ -204,11 +263,31 @@ transition: transform 0.3s ease, box-shadow 0.3s ease, z-index 0s 0.3s;}
 }
 
 /* clases para que no se vayan fuera de la pantalla y se corten al agrandarse, no use todas las clases */
-.borde-der {transform-origin: right center;} /* Se ancla a la derecha, crece hacia la izquierda */
-.borde-izq {transform-origin: left center;} /* Se ancla a la izquierda, crece hacia la derecha */
-.borde-techo {transform-origin: center top;} /* Se ancla arriba, crece hacia abajo */
-.borde-piso {transform-origin: center bottom;} /* Se ancla abajo, crece hacia arriba */
-.esquina-superior-izq {transform-origin: left top;}/* Crece hacia abajo y a la izquierda */
+.borde-der {
+    transform-origin: right center;
+}
+
+/* Se ancla a la derecha, crece hacia la izquierda */
+.borde-izq {
+    transform-origin: left center;
+}
+
+/* Se ancla a la izquierda, crece hacia la derecha */
+.borde-techo {
+    transform-origin: center top;
+}
+
+/* Se ancla arriba, crece hacia abajo */
+.borde-piso {
+    transform-origin: center bottom;
+}
+
+/* Se ancla abajo, crece hacia arriba */
+.esquina-superior-izq {
+    transform-origin: left top;
+}
+
+/* Crece hacia abajo y a la izquierda */
 
 /* ============================================================
  LAYOUTS (orden interno del contenido)
@@ -220,7 +299,7 @@ transition: transform 0.3s ease, box-shadow 0.3s ease, z-index 0s 0.3s;}
         "foto   texto"
         "foto   texto"
         "titulo precio";
-grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
 }
 
 
@@ -228,18 +307,25 @@ grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
 .papel-horizontal.tam-hg,
 .papel-horizontal.tam-hm {
     grid-template-rows:
-        minmax(0, 0.8fr)  /* Fila 1 (Arriba): Mitad superior de la foto y el Precio */
-        minmax(0, 1.4fr)  /* Fila 2 (Medio): Centro de la foto y cuerpo del Texto */
-        minmax(0, 0.8fr); /* Fila 3 (Abajo): Título y final del Texto */
+        minmax(0, 0.8fr)
+        /* Fila 1 (Arriba): Mitad superior de la foto y el Precio */
+        minmax(0, 1.4fr)
+        /* Fila 2 (Medio): Centro de la foto y cuerpo del Texto */
+        minmax(0, 0.8fr);
+    /* Fila 3 (Abajo): Título y final del Texto */
 }
 
 /* HORIZONTAL CHICO (Mide 2 bloques de alto -> Suma 2) */
 .papel-horizontal.tam-hc {
     grid-template-rows:
-        minmax(0, 0.5fr)  /* Fila 1 */
-        minmax(0, 1fr)    /* Fila 2: El texto se lleva la mayor parte del espacio */
-        minmax(0, 0.5fr); /* Fila 3 */
+        minmax(0, 0.5fr)
+        /* Fila 1 */
+        minmax(0, 1fr)
+        /* Fila 2: El texto se lleva la mayor parte del espacio */
+        minmax(0, 0.5fr);
+    /* Fila 3 */
 }
+
 .papel-vertical {
     display: grid;
     grid-template-areas:
@@ -247,33 +333,48 @@ grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
         "titulo"
         "precio"
         "texto";
-        
+
     /* Columna que equivale a los 4 cuadraditos de ancho */
-    grid-template-columns: minmax(0, 1fr);    
+    grid-template-columns: minmax(0, 1fr);
     place-items: center;
 }
+
 .papel-vertical.tam-vg {
     grid-template-rows:
-        minmax(0, 1.5fr)    /* Foto */
-        minmax(0, 1fr)    /* Título */
-        minmax(0, 0.5fr)  /* Precio */
-        minmax(0, 3fr); /* Texto */
+        minmax(0, 1.5fr)
+        /* Foto */
+        minmax(0, 1fr)
+        /* Título */
+        minmax(0, 0.5fr)
+        /* Precio */
+        minmax(0, 3fr);
+    /* Texto */
 }
+
 /*  VERTICAL MEDIANO (Mide 4 bloques afuera -> Suma 4 adentro) */
 .papel-vertical.tam-vm {
     grid-template-rows:
-        minmax(0, 1.5fr)    /* Foto */
-        minmax(0, 0.5fr)  /* Título */
-        minmax(0, 0.5fr)  /* Precio */
-        minmax(0, 2fr);   /* Texto */  
+        minmax(0, 1.5fr)
+        /* Foto */
+        minmax(0, 0.5fr)
+        /* Título */
+        minmax(0, 0.5fr)
+        /* Precio */
+        minmax(0, 2fr);
+    /* Texto */
 }
+
 /*  VERTICAL CHICO (Mide 3 bloques afuera -> Suma 3 adentro) */
 .papel-vertical.tam-vc {
-   grid-template-rows:
-        minmax(0, 1.8fr)  /* Foto: Gigante (60% de la tarjeta). Se lleva casi todo. */
-        minmax(0, 0.5fr)  /* Título: Lo justo para que no se pise */
-        minmax(0, 0.4fr)  /* Precio: Un poquito menos que el título */
-        minmax(0, 0.3fr); /* Texto: Minúsculo. Si no hay texto, este 0.3fr vacío es tan chiquito que ni se nota */
+    grid-template-rows:
+        minmax(0, 1.8fr)
+        /* Foto: Gigante (60% de la tarjeta). Se lleva casi todo. */
+        minmax(0, 0.5fr)
+        /* Título: Lo justo para que no se pise */
+        minmax(0, 0.4fr)
+        /* Precio: Un poquito menos que el título */
+        minmax(0, 0.3fr);
+    /* Texto: Minúsculo. Si no hay texto, este 0.3fr vacío es tan chiquito que ni se nota */
 }
 
 
@@ -283,11 +384,12 @@ grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
         "foto"
         "titulo"
         "precio";
-grid-template-columns: minmax(0, 1fr);
+    grid-template-columns: minmax(0, 1fr);
 
     place-items: center;
     text-align: center;
 }
+
 .papel-centrado.tam-cc .titulo,
 .papel-centrado.tam-cc .precio {
     display: none;
@@ -297,54 +399,67 @@ grid-template-columns: minmax(0, 1fr);
 .papel-centrado.tam-cg,
 .papel-centrado.tam-cm {
     grid-template-rows:
-        minmax(0, 2.2fr)  /* Foto: Es la protagonista indiscutible */
-        minmax(0, 0.4fr)  /* Título: Apretadito abajo */
-        minmax(0, 0.4fr); /* Precio: Apretadito abajo */
+        minmax(0, 2.2fr)
+        /* Foto: Es la protagonista indiscutible */
+        minmax(0, 0.4fr)
+        /* Título: Apretadito abajo */
+        minmax(0, 0.4fr);
+    /* Precio: Apretadito abajo */
 }
 
 /* CENTRADO CHICO (Mide 2 bloques de alto -> Suma 2) */
 .papel-centrado.tam-cc {
     grid-template-rows:
-        minmax(0, 2fr)  /* Foto */}
+        minmax(0, 2fr)
+        /* Foto */
+}
 
 .papel-letrero {
     display: grid;
-    grid-template-areas: 
-    "titulo-cartel"
-    "subtitulo";
-grid-template-columns: minmax(0, 1fr);
-/*debo sumar 3*/
-grid-template-rows:
-minmax(0,2fr)
-minmax(0,1fr);
-place-items: center;
+    grid-template-areas:
+        "titulo-cartel"
+        "subtitulo";
+    grid-template-columns: minmax(0, 1fr);
+    /*debo sumar 3*/
+    grid-template-rows:
+        minmax(0, 2fr) minmax(0, 1fr);
+    place-items: center;
 }
+
 .papel-letrero .titulo-cartel {
-grid-area: titulo-cartel;
+    grid-area: titulo-cartel;
     font-family: 'Zeldatitulos1', sans-serif;
     font-size: 9cqw;
     text-align: center;
-    
+
     /* RETOQUES DE TINTA */
-    color: #2b1d0f; /* Un marrón/sepia súper oscuro,  */
-    mix-blend-mode: multiply; /* Fusiona la letra con la textura creo */
-    opacity: 0.9; /* Un desgaste mínimo */
-margin-top: 10%;
+    color: #2b1d0f;
+    /* Un marrón/sepia súper oscuro,  */
+    mix-blend-mode: multiply;
+    /* Fusiona la letra con la textura creo */
+    opacity: 0.9;
+    /* Un desgaste mínimo */
+    margin-top: 10%;
     margin-left: -10%;
 
 }
-.papel-letrero .subtitulo
-{grid-area:subtitulo;
+
+.papel-letrero .subtitulo {
+    grid-area: subtitulo;
     font-family: 'maquinadeescribir', sans-serif;
     font-size: 4cqw;
     color: #333333;
-    text-align: center; /* text-align ordena la tinta en el papel. */
-    align-self: center; /* align-self mueve el papel entero de arriba a abajo (↕) eje Y. Opciones: start (arriba), center (medio), end (abajo) respecto al contendor */
-    justify-self: center; /* justify-self mueve el papel entero de lado a lado (↔) eje X */
+    text-align: center;
+    /* text-align ordena la tinta en el papel. */
+    align-self: center;
+    /* align-self mueve el papel entero de arriba a abajo (↕) eje Y. Opciones: start (arriba), center (medio), end (abajo) respecto al contendor */
+    justify-self: center;
+    /* justify-self mueve el papel entero de lado a lado (↔) eje X */
     margin-top: -10%;
     margin-left: -10%;
 
 }
+
 /*
 Zeldatitulos1, Zelda, tintaChina, zeldatitulos2, redes, 
 
@@ -356,43 +471,86 @@ maquinadeescribir, pixel, imperial, simbolosheika, firma, boligrafo.
    TAMAÑOS (span en el grid padre osea reseñasconteiner) 
    ============================================================ */
 
-.tam-hg { grid-column: span 6; grid-row: span 3; }
-.tam-hm { grid-column: span 5; grid-row: span 3; }
-.tam-hc { grid-column: span 4; grid-row: span 2; }
+.tam-hg {
+    grid-column: span 6;
+    grid-row: span 3;
+}
 
-.tam-vg { grid-column: span 4; grid-row: span 6; }    
-.tam-vm { grid-column: span 3; grid-row: span 4; }
-.tam-vc { grid-column: span 2; grid-row: span 3; }
+.tam-hm {
+    grid-column: span 5;
+    grid-row: span 3;
+}
 
-.tam-cg { grid-column: span 3; grid-row: span 3; }
-.tam-cm { grid-column: span 3; grid-row: span 3; }
-.tam-cc { grid-column: span 2; grid-row: span 2; }
+.tam-hc {
+    grid-column: span 4;
+    grid-row: span 2;
+}
+
+.tam-vg {
+    grid-column: span 4;
+    grid-row: span 6;
+}
+
+.tam-vm {
+    grid-column: span 3;
+    grid-row: span 4;
+}
+
+.tam-vc {
+    grid-column: span 2;
+    grid-row: span 3;
+}
+
+.tam-cg {
+    grid-column: span 3;
+    grid-row: span 3;
+}
+
+.tam-cm {
+    grid-column: span 3;
+    grid-row: span 3;
+}
+
+.tam-cc {
+    grid-column: span 2;
+    grid-row: span 2;
+}
 
 /* ============================================================
    HIJOS (foto, título, precio, texto) 
    ============================================================ */
 .papel .foto {
-     grid-area: foto;
-    width: 100%;        /* llena el ancho del área */
-    height: 100%;       /* llena el alto del área */
-    min-width: 20px;       /* puede achicarse */
-    min-height: 20px;      /* puede achicarse */
-    object-fit: contain; /* no se deforma, entra completa */
+    grid-area: foto;
+    width: 100%;
+    /* llena el ancho del área */
+    height: 100%;
+    /* llena el alto del área */
+    min-width: 20px;
+    /* puede achicarse */
+    min-height: 20px;
+    /* puede achicarse */
+    object-fit: contain;
+    /* no se deforma, entra completa */
     border-radius: 3px;
     filter: sepia(1);
 }
 
 .papel-centrado.tam-cc .foto {
-     grid-area: foto;
-    width: 80%;        /* llena el ancho del área */
-    height: 100%;       /* llena el alto del área */
-    min-width: 20px;       /* puede achicarse */
-    min-height: 20px;      /* puede achicarse */
-    object-fit: contain; /* no se deforma, entra completa */
+    grid-area: foto;
+    width: 80%;
+    /* llena el ancho del área */
+    height: 100%;
+    /* llena el alto del área */
+    min-width: 20px;
+    /* puede achicarse */
+    min-height: 20px;
+    /* puede achicarse */
+    object-fit: contain;
+    /* no se deforma, entra completa */
     border-radius: 3px;
     filter: sepia(1);
-margin-top: 17%;
-margin-left: 13%;
+    margin-top: 17%;
+    margin-left: 13%;
 
 }
 
@@ -405,14 +563,17 @@ titulos
     grid-area: titulo;
     font-size: clamp(0.5rem, 7cqw, 0.9rem);
     color: #333333;
-    text-align: center; /*el nombre del personaje queda alineado exactamente al centro debajo de su foto, en lugar de pegado al borde izquierdo.*/}
+    text-align: center;
+    /*el nombre del personaje queda alineado exactamente al centro debajo de su foto, en lugar de pegado al borde izquierdo.*/
+}
 
 .papel-vertical.tam-vm .titulo {
     font-family: 'firma', sans-serif;
     grid-area: titulo;
     font-size: 12cqw;
     color: #333333;
-    text-align: center; /*el nombre del personaje queda alineado exactamente al centro debajo de su foto, en lugar de pegado al borde izquierdo.*/
+    text-align: center;
+    /*el nombre del personaje queda alineado exactamente al centro debajo de su foto, en lugar de pegado al borde izquierdo.*/
     margin-top: 3%;
 }
 
@@ -422,7 +583,8 @@ titulos
     grid-area: titulo;
     font-size: 15cqw;
     color: #333333;
-    text-align: center; /*el nombre del personaje queda alineado exactamente al centro debajo de su foto, en lugar de pegado al borde izquierdo.*/
+    text-align: center;
+    /*el nombre del personaje queda alineado exactamente al centro debajo de su foto, en lugar de pegado al borde izquierdo.*/
 }
 
 
@@ -431,7 +593,8 @@ titulos
     grid-area: titulo;
     font-size: 8cqw;
     color: #333333;
-    text-align: center; /*el nombre del personaje queda alineado exactamente al centro debajo de su foto, en lugar de pegado al borde izquierdo.*/
+    text-align: center;
+    /*el nombre del personaje queda alineado exactamente al centro debajo de su foto, en lugar de pegado al borde izquierdo.*/
 }
 
 .papel-horizontal.tam-hg .titulo.dra {
@@ -439,9 +602,11 @@ titulos
     grid-area: titulo;
     font-size: 7cqw;
     color: #333333;
-    text-align: center; /*el nombre del personaje queda alineado exactamente al centro debajo de su foto, en lugar de pegado al borde izquierdo.*/
-margin-top: -10%;
- line-height: 0.9; /* Reduce el espacio vertical entre líneas */
+    text-align: center;
+    /*el nombre del personaje queda alineado exactamente al centro debajo de su foto, en lugar de pegado al borde izquierdo.*/
+    margin-top: -10%;
+    line-height: 0.9;
+    /* Reduce el espacio vertical entre líneas */
 
 }
 
@@ -451,7 +616,8 @@ margin-top: -10%;
     font-size: 9cqw;
     color: #333333;
     word-spacing: 10%;
-    text-align: center; /*el nombre del personaje queda alineado exactamente al centro debajo de su foto, en lugar de pegado al borde izquierdo.*/
+    text-align: center;
+    /*el nombre del personaje queda alineado exactamente al centro debajo de su foto, en lugar de pegado al borde izquierdo.*/
 }
 
 .papel-centrado.tam-cg.tam-hm .titulo {
@@ -459,47 +625,55 @@ margin-top: -10%;
     grid-area: titulo;
     font-size: 9cqw;
     color: #333333;
-    text-align: center; /*el nombre del personaje queda alineado exactamente al centro debajo de su foto, en lugar de pegado al borde izquierdo.*/
+    text-align: center;
+    /*el nombre del personaje queda alineado exactamente al centro debajo de su foto, en lugar de pegado al borde izquierdo.*/
 }
+
 /* ===================================================================
 estrellas
 =====================================================*/
 
 .papel-vertical.tam-vg .precio {
-    font-family: 'star1'   ;
+    font-family: 'star1';
     grid-area: precio;
     font-size: clamp(0.45rem, 6cqw, 0.85rem);
     font-weight: bold;
-    display: inline-block;  /* significa Tratalo como un texto (para que se quede en el mismo renglón al lado de otras cosas), pero dejame controlar su tamaño y su espacio como si fuera un bloque */
-        /* Tonos sepia quemado y tinta oxidada (menos oscuros, más integrados) */
+    display: inline-block;
+    /* significa Tratalo como un texto (para que se quede en el mismo renglón al lado de otras cosas), pero dejame controlar su tamaño y su espacio como si fuera un bloque */
+    /* Tonos sepia quemado y tinta oxidada (menos oscuros, más integrados) */
     background: linear-gradient(180deg, #4a3319 0%, #61462a 100%);
-    background-clip: text; /* el color se lo asigno al fondo */
-    -webkit-background-clip: text;   /* recorta el fondo con la forma del objeto */
-    -webkit-text-fill-color: transparent; /* vuelve invisible el objeto dejando solo el fondo */
+    background-clip: text;
+    /* el color se lo asigno al fondo */
+    -webkit-background-clip: text;
+    /* recorta el fondo con la forma del objeto */
+    -webkit-text-fill-color: transparent;
+    /* vuelve invisible el objeto dejando solo el fondo */
 
     /* CLAVE: Mezcla la tinta con la textura del pergamino de fondo */
-    mix-blend-mode: multiply; 
-    
+    mix-blend-mode: multiply;
     /* Un ligero desenfoque y opacidad para simular el desgaste de la tinta vieja en el papel */
     opacity: 0.85;
     margin-top: -5.5%
 }
 
 .papel-vertical.tam-vm .precio {
-    font-family: 'star1'   ;
+    font-family: 'star1';
     grid-area: precio;
     font-size: 10cqw;
     font-weight: bold;
-    display: inline-block;  /* significa Tratalo como un texto (para que se quede en el mismo renglón al lado de otras cosas), pero dejame controlar su tamaño y su espacio como si fuera un bloque */
-        /* Tonos sepia quemado y tinta oxidada (menos oscuros, más integrados) */
+    display: inline-block;
+    /* significa Tratalo como un texto (para que se quede en el mismo renglón al lado de otras cosas), pero dejame controlar su tamaño y su espacio como si fuera un bloque */
+    /* Tonos sepia quemado y tinta oxidada (menos oscuros, más integrados) */
     background: linear-gradient(180deg, #4a3319 0%, #61462a 100%);
-    background-clip: text; /* el color se lo asigno al fondo */
-    -webkit-background-clip: text;   /* recorta el fondo con la forma del objeto */
-    -webkit-text-fill-color: transparent; /* vuelve invisible el objeto dejando solo el fondo */
+    background-clip: text;
+    /* el color se lo asigno al fondo */
+    -webkit-background-clip: text;
+    /* recorta el fondo con la forma del objeto */
+    -webkit-text-fill-color: transparent;
+    /* vuelve invisible el objeto dejando solo el fondo */
 
     /* CLAVE: Mezcla la tinta con la textura del pergamino de fondo */
-    mix-blend-mode: multiply; 
-    
+    mix-blend-mode: multiply;
     /* Un ligero desenfoque y opacidad para simular el desgaste de la tinta vieja en el papel */
     opacity: 0.85;
     margin-top: -5%;
@@ -507,109 +681,125 @@ estrellas
 
 .papel-vertical.tam-vc .precio {
 
-    font-family: 'star1'   ;
+    font-family: 'star1';
     grid-area: precio;
     font-size: 10cqw;
     font-weight: bold;
-    display: inline-block;  /* significa Tratalo como un texto (para que se quede en el mismo renglón al lado de otras cosas), pero dejame controlar su tamaño y su espacio como si fuera un bloque */
-        /* Tonos sepia quemado y tinta oxidada (menos oscuros, más integrados) */
+    display: inline-block;
+    /* significa Tratalo como un texto (para que se quede en el mismo renglón al lado de otras cosas), pero dejame controlar su tamaño y su espacio como si fuera un bloque */
+    /* Tonos sepia quemado y tinta oxidada (menos oscuros, más integrados) */
     background: linear-gradient(180deg, #4a3319 0%, #61462a 100%);
-    background-clip: text; /* el color se lo asigno al fondo */
-    -webkit-background-clip: text;   /* recorta el fondo con la forma del objeto */
-    -webkit-text-fill-color: transparent; /* vuelve invisible el objeto dejando solo el fondo */
+    background-clip: text;
+    /* el color se lo asigno al fondo */
+    -webkit-background-clip: text;
+    /* recorta el fondo con la forma del objeto */
+    -webkit-text-fill-color: transparent;
+    /* vuelve invisible el objeto dejando solo el fondo */
 
     /* CLAVE: Mezcla la tinta con la textura del pergamino de fondo */
-    mix-blend-mode: multiply; 
-    
+    mix-blend-mode: multiply;
     /* Un ligero desenfoque y opacidad para simular el desgaste de la tinta vieja en el papel */
     opacity: 0.85;
     margin-top: -10%;
-   
+
 }
+
 .papel-vertical.tam-vc .precio {
 
-    font-family: 'star1'   ;
+    font-family: 'star1';
     grid-area: precio;
     font-size: 10cqw;
     font-weight: bold;
-    display: inline-block;  /* significa Tratalo como un texto (para que se quede en el mismo renglón al lado de otras cosas), pero dejame controlar su tamaño y su espacio como si fuera un bloque */
-        /* Tonos sepia quemado y tinta oxidada (menos oscuros, más integrados) */
+    display: inline-block;
+    /* significa Tratalo como un texto (para que se quede en el mismo renglón al lado de otras cosas), pero dejame controlar su tamaño y su espacio como si fuera un bloque */
+    /* Tonos sepia quemado y tinta oxidada (menos oscuros, más integrados) */
     background: linear-gradient(180deg, #4a3319 0%, #61462a 100%);
-    background-clip: text; /* el color se lo asigno al fondo */
-    -webkit-background-clip: text;   /* recorta el fondo con la forma del objeto */
-    -webkit-text-fill-color: transparent; /* vuelve invisible el objeto dejando solo el fondo */
+    background-clip: text;
+    /* el color se lo asigno al fondo */
+    -webkit-background-clip: text;
+    /* recorta el fondo con la forma del objeto */
+    -webkit-text-fill-color: transparent;
+    /* vuelve invisible el objeto dejando solo el fondo */
 
     /* CLAVE: Mezcla la tinta con la textura del pergamino de fondo */
-    mix-blend-mode: multiply; 
-    
+    mix-blend-mode: multiply;
     /* Un ligero desenfoque y opacidad para simular el desgaste de la tinta vieja en el papel */
     opacity: 0.85;
     margin-top: -10%;
-   
+
 }
 
 .papel-horizontal.tam-hg .precio {
-    font-family: 'star1'   ;
+    font-family: 'star1';
     grid-area: precio;
     font-size: 6cqw;
     font-weight: bold;
-    display: inline-block;  /* significa Tratalo como un texto (para que se quede en el mismo renglón al lado de otras cosas), pero dejame controlar su tamaño y su espacio como si fuera un bloque */
-        /* Tonos sepia quemado y tinta oxidada (menos oscuros, más integrados) */
+    display: inline-block;
+    /* significa Tratalo como un texto (para que se quede en el mismo renglón al lado de otras cosas), pero dejame controlar su tamaño y su espacio como si fuera un bloque */
+    /* Tonos sepia quemado y tinta oxidada (menos oscuros, más integrados) */
     background: linear-gradient(180deg, #4a3319 0%, #61462a 100%);
-    background-clip: text; /* el color se lo asigno al fondo */
-    -webkit-background-clip: text;   /* recorta el fondo con la forma del objeto */
-    -webkit-text-fill-color: transparent; /* vuelve invisible el objeto dejando solo el fondo */
-align-self: center;
-justify-self: center;
+    background-clip: text;
+    /* el color se lo asigno al fondo */
+    -webkit-background-clip: text;
+    /* recorta el fondo con la forma del objeto */
+    -webkit-text-fill-color: transparent;
+    /* vuelve invisible el objeto dejando solo el fondo */
+    align-self: center;
+    justify-self: center;
     /* CLAVE: Mezcla la tinta con la textura del pergamino de fondo */
-    mix-blend-mode: multiply; 
-    
+    mix-blend-mode: multiply;
     /* Un ligero desenfoque y opacidad para simular el desgaste de la tinta vieja en el papel */
     opacity: 0.85;
-margin-left: -20%;
-margin-top: -10%;
+    margin-left: -20%;
+    margin-top: -10%;
 
 }
 
 .papel-horizontal.tam-hm .precio {
-    font-family: 'star1'   ;
+    font-family: 'star1';
     grid-area: precio;
     font-size: 6cqw;
     font-weight: bold;
-    display: inline-block;  /* significa Tratalo como un texto (para que se quede en el mismo renglón al lado de otras cosas), pero dejame controlar su tamaño y su espacio como si fuera un bloque */
-        /* Tonos sepia quemado y tinta oxidada (menos oscuros, más integrados) */
+    display: inline-block;
+    /* significa Tratalo como un texto (para que se quede en el mismo renglón al lado de otras cosas), pero dejame controlar su tamaño y su espacio como si fuera un bloque */
+    /* Tonos sepia quemado y tinta oxidada (menos oscuros, más integrados) */
     background: linear-gradient(180deg, #4a3319 0%, #61462a 100%);
-    background-clip: text; /* el color se lo asigno al fondo */
-    -webkit-background-clip: text;   /* recorta el fondo con la forma del objeto */
-    -webkit-text-fill-color: transparent; /* vuelve invisible el objeto dejando solo el fondo */
-align-self: center;
-justify-self: center;
+    background-clip: text;
+    /* el color se lo asigno al fondo */
+    -webkit-background-clip: text;
+    /* recorta el fondo con la forma del objeto */
+    -webkit-text-fill-color: transparent;
+    /* vuelve invisible el objeto dejando solo el fondo */
+    align-self: center;
+    justify-self: center;
     /* CLAVE: Mezcla la tinta con la textura del pergamino de fondo */
-    mix-blend-mode: multiply; 
-    
+    mix-blend-mode: multiply;
     /* Un ligero desenfoque y opacidad para simular el desgaste de la tinta vieja en el papel */
     opacity: 0.85;
-margin-left: -8%;
-margin-top: -10%;
+    margin-left: -8%;
+    margin-top: -10%;
 
 }
 
 .papel-centrado.tam-cm .precio {
-    font-family: 'star1'   ;
+    font-family: 'star1';
     grid-area: precio;
     font-size: 6cqw;
     font-weight: bold;
-    display: inline-block;  /* significa Tratalo como un texto (para que se quede en el mismo renglón al lado de otras cosas), pero dejame controlar su tamaño y su espacio como si fuera un bloque */
-        /* Tonos sepia quemado y tinta oxidada (menos oscuros, más integrados) */
+    display: inline-block;
+    /* significa Tratalo como un texto (para que se quede en el mismo renglón al lado de otras cosas), pero dejame controlar su tamaño y su espacio como si fuera un bloque */
+    /* Tonos sepia quemado y tinta oxidada (menos oscuros, más integrados) */
     background: linear-gradient(180deg, #4a3319 0%, #61462a 100%);
-    background-clip: text; /* el color se lo asigno al fondo */
-    -webkit-background-clip: text;   /* recorta el fondo con la forma del objeto */
-    -webkit-text-fill-color: transparent; /* vuelve invisible el objeto dejando solo el fondo */
-align-self: center;
-justify-self: center;
+    background-clip: text;
+    /* el color se lo asigno al fondo */
+    -webkit-background-clip: text;
+    /* recorta el fondo con la forma del objeto */
+    -webkit-text-fill-color: transparent;
+    /* vuelve invisible el objeto dejando solo el fondo */
+    align-self: center;
+    justify-self: center;
     /* CLAVE: Mezcla la tinta con la textura del pergamino de fondo */
-    mix-blend-mode: multiply; 
-    
+    mix-blend-mode: multiply;
     /* Un ligero desenfoque y opacidad para simular el desgaste de la tinta vieja en el papel */
     opacity: 0.85;
 
@@ -625,13 +815,15 @@ reseña
     grid-area: texto;
     font-size: 10cqw;
     color: #333333;
-    text-align: center; /* text-align ordena la tinta en el papel. */
-    align-self: center; /* align-self mueve el papel entero de arriba a abajo (↕) eje Y. Opciones: start (arriba), center (medio), end (abajo) respecto al contendor */
-    justify-self: center; /* justify-self mueve el papel entero de lado a lado (↔) eje X */
+    text-align: center;
+    /* text-align ordena la tinta en el papel. */
+    align-self: center;
+    /* align-self mueve el papel entero de arriba a abajo (↕) eje Y. Opciones: start (arriba), center (medio), end (abajo) respecto al contendor */
+    justify-self: center;
+    /* justify-self mueve el papel entero de lado a lado (↔) eje X */
     line-height: 0.8;
     width: 80%;
-    
-     margin-top: -15%; 
+    margin-top: -15%;
     /* margin-left: -7%; */
 }
 
@@ -640,29 +832,38 @@ reseña
     grid-area: texto;
     font-size: 10cqw;
     color: #333333;
-    text-align: center; /* text-align ordena la tinta en el papel. */
-    align-self: start; /* align-self mueve el papel entero de arriba a abajo (↕) eje Y. Opciones: start (arriba), center (medio), end (abajo) respecto al contendor */
-    justify-self: center; /* justify-self mueve el papel entero de lado a lado (↔) eje X */
+    text-align: center;
+    /* text-align ordena la tinta en el papel. */
+    align-self: start;
+    /* align-self mueve el papel entero de arriba a abajo (↕) eje Y. Opciones: start (arriba), center (medio), end (abajo) respecto al contendor */
+    justify-self: center;
+    /* justify-self mueve el papel entero de lado a lado (↔) eje X */
     line-height: 0.8;
     width: 70%;
-   
+
     /* margin-left: -7%; */
 }
+
 .papel-vertical.tam-vc .texto {
     font-family: 'star2', sans-serif;
     grid-area: texto;
     font-size: 10cqw;
     color: #333333;
-    text-align: center; /* text-align ordena la tinta en el papel. */
-    align-self: start; /* align-self mueve el papel entero de arriba a abajo (↕) eje Y. Opciones: start (arriba), center (medio), end (abajo) respecto al contendor */
-    justify-self: center; /* justify-self mueve el papel entero de lado a lado (↔) eje X */
+    text-align: center;
+    /* text-align ordena la tinta en el papel. */
+    align-self: start;
+    /* align-self mueve el papel entero de arriba a abajo (↕) eje Y. Opciones: start (arriba), center (medio), end (abajo) respecto al contendor */
+    justify-self: center;
+    /* justify-self mueve el papel entero de lado a lado (↔) eje X */
     line-height: 0.8;
     width: 70%;
-margin-top: -5%;
+    margin-top: -5%;
 }
+
 .papel-vertical.tam-vc .texto.crash {
 
-    color: #f8f8f5ae;}
+    color: #f8f8f5ae;
+}
 
 
 .papel-horizontal.tam-hg .texto {
@@ -670,13 +871,16 @@ margin-top: -5%;
     grid-area: texto;
     font-size: 4.7cqw;
     color: #333333;
-    text-align: center; /* text-align ordena la tinta en el papel. */
-    align-self: center; /* align-self mueve el papel entero de arriba a abajo (↕) eje Y. Opciones: start (arriba), center (medio), end (abajo) respecto al contendor */
-    justify-self: center; /* justify-self mueve el papel entero de lado a lado (↔) eje X */
+    text-align: center;
+    /* text-align ordena la tinta en el papel. */
+    align-self: center;
+    /* align-self mueve el papel entero de arriba a abajo (↕) eje Y. Opciones: start (arriba), center (medio), end (abajo) respecto al contendor */
+    justify-self: center;
+    /* justify-self mueve el papel entero de lado a lado (↔) eje X */
     line-height: 0.8;
     width: 90%;
     margin-left: -20%;
-    margin-top: 15%; 
+    margin-top: 15%;
 }
 
 .papel-horizontal.tam-hm .texto {
@@ -684,22 +888,29 @@ margin-top: -5%;
     grid-area: texto;
     font-size: 6cqw;
     color: #333333;
-    text-align: center; /* text-align ordena la tinta en el papel. */
-    align-self: center; /* align-self mueve el papel entero de arriba a abajo (↕) eje Y. Opciones: start (arriba), center (medio), end (abajo) respecto al contendor */
-    justify-self: center; /* justify-self mueve el papel entero de lado a lado (↔) eje X */
+    text-align: center;
+    /* text-align ordena la tinta en el papel. */
+    align-self: center;
+    /* align-self mueve el papel entero de arriba a abajo (↕) eje Y. Opciones: start (arriba), center (medio), end (abajo) respecto al contendor */
+    justify-self: center;
+    /* justify-self mueve el papel entero de lado a lado (↔) eje X */
     line-height: 0.8;
     width: 80%;
     margin-left: -8%;
     margin-top: auto;
 }
+
 .papel-centrado.tam-cm .texto {
     font-family: 'star2', sans-serif;
     grid-area: texto;
     font-size: 6cqw;
     color: #333333;
-    text-align: center; /* text-align ordena la tinta en el papel. */
-    align-self: center; /* align-self mueve el papel entero de arriba a abajo (↕) eje Y. Opciones: start (arriba), center (medio), end (abajo) respecto al contendor */
-    justify-self: center; /* justify-self mueve el papel entero de lado a lado (↔) eje X */
+    text-align: center;
+    /* text-align ordena la tinta en el papel. */
+    align-self: center;
+    /* align-self mueve el papel entero de arriba a abajo (↕) eje Y. Opciones: start (arriba), center (medio), end (abajo) respecto al contendor */
+    justify-self: center;
+    /* justify-self mueve el papel entero de lado a lado (↔) eje X */
     line-height: 0.8;
     width: 80%;
 }
@@ -711,34 +922,296 @@ margin-top: -5%;
     left: 8.5%;
     width: 26%;
     height: 26%;
-    transform: rotate(-6deg); /* Gira la caja y TODO su contenido interior */
+    transform: rotate(-6deg);
+    /* Gira la caja y TODO su contenido interior */
     z-index: 100;
     display: grid;
     grid-template-columns: 51% 49%;
+    grid-template-rows: 100%;
+    /* que la fila llene el total del contenedor, de lo contrario la fila se cargara solo lo que ocupe el texto dejando una parte sin llenar */
 }
 
-.pagina-izq, 
-.pagina-der {
-    height: 100%;
-    display: flex;
-    flex-direction: column; 
-    justify-content: center; 
-    align-items: center; 
+.formulario-container input,
+.formulario-container select,
+.formulario-container textarea,
+.formulario-container label {
+    font-family: "imperial", sans-serif;
+    background-color: transparent;
+    /* Mata el fondo blanco */
+    border: none;
+    /* Mata el borde 3D que hunde hacia adentro */
+    outline: none;
+    /* Mata rectangulo que aparece al rededor que delimita la caja */
 }
 
+/*============================================
+pagina izquierda
+==============================================*/
 .pagina-izq {
-    background-color: rgba(0, 255, 0, 0.4); /* Temporal para ver */
+    background-color: transparent;
+    container-type: inline-size;
+    box-sizing: border-box;
+    overflow: hidden;
+
+    /*FLEXBOX */
+    display: flex;
+    flex-direction: column;
+    /* Apila las cosas de arriba hacia abajo (Subtítulo -> Título -> Cajas) */
+    justify-content: center;
+    /* Empuja todo el bloque para que quede centrado verticalmente en la hoja */
+    ;
+    /* Crea un espacio parejo y automático entre el título, el subtítulo y cada caja del formulario */
 }
-.pagina-izq .nombre {
-width: 100%;
-    margin-bottom: 20px; 
-    font-family: "imperial",sans-serif;
+
+.pagina-izq .subtitulo-form {
+    font-family: "imperial", sans-serif;
+    padding-left: 22%;
+    font-size: 10cqw;
+    margin-top: -15%;
+    color: #2c2b01;
+    line-height: 0.82;
+    /* border: 2px solid red; */
+    transform: rotate(2deg);
 }
+
+.pagina-izq .titulo-form {
+    font-family: "imperial", sans-serif;
+    padding-left: 20%;
+    font-size: 11cqw;
+    color: #2c2b01;
+    line-height: 0.82;
+    font-weight: 600;
+
+    /* border: 2px solid red; */
+    margin-left: 10%;
+    transform: rotate(2deg);
+}
+
+.pagina-izq .campo.nombre {
+    font-family: "imperial", sans-serif;
+
+    width: 80%;
+    color: #2c2b01;
+    line-height: 0.82;
+    /*  Acerca el renglón de abajo al de arriba */
+    /* border: 2px solid red; */
+    margin-left: 16%;
+    transform: rotate(1deg);
+}
+
+.pagina-izq .campo.nombre input {
+    width: 100%;
+    font-size: 8cqw;
+    color: #2c2b01;
+    padding-left: 10%;
+    text-transform: capitalize;
+    /* Convierte la 1ra letra de cada palabra en Mayúscula */
+    caret-color: rgba(42, 41, 0, 0.15);
+}
+
+.pagina-izq .campo.mail {
+    font-family: "imperial", sans-serif;
+
+    width: 80%;
+    color: #2c2b01;
+    line-height: 0.82;
+    /*  Acerca el renglón de abajo al de arriba */
+    /* border: 2px solid red; */
+    margin-left: 16%;
+    transform: rotate(0deg);
+}
+
+.pagina-izq .campo.mail input {
+    width: 100%;
+    font-size: 7cqw;
+    color: #2c2b01;
+    padding-left: 10%;
+    caret-color: rgba(44, 43, 1, 0.15)
+}
+
+/* elimina el fondo blanco de fondo cuando sugiere texto */
+.pagina-izq .campo.mail input:-webkit-autofill,
+.pagina-izq .campo.nombre input:-webkit-autofill {
+    -webkit-text-fill-color: #2c2b01;
+    /* Mantiene el color de la letra */
+    /* Este truco engaña a Chrome haciendo que el cambio de color tarde 5000 segundos, manteniéndolo transparente */
+    transition: background-color 5000s ease-in-out 0s;
+    /* es muy importante poner 0s asi le digo empeza la transicion de inmediato */
+}
+
+/* cambia la seleccion de texto de azul a algo mas natural */
+.pagina-izq .campo.mail input::selection,
+.pagina-izq .campo.nombre input::selection,
+.pagina-der .campo-asunto textarea::selection {
+    background-color: rgba(44, 43, 1, 0.2);
+    /* Un fondo sepia/tinta claro al pintar el texto */
+    color: #2c2b01;
+}
+
+
+.pagina-izq .campo.opciones input {
+    /* los unicos input que tengo ahora mismo en campo.opciones son del tipo radio, si en algun futuro decido agregar otro tipo, tengo que modificar eso o tambien lo tomaria */
+    -webkit-appearance: none;
+    /* apparance para navegadores viejos */
+    appearance: none;
+    /* apparance es parecido a display:none pero a diferencia de este no lo borra de la existencia,permitiendo utilizar pso-elementos para modificarlo*/
+}
+
+/* pseudo clases conocidas */
+/*:hover (estado: el mouse está sobrevolando) esta ya la utilice varias veces */
+/*:focus (estado: el usuario hizo clic adentro para escribir) */
+/*:checked (estado: el circulito o casilla fue marcado)   esta es la que utilice abajo seguida de un pseudoelemento */
+/*:invalid (estado: el texto escrito rompe las reglas, como olvidarse el @) */
+
+.pagina-izq .campo.opciones input::after {
+    content: "[   ]";
+    cursor: pointer;
+    color: #2c2b01;
+}
+
+/* Pseudo elementos */
+/* ::before (crea un espacio virtual justo antes del elemento) */
+/*   ::after (crea un espacio virtual justo después del elemento) lo dibuja */
+/* ::placeholder (apunta físicamente al texto fantasma de una caja) esta igual hereda del container los estilos con un poco de  opasidad       */
+/* ::selection (apunta físicamente al pedacito de texto que el usuario pintó con el mouse) */
+
+
+.pagina-izq .campo.opciones input:checked::after {
+    content: "[ X ]";
+}
+
+.pagina-izq .campo.opciones {
+    font-family: "imperial", sans-serif;
+    width: 80%;
+    color: #2c2b01;
+    /*  Acerca el renglón de abajo al de arriba */
+    /* border: 2px solid red; */
+    margin-left: 16%;
+    padding: 5%;
+    transform: rotate(-1deg);
+    font-size: 10.6cqw;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* =============================================================
+PAGINA DERECHA
+==========================================================*/
 
 
 .pagina-der {
-    background-color: rgba(0, 0, 255, 0.4); /* Temporal para ver */
+    background-color: transparent;
+    /* Temporal para ver */
+    container-type: inline-size;
+    box-sizing: border-box;
+    overflow: hidden;
+    /*FLEXBOX */
+    display: flex;
+    flex-direction: column;
+    /* Apila las cosas de arriba hacia abajo (Subtítulo -> Título -> Cajas) */
+    justify-content: flex-start;
+}
 
+.pagina-der .campo-asunto {
+    /* border: 2px solid red; */
+    padding: 2%;
+    width: 80%;
+    color: #2c2b01;
+    line-height: 0.82;
+    /*  Acerca el renglón de abajo al de arriba */
+    margin-left: 2%;
+    margin-top: 10%;
+    transform: rotate(2deg);
+}
+
+.pagina-der .campo-asunto textarea {
+    width: 95%;
+    font-size: 7cqw;
+    color: #2c2b01;
+    padding-left: 5%;
+    line-height: 0.9;
+    transform: rotate(-2deg);
+    resize: none;
+    /* Mata la flechita de estirar la caja */
+    overflow: hidden;
+    /* Oculta la barra gris de scroll de Windows */
+    caret-color: rgba(42, 41, 0, 0.15);
+    text-align: center;
+    font-weight: bold;
+
+}
+
+.pagina-der .campo-asunto textarea:placeholder-shown {
+    text-align: left;
+}
+
+.pagina-der .campo-mensaje {
+    /* border: 2px solid red; */
+    padding: 2%;
+    width: 80%;
+    color: #2c2b01;
+    line-height: 0.82;
+    /*  Acerca el renglón de abajo al de arriba */
+    margin-left: 2%;
+}
+
+.pagina-der .campo-mensaje textarea {
+    width: 95%;
+    font-size: 7cqw;
+    color: #2c2b01;
+    padding-left: 5%;
+    line-height: 0.9;
+    transform: rotate(-2deg);
+    resize: none;
+    /* Mata la flechita de estirar la caja */
+    /* Oculta la barra gris de scroll de Windows */
+    caret-color: rgba(42, 41, 0, 0.15);
+    transform: rotate(0deg);
+}
+
+
+.pagina-der .campo-enviar {
+    width: 80%;
+    margin-left: 2%;
+    display: flex;
+    justify-content: center;
+}
+
+.boton-sheikah {
+    font-family: "imperial", sans-serif;
+    font-size: 8cqw;
+    font-weight: bold;
+    color: #2c2b01;
+    border: transparent;
+
+    background: transparent;
+    padding: 2% 10%;
+    /* Espacio interno para que no quede pegado al texto */
+    transform: rotate(-1deg);
+    /* Apenas torcido para mantener el estilo */
+
+    /* Cambia el cursor a la manito para que se note que es clickeable */
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.boton-sheikah:hover {
+    /* color de un sello clásico, sin brillos */
+    color: #8a0303;
+    border: 2px solid red;
+    border-color: #8a0303;
+
+    /*  (Letterpress): Una sombra súper sutil que simula que la letra está hundida en el papel */
+    text-shadow:
+        -1px -1px 0px rgba(0, 0, 0, 0.2),
+        /* Sombra oscura arriba/izquierda */
+        1px 1px 0px rgba(255, 255, 255, 0.2);
+    /* Reflejo claro abajo/derecha */
+
+    /*  Se endereza apenas y se "hunde" (se achica un 2%) */
+    transform: scale(0.98) rotate(0deg);
+    background: transparent;
 }
 
 /*

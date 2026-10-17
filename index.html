@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,171 +8,176 @@
     <title>Tienda Hyrule</title>
     <link rel="stylesheet" href="styles.css">
 </head>
+
 <body>
-<!-- ==================== HEADER ==================== -->
+    <!-- ==================== HEADER ==================== -->
     <header class="header">
-        
+
         <a href="index.html">
             <img src="img/icono.png" class="logo" alt="Trifuerza" width="40px" height="40px">
         </a>
+        <input type="checkbox" id="gatillo-menu" class="checkbox-oculto">
 
-            <ul id="navbar" class="navbar">
-                <li><a href="index.html">HOME</a></li>
-                <li><a href="pages/tiendaGoron.html">TIENDA GORON</a></li>
-                <li><a href="pages/tiendaZora.html">TIENDA ZORA</a></li>
-                <li><a href="pages/tiendaMascaras.html">TIENDA MASCARAS</a></li>
+        <!--  LA HAMBURGUESA DE TEXTO (Para abrir) -->
+        <label for="gatillo-menu" class="icono-hamburguesa">
+            ☰
+        </label>
 
-                <li><a href="pages/contacto.html" class="menu-item">
-                        <img src="img/cartero.png" class="logo" alt="correo" width="40" height="40">
-                        <span>Correo</span>
-                    </a></li>
-                <li>
-                    <div class="menu-item-estatico">
-                        <img src="img/rupia.png" class="logo" alt="rupias" width="40px" height="40px">
-                        <span>Rupias</span>
-                    </div>
-                </li>
-                <li>
-                        <span id="contador-rupias" class="input-rupias">0</span>
-                    </li>
-                    <li>
-                        <a href="pages/carrito.html" class="menu-item">
-                            <img src="img/carrito.png" class="logo" alt="carrito" width="40px" height="40px">
-                    </a>
-                </li>
-                <a href="#" id="close" class="close"> 
-                    <i class="far fa-times" aria-hidden="true"></i> <!---icono de la cruz para cerrar el menu-->
+        <ul id="navbar" class="navbar">
+            <!-- LA CRUZ DE TEXTO (Para cerrar) -->
+            <li class="item-cerrar">
+                <label for="gatillo-menu" class="cruz-cerrar">
+                    ✕
+                </label>
+            </li>
+            <li><a href="index.html">HOME</a></li>
+            <li><a href="pages/tiendaGoron.html">TIENDA GORON</a></li>
+            <li><a href="pages/tiendaZora.html">TIENDA ZORA</a></li>
+            <li><a href="pages/tiendaMascaras.html">TIENDA MASCARAS</a></li>
+
+
+            <li><a href="pages/contacto.html" class="menu-item">
+                    <img src="img/cartero.png" class="logo" alt="correo" width="40" height="40">
+                    <span>Correo</span>
+                </a></li>
+            <li>
+                <div class="menu-item-estatico">
+                    <img src="img/rupia.png" class="logo" alt="rupias" width="40px" height="40px">
+                    <span>Rupias</span>
+                </div>
+            </li>
+            <li>
+                <span id="contador-rupias" class="input-rupias">0</span>
+            </li>
+            <li>
+                <a href="pages/carrito.html" class="menu-item">
+                    <img src="img/carrito.png" class="logo" alt="carrito" width="40px" height="40px">
                 </a>
-            </ul>
-        </div>
-        <div class="mobile">
-            <a href="pages/carrito.html">
-                <i class="fa fa-shopping-bag" aria-hidden="true"></i>
-            </a>
-            <i id="bar" class="fas fa-outdent"></i> <!-- icono de la barra desplegable para abrir el menu-->
-        </div>
- </header> 
-<!--podria poner un menu con las misiones y items como en los conceptos
+            </li>
+        </ul>
+    </header>
+    <!--podria poner un menu con las misiones y items como en los conceptos
 ahi estaran los elementos comprados y para equipar --->
 
 
-<!-- ==================== HERO (VIDEO + ESTANTERÍAS) ==================== -->
-<section class="hero">
- <div class="video-tracker"> <!--contenedor que usare para modificar los elementos -->
-    <video class="video-hero" src="img/backgrounds/background_home.mp4" autoplay muted loop playsinline disablePictureInPicture>
-    </video>
+    <!-- ==================== HERO (VIDEO + ESTANTERÍAS) ==================== -->
+    <section class="hero">
+        <div class="video-tracker"> <!--contenedor que usare para modificar los elementos -->
+            <video class="video-hero" src="img/backgrounds/background_home.mp4" autoplay muted loop playsinline
+                disablePictureInPicture>
+            </video>
 
-    <!-- Lienzo transparente 3D -->
-    <div class="productos-container">
+            <!-- Lienzo transparente 3D -->
+            <div class="productos-container">
 
-        <!-- 🪵 LADO IZQUIERDO -->
-        <div class="repisa repisa-izq repisa-1">
-            <div class="producto prod-1">
-                <img src="img/productos/escudo hylian.png" alt="Escudo Hylian">
-                <div class="producto-descripcion">
-                    <span>Escudos</span>
-                    <h5>Escudo Hylian</h5>
-                    <h4>$199.99</h4>
+                <!-- 🪵 LADO IZQUIERDO -->
+                <div class="repisa repisa-izq repisa-1">
+                    <div class="producto prod-1">
+                        <img src="img/productos/escudo hylian.png" alt="Escudo Hylian">
+                        <div class="producto-descripcion">
+                            <span>Escudos</span>
+                            <h5>Escudo Hylian</h5>
+                            <h4>$199.99</h4>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="repisa repisa-izq repisa-2">
+                    <div class="producto prod-2">
+                        <img src="img/productos/bumeranv2.png" alt="Bumerán">
+                        <div class="producto-descripcion">
+                            <span>Armas</span>
+                            <h5>Bumerán v2</h5>
+                            <h4>$59.99</h4>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="repisa repisa-izq repisa-3">
+                    <div class="producto prod-3">
+                        <img src="img/productos/bolsa_bombas.png" alt="Bolsa de bombas">
+                        <div class="producto-descripcion">
+                            <span>Bolsas</span>
+                            <h5>Bolsa de bombas</h5>
+                            <h4>$39.99</h4>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="repisa repisa-izq repisa-4">
+                    <div class="producto prod-4">
+                        <img src="img/productos/auriculares.jpg" alt="Auriculares">
+                        <div class="producto-descripcion">
+                            <span>Audio</span>
+                            <h5>Auriculares de prueba 4</h5>
+                            <h4>$89.99</h4>
+                        </div>
+                    </div>
+                </div>
+                <div class="repisa repisa-izq repisa-5">
+                    <div class="producto prod-5">
+                        <img src="img/productos/auriculares.jpg" alt="Auriculares">
+                        <div class="producto-descripcion">
+                            <span>Audio</span>
+                            <h5>Auriculares de prueba 5</h5>
+                            <h4>$89.99</h4>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 🪵 LADO DERECHO -->
+                <div class="repisa repisa-der repisa-1">
+                    <div class="producto prod-6">
+                        <img src="img/productos/botas voladoras.png" alt="Botas voladoras">
+                        <div class="producto-descripcion">
+                            <span>Calzado</span>
+                            <h5>Botas voladoras</h5>
+                            <h4>$149.99</h4>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="repisa repisa-der repisa-2">
+                    <div class="producto prod-7">
+                        <img src="img/productos/bolsa_bombasgrande.png" alt="Bolsa de bombas grande">
+                        <div class="producto-descripcion">
+                            <span>Bolsas</span>
+                            <h5>Bolsa de bombas grande</h5>
+                            <h4>$39.99</h4>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="repisa repisa-der repisa-3">
+                    <div class="producto prod-8">
+                        <img src="img/productos/bolsa_bombas.png" alt="Bolsa de bombas">
+
+                    </div>
+                </div>
+
+                <div class="repisa repisa-der repisa-4">
+                    <div class="producto prod-9">
+                        <img src="img/productos/bigbomb suave.png" alt="big bomb suave">
+                        <div class="producto-descripcion">
+                            <span>bolsas</span>
+                            <h5>Bolsa de bombas suave</h5>
+                            <h4>$29.99</h4>
+                        </div>
+                    </div>
+                </div>
+                <div class="repisa repisa-der repisa-5">
+                    <div class="producto prod-10">
+                        <img src="img/productos/auriculares.jpg" alt="Auriculares">
+                        <div class="producto-descripcion">
+                            <span>Audio</span>
+                            <h5>Auriculares de prueba 9</h5>
+                            <h4>$89.99</h4>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
-
-        <div class="repisa repisa-izq repisa-2">
-            <div class="producto prod-2">
-                <img src="img/productos/bumeranv2.png" alt="Bumerán">
-                <div class="producto-descripcion">
-                    <span>Armas</span>
-                    <h5>Bumerán v2</h5>
-                    <h4>$59.99</h4>
-                </div>
-            </div>
-        </div>
-
-        <div class="repisa repisa-izq repisa-3">
-            <div class="producto prod-3">
-                <img src="img/productos/bolsa_bombas.png" alt="Bolsa de bombas">
-                <div class="producto-descripcion">
-                    <span>Bolsas</span>
-                    <h5>Bolsa de bombas</h5>
-                    <h4>$39.99</h4>
-                </div>
-            </div>
-        </div>
-
-        <div class="repisa repisa-izq repisa-4">
-            <div class="producto prod-4">
-                <img src="img/productos/auriculares.jpg" alt="Auriculares">
-                <div class="producto-descripcion">
-                    <span>Audio</span>
-                    <h5>Auriculares de prueba 4</h5>
-                    <h4>$89.99</h4>
-                </div>
-            </div>
-        </div>
-         <div class="repisa repisa-izq repisa-5">
-            <div class="producto prod-5">
-                <img src="img/productos/auriculares.jpg" alt="Auriculares">
-                <div class="producto-descripcion">
-                    <span>Audio</span>
-                    <h5>Auriculares de prueba 5</h5>
-                    <h4>$89.99</h4>
-                </div>
-            </div>
-        </div>
-
-        <!-- 🪵 LADO DERECHO -->
-        <div class="repisa repisa-der repisa-1">
-            <div class="producto prod-6">
-                <img src="img/productos/botas voladoras.png" alt="Botas voladoras">
-                <div class="producto-descripcion">
-                    <span>Calzado</span>
-                    <h5>Botas voladoras</h5>
-                    <h4>$149.99</h4>
-                </div>
-            </div>
-        </div>
-
-        <div class="repisa repisa-der repisa-2">
-            <div class="producto prod-7">
-                <img src="img/productos/bolsa_bombasgrande.png" alt="Bolsa de bombas grande">
-                <div class="producto-descripcion">
-                    <span>Bolsas</span>
-                    <h5>Bolsa de bombas grande</h5>
-                    <h4>$39.99</h4>
-                </div>
-            </div>
-        </div>
-
-        <div class="repisa repisa-der repisa-3">
-            <div class="producto prod-8">
-                <img src="img/productos/bolsa_bombas.png" alt="Bolsa de bombas">
-
-            </div>
-        </div>
-
-        <div class="repisa repisa-der repisa-4">
-            <div class="producto prod-9">
-                <img src="img/productos/bigbomb suave.png" alt="big bomb suave">
-                <div class="producto-descripcion">
-                    <span>bolsas</span>
-                    <h5>Bolsa de bombas suave</h5>
-                    <h4>$29.99</h4>
-                </div>
-            </div>
-        </div>
-         <div class="repisa repisa-der repisa-5">
-            <div class="producto prod-10">
-                <img src="img/productos/auriculares.jpg" alt="Auriculares">
-                <div class="producto-descripcion">
-                    <span>Audio</span>
-                    <h5>Auriculares de prueba 9</h5>
-                    <h4>$89.99</h4>
-                </div>
-            </div>
-
-    </div>
-    </div>
-</section>
+    </section>
     <!-- ==================== FOOTER ==================== -->
     <footer class="section-p1">
         <div class="col">
@@ -210,4 +216,3 @@ ahi estaran los elementos comprados y para equipar --->
             <p>© 2025, Nefle Miguel Ángel | Talento Tech - Ecommerce</p>
         </div>
     </footer>
-
