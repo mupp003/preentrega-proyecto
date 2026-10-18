@@ -292,55 +292,89 @@ ahi estaran los elementos comprados y para equipar --->
                     </div>
                 </div>
 
-                <div class="Newletter-container">
-                    <div class="Newletter"> </div>
-
+                <!---------NEWSLETTER------->
+            </div>
+            <form class="newsletter-container form" action="https://formspree.io/f/xaenqqvv" method="post">
+                <div class="campo-email">
+                    <input type="email" placeholder="CORREO ELECTRÓNICO*" required>
                 </div>
-                <form class="formulario-container form" action="https://formspree.io/f/xaenqqvv" method="post">
-                    <!-----------------------------mi pagina-->
-                    <div class="pagina-izq">
-                        <p class="subtitulo-form">El mercader revisa estas páginas al terminar el dia</p>
-                        <h2 class="titulo-form">Libro de Contacto</h2>
 
-                        <div class="campo nombre">
-                            <input type="text" id="nombre" name="nombre" placeholder="Tu nombre" spellcheck="false"
-                                required maxlength="24">
-                        </div>
+                <!-- Marketing ----->
+                <div class="grupo-legal">
+                    <input type="checkbox" id="marketing" required>
+                    <label for="marketing">
+                        Me gustaría recibir los últimos catálogos de artefactos, elixires y noticias del Reino a
+                        través de mensajes personalizados por el Postman de Hyrule S.A. y/o anuncios en medios
+                        mágicos según mis interacciones en plataformas como Piedras Gossip y la red de Dominios
+                        Zora. Sé que puedo revocar este conjuro de comunicación en cualquier momento, sin efecto
+                        retroactivo, contactándome a través de los canales indicados en el Tratado de Privacidad del
+                        Reino.
+                    </label>
+                </div>
 
-                        <div class="campo mail">
-                            <input type="email" id="email" name="email" placeholder="Tu direcion de correo" required>
-                        </div>
-                        <div class="campo opciones">
-                            <!-- Opción 1 -->
-                            <div>
-                                <label for="tipo-consulta">Consulta</label>
-                                <input type="radio" id="tipo-consulta" name="motivo" value="consulta" required>
-                            </div>
-                            <div>
-                                <!-- Opción 2 -->
-                                <label for="tipo-sugerencia">Sugerencia</label>
-                                <input type="radio" id="tipo-sugerencia" name="motivo" value="sugerencia">
-                            </div>
-                        </div>
-                    </div>
-                    <!-----------------------------mi otra pagina-->
-                    <div class="pagina-der">
-                        <div class="campo-asunto">
-                            <textarea id="asunto" name="asunto" placeholder="Asunto del mensaje" spellcheck="false"
-                                maxlength="50" rows="2" required></textarea>
-                        </div>
-                        <div class="campo-mensaje">
-                            <textarea id="mensaje" name="mensaje" placeholder="Escribe aquí tu relato..."
-                                spellcheck="false" maxlength="257" rows="9" required></textarea>
-                        </div>
-                        <div class="campo-enviar">
-                            <button type="submit" class="boton-sheikah">Enviar</button>
-                        </div>
+                <!----- Términos y condiciones----->
+                <div class="grupo-legal">
+                    <input type="checkbox" id="terminos" required>
+                    <label for="terminos">
+                        He leído y acepto los pergaminos de Términos y Condiciones del Gremio de Comerciantes y el
+                        Tratado de Privacidad de Hyrule. Declaro conocer que el responsable de los archivos es
+                        Hyrule Merchants S.A., con sede en el Mercado del Castillo, Ciudadela de Hyrule, y que la
+                        Guardia Real protegerá el resguardo de mi información. Podré ejercer mis derechos de acceso
+                        comunicándome a postman@hyrule.com.
+                    </label>
+                </div>
+
+                <!--  Suscribirse -->
+                <button type="submit" class="boton-sello">SUSCRIBIRSE</button>
+            </form>
+            <div class="Newletter"> </div>
+
+        </div>
+        <form class="formulario-container form" action="https://formspree.io/f/xaenqqvv" method="post">
+            <!-----------------------------mi pagina-->
+            <div class="pagina-izq">
+                <p class="subtitulo-form">El mercader revisa estas páginas al terminar el dia</p>
+                <!------- <h2 class="titulo-form">Libro de Contacto</h2>---->
+
+                <div class="campo nombre">
+                    <input type="text" id="nombre" name="nombre" placeholder="Tu nombre" spellcheck="false" required
+                        maxlength="24">
+                </div>
+
+                <div class="campo mail">
+                    <input type="email" id="email" name="email" placeholder="Tu direcion de correo" required>
+                </div>
+                <div class="campo opciones">
+                    <!-- Opción 1 -->
+                    <div>
+                        <label for="tipo-consulta">Consulta</label>
+                        <input type="radio" id="tipo-consulta" name="motivo" value="consulta" required>
                     </div>
                     <div>
+                        <!-- Opción 2 -->
+                        <label for="tipo-sugerencia">Sugerencia</label>
+                        <input type="radio" id="tipo-sugerencia" name="motivo" value="sugerencia">
                     </div>
-                </form>
+                </div>
             </div>
+            <!-----------------------------mi otra pagina-->
+            <div class="pagina-der">
+                <div class="campo-asunto">
+                    <textarea id="asunto" name="asunto" placeholder="Asunto del mensaje" spellcheck="false"
+                        maxlength="50" rows="2" required></textarea>
+                </div>
+                <div class="campo-mensaje">
+                    <textarea id="mensaje" name="mensaje" placeholder="Escribe aquí tu relato..." spellcheck="false"
+                        maxlength="257" rows="9" required></textarea>
+                </div>
+                <div class="campo-enviar">
+                    <button type="submit" class="boton-sheikah">Enviar</button>
+                </div>
+            </div>
+            <div>
+            </div>
+        </form>
+        </div>
         </div>
         </div>
 </body>
